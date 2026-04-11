@@ -23,9 +23,12 @@ window.addEventListener('scroll', () => {
     });
 
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            link.classList.remove('active');
+            if (href.slice(1) === current) {
+                link.classList.add('active');
+            }
         }
     });
 });
@@ -33,23 +36,28 @@ window.addEventListener('scroll', () => {
 // Smooth Scrolling
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href').slice(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href.slice(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight || 110;
+                const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition - headerHeight,
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 });
 
-// CTA Button Scroll
-const contactSection = document.getElementById('contact');
+// CTA Button Scroll/Route
 const ctaButtons = document.querySelectorAll('.cta-button, .header-cta');
 ctaButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
+        window.location.href = 'inquire.html';
     });
 });
 
@@ -124,6 +132,26 @@ if (document.readyState === "loading") {
     initSlider();
 }
 
+
+// Handle hash on page load
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+        const targetSection = document.querySelector(window.location.hash);
+        if (targetSection) {
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.header').offsetHeight || 110;
+                const elementPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition - headerHeight,
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    } else {
+        // Prevent random auto-scrolls down if no hash is present, restoring top position
+        window.scrollTo(0, 0);
+    }
+});
 
 // Mobile Menu Toggle
 document.addEventListener("DOMContentLoaded", () => {

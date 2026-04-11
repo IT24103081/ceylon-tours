@@ -24,12 +24,10 @@
                     <p class="logo-tagline">Sri Lanka's Pioneer Travel Company</p>
                 </div>
                 <nav class="nav">
-                    <a href="#home" class="nav-link">HOME</a>
-                    <a href="#about" class="nav-link">ABOUT US</a>
-                    <a href="#experiences" class="nav-link">EXPERIENCES</a>
+                    <a href="index.html" class="nav-link">HOME</a>
                     <a href="tours.html" class="nav-link active">TOURS</a>
-                    <a href="#destinations" class="nav-link">DESTINATIONS</a>
-                    <a href="#contact" class="nav-link">CONTACT</a>
+                    <a href="inquire.html" class="nav-link">INQUIRE</a>
+                    <a href="contact.html" class="nav-link">CONTACT US</a>
                 </nav>
                 <button class="header-cta">INQUIRE NOW</button>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
@@ -40,27 +38,49 @@
         <div class="header-bottom-border"></div>
     </header>
 
-    <!-- Tour Header -->
-    <section class="tour-header-sec">
-        <div class="container">
+    <!-- Tour Hero Cover -->
+    <section class="tour-hero">
+        <div class="tour-hero-bg" style="background-image: url('assets/images/tourimage.jpg');"></div>
+        <div class="tour-hero-overlay"></div>
+        <div class="container tour-hero-content">
+            <span class="tour-badge">SIGNATURE TOUR</span>
             <h1>SRI LANKA SPLENDORS</h1>
-            <p class="tour-subtitle">Discover the splendors of Sri Lanka, its beautiful landscapes, rich history, and incredible wildlife!</p>
-            <div class="tour-duration">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                <span>09 Nights /10 Days</span>
+            <p class="tour-subtitle-hero">Discover the splendors of Sri Lanka, its beautiful landscapes, rich history, and incredible wildlife!</p>
+            
+            <div class="tour-quick-facts">
+                <div class="fact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <div>
+                        <span class="fact-label">DURATION</span>
+                        <span class="fact-value">09 Nights / 10 Days</span>
+                    </div>
+                </div>
+                <div class="fact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <div>
+                        <span class="fact-label">GROUP SIZE</span>
+                        <span class="fact-value">Private Tour</span>
+                    </div>
+                </div>
+                <div class="fact-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div>
+                        <span class="fact-label">TOUR TYPE</span>
+                        <span class="fact-value">Culture & Wildlife</span>
+                    </div>
+                </div>
             </div>
-            <a href="#contact" class="btn-blue">INQUIRE NOW <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
     </section>
 
     <!-- Tour Body Layout -->
     <section class="tour-body">
         <div class="container tour-grid">
-            <!-- Left Column: Featured Image + Accordion -->
+            <!-- Left Column: Itinerary -->
             <div class="tour-left">
-                <div class="tour-featured-img">
-                    <img src="assets/images/slideshow1.jpg" alt="Sri Lanka Splendors">
-                    <div class="img-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                <div class="tour-section-header">
+                    <h2>TOUR ITINERARY</h2>
+                    <div class="section-line"></div>
                 </div>
 
                 <div class="itinerary-accordion">
@@ -95,35 +115,39 @@
                     <div class="accordion-item"><div class="accordion-header">DAY 09 | BENTOTA <span class="icon"></span></div><div class="accordion-content"><p>A full day at leisure on the golden beaches of Bentota.</p></div></div>
                     <div class="accordion-item"><div class="accordion-header">DAY 10 | DEPARTURE <span class="icon"></span></div><div class="accordion-content"><p>Transfer to Bandaranaike International Airport for your departure flight.</p></div></div>
                 </div>
-                
-                <div style="margin-top: 2rem;">
-                    <a href="#contact" class="btn-blue">INQUIRE NOW <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
             </div>
 
-            <!-- Right Column: Map & Notes -->
-            <div class="tour-right">
-                <h3 class="tour-section-title">ROUTE MAP</h3>
-                <!-- Placeholder for map since actual image might be missing, but we format perfectly -->
-                <div class="tour-map-container" style="border: 1px dashed var(--border-soft); border-radius: 12px; overflow: hidden; margin-bottom: 2.5rem; text-align: center; background: #fff; padding: 2rem 0;">
-                     <img src="assets/images/slideshow2.jpg" alt="Route Map" style="max-width: 100%; height: auto; opacity: 0.8;">
-                </div>
+            <!-- Right Column: Sidebar -->
+            <aside class="tour-right">
+                <div class="sticky-sidebar">
+                    <!-- Route Map Widget -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">ROUTE MAP</h4>
+                        <div class="tour-map-container" style="border-radius: 8px; overflow: hidden; text-align: center; background: #f8f9fa;">
+                             <img src="assets/images/mapsl.jpg" alt="Route Map" style="max-width: 100%; height: auto; display: block; border-radius: 8px;">
+                        </div>
+                    </div>
 
-                <div class="tour-notes">
-                    <div class="note-item">
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <p>When entering a Buddhist or Hindu temple, travellers are required to dress respectfully in modest light coloured clothing, with shoulders & knees covered.</p>
-                    </div>
-                    <div class="note-item">
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <p>No hats or footwear are allowed inside temples, so flip flops (which you would have to leave at the entrance) and an extra pair of socks are a good idea so you do not have to walk barefoot on the hot ground.</p>
-                    </div>
-                    <div class="note-item">
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        <p>Beach destinations may vary based on time of travel.</p>
+                    <!-- Additional Notes as widget -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">GOOD TO KNOW</h4>
+                        <div class="tour-notes">
+                            <div class="note-item">
+                                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <p>Dress respectfully in temples (shoulders & knees covered).</p>
+                            </div>
+                            <div class="note-item">
+                                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <p>Bring extra socks for temple visits since footwear is forbidden.</p>
+                            </div>
+                            <div class="note-item">
+                                <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--brand-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <p>Beach destinations vary by season and weather.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </aside>
         </div>
     </section>
 
@@ -171,16 +195,16 @@
             <!-- Middle Section: Navigation Links -->
             <div class="footer-middle">
                 <div class="footer-column">
-                    <a href="#home">HOME</a>
+                    <a href="index.html#home">HOME</a>
                     <a href="#">ISLAND LIFE</a>
-                    <a href="#destinations">DESTINATIONS</a>
+                    <a href="index.html#destinations">DESTINATIONS</a>
                     <a href="#">TRANSPORT</a>
                     <a href="#">CEYLON TALES</a>
-                    <a href="#contact">CONTACT US</a>
+                    <a href="index.html#contact">CONTACT US</a>
                 </div>
                 <div class="footer-column">
-                    <a href="#about">ABOUT US</a>
-                    <a href="#experiences">EXPERIENCES</a>
+                    <a href="index.html#about">ABOUT US</a>
+                    <a href="index.html#experiences">EXPERIENCES</a>
                     <a href="#">GAMAN</a>
                     <a href="#">TICKETING & VISA</a>
                     <a href="#">ISLAND WEATHER</a>
