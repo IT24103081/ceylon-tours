@@ -195,9 +195,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const tripDetailsData = {
     '01': {
-        title: 'Galle',
-        description: 'A coastal day covering heritage, beaches, nature, and marine attractions around Galle.',
-        highlights: ['Galle Fort', 'Galle City', 'Unawatuna Beach', 'Polhena Beach', 'Stick Fisher', 'Turtle Watching', 'Whale Watching', 'Spice Garden', 'Rumassala', 'Kanneliya Forest', 'Sinharaja Entrance'],
+        title: 'Galle Coastal Escape',
+        description: 'A relaxed 2-night Galle getaway with heritage sites, beach time, wildlife experiences, and a luxury villa stay.',
+        overview: 'Spend 2 nights in Galle with breakfast at the villa each morning. Lunch and dinner are taken out, giving you plenty of flexibility while you enjoy the coast at a comfortable pace.',
+        quickFacts: ['2 Nights in Galle', '5-Star Villa Stay', 'Breakfast at the villa', 'Lunch out', 'Dinner out'],
+        dayPlans: [
+            {
+                title: 'Day 1 | Galle Fort, Beach Time, and Peace Pagoda',
+                items: [
+                    'Explore Galle Fort and the old Dutch quarter at an easy pace.',
+                    'Choose Unawatuna Beach or Jungle Beach for swimming or snorkeling.',
+                    'Visit the Japanese Peace Pagoda for a calm sunset viewpoint.',
+                    'Return to your 5-star villa for the night after lunch and dinner out.'
+                ]
+            },
+            {
+                title: 'Day 2 | Turtle Hatchery, Koggala Lake, and Stilt Fishing',
+                items: [
+                    'Visit the Habaraduwa Turtle Hatchery to see conservation work up close.',
+                    'Enjoy a Koggala Lake safari and the surrounding lagoon scenery.',
+                    'Stop for a traditional stilt fishing experience and photos.',
+                    'Breakfast is served at the villa, with lunch and dinner out again.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '2 nights in a 5-star villa in Galle',
+            'Private, comfortable accommodation for a relaxed coastal break',
+            'Ideal for couples, families, or small private groups'
+        ],
+        mealPlan: [
+            'Breakfast: from the villa',
+            'Lunch: out',
+            'Dinner: out'
+        ],
+        highlights: ['Galle Fort', 'Unawatuna Beach', 'Jungle Beach', 'Japanese Peace Pagoda', 'Habaraduwa Turtle Hatchery', 'Koggala Lake Safari', 'Stilt Fishing'],
         photoText: 'Temporary placeholder: upload Day 1 Galle photos later.',
         videoText: 'Temporary placeholder: upload Day 1 Galle videos later.'
     },
@@ -259,7 +291,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = document.getElementById('tripTitle');
     const description = document.getElementById('tripSummary');
     const highlights = document.getElementById('tripHighlights');
+    const genericTripDetails = document.getElementById('genericTripDetails');
+    const galleTourDetails = document.getElementById('galleTourDetails');
+    const galleTourOverview = document.getElementById('galleTourOverview');
+    const galleQuickFacts = document.getElementById('galleQuickFacts');
+    const galleDayPlans = document.querySelectorAll('[data-galle-day-plan]');
+    const galleStayPlan = document.getElementById('galleStayPlan');
+    const galleMealPlan = document.getElementById('galleMealPlan');
     const galleHeroSlider = document.getElementById('galleHeroSlider');
+    const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const kandyHeroSlider = document.getElementById('kandyHeroSlider');
 
     if (!dayLabel || !title || !description || !highlights) {
@@ -270,9 +310,46 @@ document.addEventListener("DOMContentLoaded", () => {
     const day = params.get('day') || '01';
     const detail = tripDetailsData[day] || tripDetailsData['01'];
 
-    dayLabel.textContent = `DAY ${day}`;
+    dayLabel.textContent = day === '01' ? 'GALLE TOUR' : `DAY ${day}`;
     title.textContent = detail.title;
     description.textContent = detail.description;
+
+    if (genericTripDetails && galleTourDetails) {
+        if (day === '01') {
+            genericTripDetails.classList.add('hidden');
+            galleTourDetails.classList.remove('hidden');
+        } else {
+            genericTripDetails.classList.remove('hidden');
+            galleTourDetails.classList.add('hidden');
+        }
+    }
+
+    if (day === '01' && galleTourOverview && galleQuickFacts && galleStayPlan && galleMealPlan) {
+        galleTourOverview.textContent = detail.overview || detail.description;
+
+        galleQuickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            galleQuickFacts.appendChild(li);
+        });
+
+        galleDayPlans.forEach((planElement, index) => {
+            const plan = detail.dayPlans && detail.dayPlans[index];
+            if (!plan) {
+                planElement.innerHTML = '';
+                return;
+            }
+
+            planElement.innerHTML = `
+                <h3>${plan.title}</h3>
+                <ul>${plan.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+            `;
+        });
+
+        galleStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        galleMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
 
     highlights.innerHTML = '';
     detail.highlights.forEach((item) => {
@@ -324,6 +401,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (galleHeroSlider) {
         galleHeroSlider.classList.add('hidden');
     }
+    if (anuradhapuraHeroSlider) {
+        anuradhapuraHeroSlider.classList.add('hidden');
+    }
     if (kandyHeroSlider) {
         kandyHeroSlider.classList.add('hidden');
     }
@@ -331,6 +411,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (day === '01' && galleHeroSlider) {
         galleHeroSlider.classList.remove('hidden');
         initHeroSlider(galleHeroSlider);
+    } else if (day === '02' && anuradhapuraHeroSlider) {
+        anuradhapuraHeroSlider.classList.remove('hidden');
+        initHeroSlider(anuradhapuraHeroSlider);
     } else if (day === '04' && kandyHeroSlider) {
         kandyHeroSlider.classList.remove('hidden');
         initHeroSlider(kandyHeroSlider);

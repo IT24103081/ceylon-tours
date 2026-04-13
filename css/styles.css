@@ -111,7 +111,9 @@ h3,
 .logo {
     font-size: 2rem;
     line-height: 1;
-    color: var(--navy-900);
+    color: #d4af37;
+    font-weight: 800;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 10px rgba(212, 175, 55, 0.14);
 }
 
 .logo-tagline {
@@ -1514,6 +1516,26 @@ section {
     color: var(--ink-700);
     display: grid;
     gap: 0.45rem;
+}
+
+.trip-plan {
+    color: var(--ink-700);
+}
+
+.trip-plan h3 {
+    color: var(--navy-900);
+    font-size: 0.98rem;
+    margin-bottom: 0.7rem;
+}
+
+.trip-plan ul {
+    padding-left: 1rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.trip-plan-spaced {
+    margin-top: 1rem;
 }
 
 .hidden {

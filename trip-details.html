@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trip Details - Ceylon Tours</title>
+    <title>Trip Details - Golden Island Tours</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
         <div class="header-main">
             <div class="header-container">
                 <div class="logo-section">
-                    <div class="logo">CEYLON TOURS</div>
+                    <div class="logo">GOLDEN ISLAND TOURS</div>
                     <p class="logo-tagline">Sri Lanka's Pioneer Travel Company</p>
                 </div>
                 <nav class="nav">
@@ -41,12 +41,12 @@
     <main class="trip-details-page">
         <section id="galleHeroSlider" class="kandy-hero hidden" aria-label="Galle slideshow">
             <div class="kandy-hero-slider">
-                <div class="kandy-slide active" style="background-image: url('assets/images/Galle/Gemini_Generated_Image_6m4b476m4b476m4b.png');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/Galle/srilankabeaches6.jpg.webp');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/Galle/turtle2.jpg');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/Galle/turtles.jpg');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/Galle/whale-watching-galle-sri-lanka.jpg');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/Galle/zoshua-colah-O0YmMPG56KI-unsplash.jpg');"></div>
+                <div class="kandy-slide active" style="background-image: url('assets/images/galle/Gemini_Generated_Image_6m4b476m4b476m4b.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/galle/Gemini_Generated_Image_j0d203j0d203j0d2.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/galle/Gemini_Generated_Image_ohonk5ohonk5ohon.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/galle/srilankabeaches6.jpg.webp');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/galle/whale-watching-galle-sri-lanka.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/galle/zoshua-colah-O0YmMPG56KI-unsplash.jpg');"></div>
                 <div class="kandy-slider-overlay"></div>
             </div>
             <div class="kandy-slider-indicators" id="galleHeroIndicators">
@@ -56,6 +56,22 @@
                 <button type="button" class="kandy-indicator" data-index="3" aria-label="Galle slide 4"></button>
                 <button type="button" class="kandy-indicator" data-index="4" aria-label="Galle slide 5"></button>
                 <button type="button" class="kandy-indicator" data-index="5" aria-label="Galle slide 6"></button>
+            </div>
+        </section>
+
+        <section id="anuradhapuraHeroSlider" class="kandy-hero hidden" aria-label="Anuradhapura slideshow">
+            <div class="kandy-hero-slider">
+                <div class="kandy-slide active" style="background-image: url('assets/images/anuradhapura/anuradhapura1.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/anuradhapura2.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/Gemini_Generated_Image_2jewxq2jewxq2jew.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/WhatsApp Image 2026-04-13 at 12.56.40.jpeg');"></div>
+                <div class="kandy-slider-overlay"></div>
+            </div>
+            <div class="kandy-slider-indicators" id="anuradhapuraHeroIndicators">
+                <button type="button" class="kandy-indicator active" data-index="0" aria-label="Anuradhapura slide 1"></button>
+                <button type="button" class="kandy-indicator" data-index="1" aria-label="Anuradhapura slide 2"></button>
+                <button type="button" class="kandy-indicator" data-index="2" aria-label="Anuradhapura slide 3"></button>
+                <button type="button" class="kandy-indicator" data-index="3" aria-label="Anuradhapura slide 4"></button>
             </div>
         </section>
 
@@ -75,7 +91,35 @@
             </div>
         </section>
 
-        <div class="container">
+        <section class="container trip-details-grid hidden" id="galleTourDetails">
+            <article class="trip-card">
+                <h2>Tour Overview</h2>
+                <p id="galleTourOverview"></p>
+                <ul id="galleQuickFacts" class="trip-highlights-list"></ul>
+            </article>
+
+            <article class="trip-card">
+                <h2>Day 1 Plan</h2>
+                <div class="trip-plan" data-galle-day-plan></div>
+            </article>
+
+            <article class="trip-card">
+                <h2>Day 2 Plan</h2>
+                <div class="trip-plan" data-galle-day-plan></div>
+            </article>
+
+            <article class="trip-card">
+                <h2>Villa & Meals</h2>
+                <div id="galleStayPlan" class="trip-plan"></div>
+                <div id="galleMealPlan" class="trip-plan trip-plan-spaced"></div>
+            </article>
+
+            <div class="trip-actions">
+                <a href="tours.html" class="btn-primary">Back To Tours</a>
+            </div>
+        </section>
+
+        <div class="container" id="genericTripDetails">
 
             <section class="trip-details-hero">
                 <p class="trip-day-label" id="tripDayLabel">DAY 01</p>
