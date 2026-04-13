@@ -1328,6 +1328,289 @@ section {
     margin: 0;
 }
 
+.view-tour-btn {
+    margin: 0 0 1.2rem;
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--brand-red), #e63946);
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-tour-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(200, 16, 46, 0.25);
+}
+
+.tour-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+}
+
+.tour-modal.open {
+    display: flex;
+}
+
+.tour-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 11, 20, 0.62);
+}
+
+.tour-modal-card {
+    position: relative;
+    width: min(820px, 100%);
+    max-height: calc(100vh - 2.5rem);
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.tour-modal-content {
+    padding: 2rem;
+}
+
+.tour-modal-kicker {
+    color: var(--brand-red-strong);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+}
+
+.tour-modal-content h3 {
+    font-size: 1.8rem;
+    color: var(--navy-900);
+    margin-bottom: 0.8rem;
+}
+
+.tour-modal-content p {
+    color: var(--ink-700);
+    margin-bottom: 1.4rem;
+}
+
+.tour-media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.tour-media-panel {
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 1rem;
+    background: #f9fbfe;
+}
+
+.tour-media-panel h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.7px;
+    color: var(--navy-900);
+    margin-bottom: 0.7rem;
+}
+
+.tour-media-placeholder {
+    min-height: 160px;
+    border: 1px dashed rgba(11, 31, 51, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--ink-500);
+    font-size: 0.88rem;
+    padding: 1rem;
+    background: #ffffff;
+}
+
+.tour-modal-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.8rem;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--ink-700);
+    cursor: pointer;
+}
+
+.tour-modal-close:hover {
+    color: var(--brand-red-strong);
+}
+
+/* Trip details page */
+.trip-details-page {
+    padding: 0 0 5rem;
+    background: #f8fbfe;
+    min-height: calc(100vh - 120px);
+}
+
+.trip-details-hero {
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(11, 31, 51, 0.05);
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+.trip-day-label {
+    color: var(--brand-red-strong);
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.trip-details-hero h1 {
+    color: var(--navy-900);
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 0.7rem;
+}
+
+.trip-details-hero p {
+    color: var(--ink-700);
+    max-width: 70ch;
+}
+
+.trip-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.trip-card {
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 8px 24px rgba(11, 31, 51, 0.05);
+}
+
+.trip-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--navy-900);
+    margin-bottom: 0.7rem;
+}
+
+.trip-highlights-list {
+    padding-left: 1rem;
+    color: var(--ink-700);
+    display: grid;
+    gap: 0.45rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.kandy-hero {
+    position: relative;
+    width: 100%;
+    min-height: 62vh;
+    height: 62vh;
+    overflow: hidden;
+    margin-bottom: 1.8rem;
+}
+
+.kandy-hero-slider {
+    position: absolute;
+    inset: 0;
+}
+
+.kandy-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: none;
+    transition: opacity 0.7s ease;
+    will-change: opacity;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.kandy-slide.active {
+    opacity: 1;
+    transform: none;
+}
+
+.kandy-slider-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+}
+
+.kandy-slider-indicators {
+    position: absolute;
+    left: 50%;
+    bottom: 1.3rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.kandy-indicator {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.kandy-indicator.active {
+    background: var(--white);
+    transform: scale(1.16);
+}
+
+.kandy-slide-dots {
+    margin-top: 0.7rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.kandy-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 0;
+    background: #c8d4df;
+    cursor: pointer;
+}
+
+.kandy-dot.active {
+    background: var(--brand-red);
+    transform: scale(1.15);
+}
+
+.trip-actions {
+    margin-top: 1.2rem;
+}
+
 .tour-notes {
     display: flex;
     flex-direction: column;
@@ -1355,6 +1638,23 @@ section {
     .sticky-sidebar {
         position: static;
         margin-top: 2rem;
+    }
+
+    .tour-media-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tour-modal-content {
+        padding: 1.5rem;
+    }
+
+    .trip-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kandy-hero {
+        min-height: 58vh;
+        height: 58vh;
     }
 }
 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Details - Ceylon Tours</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="header-container">
+                <div class="header-contact">
+                    <a href="tel:+94112500611" class="contact-item">+94 112 500 611</a>
+                    <span class="divider">|</span>
+                    <a href="mailto:info@ceylontours.com" class="contact-item">info@ceylontours.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-container">
+                <div class="logo-section">
+                    <div class="logo">CEYLON TOURS</div>
+                    <p class="logo-tagline">Sri Lanka's Pioneer Travel Company</p>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">HOME</a>
+                    <a href="tours.html" class="nav-link active">TOURS</a>
+                    <a href="inquire.html" class="nav-link">INQUIRE</a>
+                    <a href="contact.html" class="nav-link">CONTACT US</a>
+                </nav>
+                <button class="header-cta">INQUIRE NOW</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div class="header-bottom-border"></div>
+    </header>
+
+    <main class="trip-details-page">
+        <section id="galleHeroSlider" class="kandy-hero hidden" aria-label="Galle slideshow">
+            <div class="kandy-hero-slider">
+                <div class="kandy-slide active" style="background-image: url('assets/images/Galle/Gemini_Generated_Image_6m4b476m4b476m4b.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/Galle/srilankabeaches6.jpg.webp');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/Galle/turtle2.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/Galle/turtles.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/Galle/whale-watching-galle-sri-lanka.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/Galle/zoshua-colah-O0YmMPG56KI-unsplash.jpg');"></div>
+                <div class="kandy-slider-overlay"></div>
+            </div>
+            <div class="kandy-slider-indicators" id="galleHeroIndicators">
+                <button type="button" class="kandy-indicator active" data-index="0" aria-label="Galle slide 1"></button>
+                <button type="button" class="kandy-indicator" data-index="1" aria-label="Galle slide 2"></button>
+                <button type="button" class="kandy-indicator" data-index="2" aria-label="Galle slide 3"></button>
+                <button type="button" class="kandy-indicator" data-index="3" aria-label="Galle slide 4"></button>
+                <button type="button" class="kandy-indicator" data-index="4" aria-label="Galle slide 5"></button>
+                <button type="button" class="kandy-indicator" data-index="5" aria-label="Galle slide 6"></button>
+            </div>
+        </section>
+
+        <section id="kandyHeroSlider" class="kandy-hero hidden" aria-label="Kandy full screen slideshow">
+            <div class="kandy-hero-slider">
+                <div class="kandy-slide active" style="background-image: url('assets/images/kandy/kandy1.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/kandy/kandy-2.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/kandy/Gemini_Generated_Image_lm2rlilm2rlilm2r.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/kandy/Visit-Ramboda-Falls-2.jpg');"></div>
+                <div class="kandy-slider-overlay"></div>
+            </div>
+            <div class="kandy-slider-indicators" id="kandyHeroIndicators">
+                <button type="button" class="kandy-indicator active" data-index="0" aria-label="Kandy slide 1"></button>
+                <button type="button" class="kandy-indicator" data-index="1" aria-label="Kandy slide 2"></button>
+                <button type="button" class="kandy-indicator" data-index="2" aria-label="Kandy slide 3"></button>
+                <button type="button" class="kandy-indicator" data-index="3" aria-label="Kandy slide 4"></button>
+            </div>
+        </section>
+
+        <div class="container">
+
+            <section class="trip-details-hero">
+                <p class="trip-day-label" id="tripDayLabel">DAY 01</p>
+                <h1 id="tripTitle">Trip Details</h1>
+                <p id="tripSummary">Temporary trip summary. You can replace this with your real itinerary details later.</p>
+            </section>
+
+            <section class="trip-details-grid">
+                <article class="trip-card">
+                    <h2>Highlights</h2>
+                    <ul id="tripHighlights" class="trip-highlights-list">
+                        <li>Temporary highlight item</li>
+                    </ul>
+                </article>
+            </section>
+
+            <div class="trip-actions">
+                <a href="tours.html" class="btn-primary">Back To Tours</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -192,3 +192,147 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+const tripDetailsData = {
+    '01': {
+        title: 'Galle',
+        description: 'A coastal day covering heritage, beaches, nature, and marine attractions around Galle.',
+        highlights: ['Galle Fort', 'Galle City', 'Unawatuna Beach', 'Polhena Beach', 'Stick Fisher', 'Turtle Watching', 'Whale Watching', 'Spice Garden', 'Rumassala', 'Kanneliya Forest', 'Sinharaja Entrance'],
+        photoText: 'Temporary placeholder: upload Day 1 Galle photos later.',
+        videoText: 'Temporary placeholder: upload Day 1 Galle videos later.'
+    },
+    '02': {
+        title: 'Anuradhapura',
+        description: 'A sacred city tour focused on key Buddhist heritage sites and historical monuments.',
+        highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jethawanaramaya', 'Abhayagiriya', 'Tissa Lake'],
+        photoText: 'Temporary placeholder: upload Day 2 Anuradhapura photos later.',
+        videoText: 'Temporary placeholder: upload Day 2 Anuradhapura videos later.'
+    },
+    '03': {
+        title: 'Polonnaruwa',
+        description: 'Discover ancient ruins and nearby nature parks around the Polonnaruwa region.',
+        highlights: ['Vatadage', 'Gal Viharaya', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla Lake'],
+        photoText: 'Temporary placeholder: upload Day 3 Polonnaruwa photos later.',
+        videoText: 'Temporary placeholder: upload Day 3 Polonnaruwa videos later.'
+    },
+    '04': {
+        title: 'Kandy',
+        description: 'A cultural and scenic day in and around Kandy with temples, gardens, and viewpoints.',
+        highlights: ['Temple of the Tooth', 'Royal Botanic Gardens Peradeniya', 'Ramboda Falls', 'Victoria Dam'],
+        photoText: 'Temporary placeholder: upload Day 4 Kandy photos later.',
+        videoText: 'Temporary placeholder: upload Day 4 Kandy videos later.'
+    },
+    '05': {
+        title: 'Nuwara Eliya',
+        description: 'Enjoy cool-climate attractions with nature, open parks, and tea-country landscapes.',
+        highlights: ['Horton Plains National Park', 'Gregory Park', 'Sandathenna'],
+        photoText: 'Temporary placeholder: upload Day 5 Nuwara Eliya photos later.',
+        videoText: 'Temporary placeholder: upload Day 5 Nuwara Eliya videos later.'
+    },
+    '06': {
+        title: 'Ella',
+        description: 'An adventure and sightseeing day across Ella landmarks and surrounding waterfalls.',
+        highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Ravana Cave', 'Ella Waterfall', 'Kubalwela Temple', 'Flying Ravana Adventure Park', 'Dunhinda Falls'],
+        photoText: 'Temporary placeholder: upload Day 6 Ella photos later.',
+        videoText: 'Temporary placeholder: upload Day 6 Ella videos later.'
+    }
+};
+
+// Open trip details page in a new tab/window from tours page
+document.addEventListener("DOMContentLoaded", () => {
+    const viewButtons = document.querySelectorAll('.view-tour-btn');
+    if (viewButtons.length === 0) {
+        return;
+    }
+
+    viewButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const day = button.dataset.day || '01';
+            window.location.href = `trip-details.html?day=${encodeURIComponent(day)}`;
+        });
+    });
+});
+
+// Initialize trip details page content
+document.addEventListener("DOMContentLoaded", () => {
+    const dayLabel = document.getElementById('tripDayLabel');
+    const title = document.getElementById('tripTitle');
+    const description = document.getElementById('tripSummary');
+    const highlights = document.getElementById('tripHighlights');
+    const galleHeroSlider = document.getElementById('galleHeroSlider');
+    const kandyHeroSlider = document.getElementById('kandyHeroSlider');
+
+    if (!dayLabel || !title || !description || !highlights) {
+        return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const day = params.get('day') || '01';
+    const detail = tripDetailsData[day] || tripDetailsData['01'];
+
+    dayLabel.textContent = `DAY ${day}`;
+    title.textContent = detail.title;
+    description.textContent = detail.description;
+
+    highlights.innerHTML = '';
+    detail.highlights.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        highlights.appendChild(li);
+    });
+
+    const initHeroSlider = (section) => {
+        const slides = section.querySelectorAll('.kandy-slide');
+        const indicators = section.querySelectorAll('.kandy-indicator');
+
+        if (slides.length === 0 || indicators.length === 0) {
+            return;
+        }
+
+        let currentSlide = 0;
+        let slideInterval;
+
+        const renderSlide = () => {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            renderSlide();
+        };
+
+        indicators.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                const index = Number(indicator.getAttribute('data-index'));
+                currentSlide = Number.isNaN(index) ? 0 : index;
+                renderSlide();
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+
+        renderSlide();
+        slideInterval = setInterval(nextSlide, 5000);
+    };
+
+    if (galleHeroSlider) {
+        galleHeroSlider.classList.add('hidden');
+    }
+    if (kandyHeroSlider) {
+        kandyHeroSlider.classList.add('hidden');
+    }
+
+    if (day === '01' && galleHeroSlider) {
+        galleHeroSlider.classList.remove('hidden');
+        initHeroSlider(galleHeroSlider);
+    } else if (day === '04' && kandyHeroSlider) {
+        kandyHeroSlider.classList.remove('hidden');
+        initHeroSlider(kandyHeroSlider);
+    }
+});
