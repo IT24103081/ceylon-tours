@@ -66,11 +66,12 @@ const slides = document.querySelectorAll('.slide');
 const indicators = document.querySelectorAll('.indicator');
 const prevBtn = document.getElementById('slidePrev');
 const nextBtn = document.getElementById('slideNext');
+const heroVideo = document.getElementById('heroVideo');
 let currentSlideIndex = 0;
 let slideInterval;
 
 function initSlider() {
-    if (slides.length === 0) return;
+    if (slides.length === 0 || !nextBtn || !prevBtn || indicators.length === 0) return;
     
     // Auto slide
     slideInterval = setInterval(nextSlide, 7000);
@@ -97,10 +98,14 @@ function initSlider() {
 function updateSlider() {
     slides.forEach((slide, idx) => {
         slide.classList.remove('active');
-        indicators[idx].classList.remove('active');
+        if (indicators[idx]) {
+            indicators[idx].classList.remove('active');
+        }
         if (idx === currentSlideIndex) {
             slide.classList.add('active');
-            indicators[idx].classList.add('active');
+            if (indicators[idx]) {
+                indicators[idx].classList.add('active');
+            }
         }
     });
 }
@@ -130,6 +135,25 @@ if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initSlider);
 } else {
     initSlider();
+}
+
+if (heroVideo) {
+    const tuneHeroVideo = () => {
+        heroVideo.muted = true;
+        heroVideo.volume = 0;
+        heroVideo.defaultPlaybackRate = 0.7;
+        heroVideo.playbackRate = 0.7;
+        const playPromise = heroVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', tuneHeroVideo);
+    } else {
+        tuneHeroVideo();
+    }
 }
 
 
@@ -234,39 +258,404 @@ const tripDetailsData = {
         videoText: 'Temporary placeholder: upload Day 1 Galle videos later.'
     },
     '02': {
-        title: 'Anuradhapura',
-        description: 'A sacred city tour focused on key Buddhist heritage sites and historical monuments.',
-        highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jethawanaramaya', 'Abhayagiriya', 'Tissa Lake'],
-        photoText: 'Temporary placeholder: upload Day 2 Anuradhapura photos later.',
-        videoText: 'Temporary placeholder: upload Day 2 Anuradhapura videos later.'
+        title: 'Udawalawe Safari Stop',
+        description: 'A wildlife-focused stop in Udawalawe with a morning safari and a relaxed night near the park.',
+        overview: 'Stay one night near Udawalawe National Park with breakfast and lunch from the villa, then enjoy dinner out after your safari day.',
+        quickFacts: ['1 Night Near Udawalawe Park', 'Morning Safari', 'Breakfast and Lunch at the Villa', 'Dinner Out'],
+        dayPlans: [
+            {
+                title: 'Morning Safari',
+                items: [
+                    'Head out early for a morning safari in Udawalawe National Park.',
+                    'Look for elephants and other wildlife in open grassland and reservoir views.'
+                ]
+            },
+            {
+                title: 'Eco Stay Near the Park',
+                items: [
+                    'Relax at a villa or eco stay close to the park after the safari.',
+                    'Enjoy dinner out before settling in for the night.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in an eco stay or villa near Udawalawe National Park',
+            'Comfortable base for the safari and early departure next day'
+        ],
+        mealPlan: [
+            'Breakfast: from the villa',
+            'Lunch: from the villa',
+            'Dinner: out'
+        ],
+        highlights: ['Udawalawe National Park', 'Morning Safari', 'Elephant Viewing', 'Eco Stay Near Park'],
+        photoText: 'Temporary placeholder: upload Day 2 Udawalawe photos later.',
+        videoText: 'Temporary placeholder: upload Day 2 Udawalawe videos later.'
     },
     '03': {
-        title: 'Polonnaruwa',
-        description: 'Discover ancient ruins and nearby nature parks around the Polonnaruwa region.',
-        highlights: ['Vatadage', 'Gal Viharaya', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla Lake'],
-        photoText: 'Temporary placeholder: upload Day 3 Polonnaruwa photos later.',
-        videoText: 'Temporary placeholder: upload Day 3 Polonnaruwa videos later.'
+        title: 'Yala Leopard Country',
+        description: 'A scenic transfer to Yala with a strong focus on leopard sightings and an eco stay near the park.',
+        overview: 'Spend one night near Yala National Park in an eco stay, with breakfast, lunch, and dinner from the villa near the park.',
+        quickFacts: ['1 Night Near Yala Park', 'Leopard Focus', 'Eco Stay', 'All Meals from Villa'],
+        dayPlans: [
+            {
+                title: 'Yala Safari Drive',
+                items: [
+                    'Set out for a safari in Yala National Park with a focus on leopards.',
+                    'Enjoy birdlife, dry-zone forest, and open plains.'
+                ]
+            },
+            {
+                title: 'Eco Stay and Rest',
+                items: [
+                    'Return to an eco stay near the park for a relaxed evening.',
+                    'Meals are served from the villa throughout the day.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in an eco stay near Yala National Park',
+            'Ideal for an early start and a quiet wildlife-focused evening'
+        ],
+        mealPlan: [
+            'Breakfast: from the villa',
+            'Lunch: from the villa',
+            'Dinner: from the villa'
+        ],
+        highlights: ['Yala National Park', 'Leopard Safari', 'Eco Stay', 'Birdlife and Dry-Zone Landscapes'],
+        photoText: 'Temporary placeholder: upload Day 3 Yala photos later.',
+        videoText: 'Temporary placeholder: upload Day 3 Yala videos later.'
     },
     '04': {
-        title: 'Kandy',
-        description: 'A cultural and scenic day in and around Kandy with temples, gardens, and viewpoints.',
-        highlights: ['Temple of the Tooth', 'Royal Botanic Gardens Peradeniya', 'Ramboda Falls', 'Victoria Dam'],
-        photoText: 'Temporary placeholder: upload Day 4 Kandy photos later.',
-        videoText: 'Temporary placeholder: upload Day 4 Kandy videos later.'
+        title: 'Arugam Bay Surf & Lagoon',
+        description: 'A beach and lagoon day in Arugam Bay centered on surfing, laid-back coastal vibes, and a cabana stay.',
+        overview: 'Stay one night in cabanas with breakfast, lunch, and dinner from a 5-star rated hotel while you enjoy the surf and lagoon.',
+        quickFacts: ['1 Night in Cabanas', 'Surfing Focus', 'Lagoon Experience', 'Meals from 5-Star Hotel'],
+        dayPlans: [
+            {
+                title: 'Surf and Beach Time',
+                items: [
+                    'Spend the day around Arugam Bay with a focus on surfing and the beach.',
+                    'Enjoy the relaxed east coast atmosphere and sunset.'
+                ]
+            },
+            {
+                title: 'Lagoon Experience and Cabana Stay',
+                items: [
+                    'Add a lagoon experience or boat outing where timing allows.',
+                    'Sleep in cabanas for a true coastal escape.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in cabanas at Arugam Bay',
+            'A relaxed east coast base with easy beach access'
+        ],
+        mealPlan: [
+            'Breakfast: from the 5-star rated hotel',
+            'Lunch: from the 5-star rated hotel',
+            'Dinner: from the 5-star rated hotel'
+        ],
+        highlights: ['Arugam Bay', 'Surfing', 'Lagoon Experience', 'Cabana Stay'],
+        photoText: 'Temporary placeholder: upload Day 4 Arugam Bay photos later.',
+        videoText: 'Temporary placeholder: upload Day 4 Arugam Bay videos later.'
     },
     '05': {
-        title: 'Nuwara Eliya',
-        description: 'Enjoy cool-climate attractions with nature, open parks, and tea-country landscapes.',
-        highlights: ['Horton Plains National Park', 'Gregory Park', 'Sandathenna'],
-        photoText: 'Temporary placeholder: upload Day 5 Nuwara Eliya photos later.',
-        videoText: 'Temporary placeholder: upload Day 5 Nuwara Eliya videos later.'
+        title: 'Polonnaruwa Heritage Loop',
+        description: 'A day of religious and archaeological heritage around Polonnaruwa with nearby wildlife viewing options.',
+        overview: 'Stay one night in a 5-star hotel while exploring ancient religious sites and the surrounding park and lake network.',
+        quickFacts: ['1 Night in a 5-Star Hotel', 'Religious and Heritage Sites', 'Minneriya Option', 'Kaudulla Lake Option'],
+        dayPlans: [
+            {
+                title: 'Ancient City Highlights',
+                items: [
+                    'Visit Vatadage and Gal Viharaya for the classic Polonnaruwa heritage circuit.',
+                    'See Parakrama Samudra and the ancient royal city landscape.'
+                ]
+            },
+            {
+                title: 'Wildlife Add-On',
+                items: [
+                    'Add Minneriya National Park or Kaudulla Lake depending on timing and wildlife movement.',
+                    'Return to a comfortable 5-star hotel for the night.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in a 5-star hotel in the Polonnaruwa area',
+            'A comfortable base for heritage sightseeing and wildlife viewing'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Vatadage', 'Gal Viharaya', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla Lake'],
+        photoText: 'Temporary placeholder: upload Day 5 Polonnaruwa photos later.',
+        videoText: 'Temporary placeholder: upload Day 5 Polonnaruwa videos later.'
     },
     '06': {
-        title: 'Ella',
-        description: 'An adventure and sightseeing day across Ella landmarks and surrounding waterfalls.',
-        highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Ravana Cave', 'Ella Waterfall', 'Kubalwela Temple', 'Flying Ravana Adventure Park', 'Dunhinda Falls'],
-        photoText: 'Temporary placeholder: upload Day 6 Ella photos later.',
-        videoText: 'Temporary placeholder: upload Day 6 Ella videos later.'
+        title: 'Habarana Village Stay',
+        description: 'A relaxed stop in Habarana with a village-style experience and a comfortable hotel base.',
+        overview: 'Enjoy a 5-star hotel stay in the Habarana area with breakfast, lunch, and dinner all taken at the hotel.',
+        quickFacts: ['1 Night in Habarana', 'Village Experience', '5-Star Hotel', 'All Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Habarana Village Experience',
+                items: [
+                    'Spend time in Habarana village and enjoy the local rural atmosphere.',
+                    'Use the area as a calm base before Sigiriya and Dambulla.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in a 5-star hotel in Habarana',
+            'Comfortable central base for the cultural triangle'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Habarana Village', 'Rural Experience', '5-Star Hotel Stay', 'Central Cultural Triangle Base'],
+        photoText: 'Temporary placeholder: upload Day 6 Habarana photos later.',
+        videoText: 'Temporary placeholder: upload Day 6 Habarana videos later.'
+    },
+    '07': {
+        title: 'Sigiriya & Dambulla',
+        description: 'The classic cultural triangle day with Sigiriya Rock Fortress and Dambulla Cave Temple.',
+        overview: 'Continue the Habarana-area stay with breakfast, lunch, and dinner from the hotel while visiting the region’s landmark heritage sites.',
+        quickFacts: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Second Night in Habarana Area', 'All Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Sigiriya Rock Fortress',
+                items: [
+                    'Visit Sigiriya Rock Fortress for the main climb and panorama views.',
+                    'Take time for photos and the surrounding gardens.'
+                ]
+            },
+            {
+                title: 'Dambulla Cave Temple',
+                items: [
+                    'Continue to Dambulla Cave Temple for painted caves and religious history.',
+                    'Return to the hotel for a relaxed evening meal.'
+                ]
+            }
+        ],
+        stayPlan: [
+            'Second night in the Habarana area at a 5-star hotel',
+            'Ideal for a smooth cultural triangle route'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Habarana Area', 'Cultural Triangle'],
+        photoText: 'Temporary placeholder: upload Day 7 Sigiriya photos later.',
+        videoText: 'Temporary placeholder: upload Day 7 Sigiriya videos later.'
+    },
+    '08': {
+        title: 'Anuradhapura Sacred City',
+        description: 'A full heritage day in Anuradhapura focused on sacred monuments and ancient city landmarks.',
+        overview: 'Stay one night in a 5-star hotel while exploring the most important religious and archaeological places in the ancient capital.',
+        quickFacts: ['1 Night in Anuradhapura', 'Sacred City Focus', '5-Star Hotel', 'Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Sacred Monuments',
+                items: [
+                    'See Ruwanwelisaya and Jaya Sri Maha Bodhi, the key pilgrimage stops in the city.',
+                    'Continue to Thuparamaya and Jethawanaramaya.'
+                ]
+            },
+            {
+                title: 'Ancient City Circuit',
+                items: [
+                    'Visit Abhayagiriya and Tissa Lake to round out the heritage circuit.',
+                    'Return to the hotel for the night.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in a 5-star hotel in Anuradhapura',
+            'Comfortable stay for a full sacred city program'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jethawanaramaya', 'Abhayagiriya', 'Tissa Lake'],
+        photoText: 'Temporary placeholder: upload Day 8 Anuradhapura photos later.',
+        videoText: 'Temporary placeholder: upload Day 8 Anuradhapura videos later.'
+    },
+    '09': {
+        title: 'Kandy Cultural Capital',
+        description: 'A cultural day in Kandy with the Temple of the Tooth and Peradeniya Botanic Gardens.',
+        overview: 'Stay one night in a 5-star hotel in Kandy with breakfast and lunch from the hotel while you explore the city’s best-known landmarks.',
+        quickFacts: ['1 Night in Kandy', 'Temple of the Tooth', 'Peradeniya Botanical Garden', 'Breakfast and Lunch at Hotel'],
+        dayPlans: [
+            {
+                title: 'Temple of the Tooth',
+                items: [
+                    'Visit the Temple of the Tooth, Kandy’s most important religious site.',
+                    'Take in the atmosphere around the lake and city center.'
+                ]
+            },
+            {
+                title: 'Peradeniya Botanical Garden',
+                items: [
+                    'Continue to Royal Botanic Gardens Peradeniya for a relaxed scenic walk.',
+                    'Spend the evening in Kandy before dinner and overnight stay.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in a 5-star hotel in Kandy',
+            'Central base for temple and garden sightseeing'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: out'
+        ],
+        highlights: ['Temple of the Tooth', 'Royal Botanic Gardens Peradeniya', 'Kandy Lake', 'Cultural City Views'],
+        photoText: 'Temporary placeholder: upload Day 9 Kandy photos later.',
+        videoText: 'Temporary placeholder: upload Day 9 Kandy videos later.'
+    },
+    '10': {
+        title: 'Nuwara Eliya Highlands',
+        description: 'A cool-climate highland day with tea-country scenery, parks, and open landscapes.',
+        overview: 'Enjoy a 5-star hotel stay in Nuwara Eliya with breakfast, lunch, and dinner from the hotel while you explore the highlands.',
+        quickFacts: ['1 Night in Nuwara Eliya', 'Horton Plains', 'Gregory Park', 'Tea Country Stay'],
+        dayPlans: [
+            {
+                title: 'Horton Plains National Park',
+                items: [
+                    'Explore Horton Plains National Park for open highland scenery and nature walks.',
+                    'Continue to Gregory Park and Sandathenna for a softer paced afternoon.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in a 5-star hotel in Nuwara Eliya',
+            'Cool-climate stay in Sri Lanka’s tea country'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Horton Plains National Park', 'Gregory Park', 'Sandathenna', 'Tea-Country Views'],
+        photoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya photos later.',
+        videoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya videos later.'
+    },
+    '11': {
+        title: 'Ella Scenic Arrival',
+        description: 'The first Ella day with the bridge, peak views, and the classic hill-country scenery.',
+        overview: 'Stay in a 5-star hotel or boutique property in Ella with all meals at the property and a day focused on the main viewpoints.',
+        quickFacts: ['1 Night in Ella', 'Nine Arch Bridge', 'Little Adam’s Peak', 'All Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Classic Ella Sights',
+                items: [
+                    'Visit Nine Arch Bridge and Little Adam’s Peak for the signature Ella views.',
+                    'Continue to Ella Rock and Ravana Cave where timing allows.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in Ella at a 5-star hotel or boutique stay',
+            'A scenic hill-country base for the second Ella day'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Ravana Cave'],
+        photoText: 'Temporary placeholder: upload Day 11 Ella photos later.',
+        videoText: 'Temporary placeholder: upload Day 11 Ella videos later.'
+    },
+    '12': {
+        title: 'Ella Adventure Day',
+        description: 'A second Ella day built around waterfalls, adventure activities, and local temple stops.',
+        overview: 'Continue your Ella stay with more adventure stops, all meals from the hotel, and a stronger focus on the southern side of the hill country.',
+        quickFacts: ['Second Ella Day', 'Flying Ravana Adventure Park', 'Ella Waterfall', 'All Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Adventure and Waterfalls',
+                items: [
+                    'Visit Ella Waterfall, Kubalwela Temple, and Flying Ravana Adventure Park.',
+                    'Use the afternoon for relaxed viewpoints and village time.'
+                ]
+            }
+        ],
+        stayPlan: [
+            'Second night in Ella at a 5-star hotel or boutique stay',
+            'Perfect for a two-day hill-country stop'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Ella Waterfall', 'Kubalwela Temple', 'Flying Ravana Adventure Park', 'Hill-Country Views'],
+        photoText: 'Temporary placeholder: upload Day 12 Ella photos later.',
+        videoText: 'Temporary placeholder: upload Day 12 Ella videos later.'
+    },
+    '13': {
+        title: 'Haputale & Balangoda Scenic Views',
+        description: 'A scenic transfer day through the hill country with viewpoints and a night in Balangoda.',
+        overview: 'Stay one night in Balangoda with breakfast, lunch, and dinner from the hotel while you enjoy the hill-country scenery.',
+        quickFacts: ['1 Night in Balangoda', 'Haputale Views', 'Scenic Hill Country Drive', 'Meals at Hotel'],
+        dayPlans: [
+            {
+                title: 'Scenic Viewpoints',
+                items: [
+                    'Travel through Haputale and stop for scenic viewpoints along the route.',
+                    'Continue to Balangoda for the overnight stay.'
+                ]
+            }
+        ],
+        stayPlan: [
+            '1 night in Balangoda at a 5-star hotel',
+            'A quiet stop before the final transfer to Negombo'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: from the hotel',
+            'Dinner: from the hotel'
+        ],
+        highlights: ['Haputale', 'Balangoda', 'Scenic Viewpoints', 'Hill-Country Drive'],
+        photoText: 'Temporary placeholder: upload Day 13 Balangoda photos later.',
+        videoText: 'Temporary placeholder: upload Day 13 Balangoda videos later.'
+    },
+    '14': {
+        title: 'Negombo Departure',
+        description: 'The final transfer to Negombo for departure and a relaxed end to the tour.',
+        overview: 'Use this final day for transfer to Negombo and departure coordination, with breakfast from the hotel before checkout.',
+        quickFacts: ['Final Transfer Day', 'Negombo', 'Airport Access', 'Breakfast at Hotel'],
+        dayPlans: [
+            {
+                title: 'Transfer to Negombo',
+                items: [
+                    'Travel to Negombo for your final stop or airport transfer.',
+                    'Wrap up the tour with a relaxed departure day.'
+                ]
+            }
+        ],
+        stayPlan: [
+            'No overnight stay planned unless you choose an extra night in Negombo',
+            'Best used as a departure or final transfer day'
+        ],
+        mealPlan: [
+            'Breakfast: from the hotel',
+            'Lunch: as per departure time',
+            'Dinner: not included unless staying on'
+        ],
+        highlights: ['Negombo', 'Airport Transfer', 'Final Departure Day'],
+        photoText: 'Temporary placeholder: upload Day 14 Negombo photos later.',
+        videoText: 'Temporary placeholder: upload Day 14 Negombo videos later.'
     }
 };
 
@@ -290,6 +679,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const dayLabel = document.getElementById('tripDayLabel');
     const title = document.getElementById('tripTitle');
     const description = document.getElementById('tripSummary');
+    const overview = document.getElementById('tripOverview');
+    const quickFacts = document.getElementById('tripQuickFacts');
+    const dayPlans = document.getElementById('tripDayPlans');
+    const stayPlan = document.getElementById('tripStayPlan');
+    const mealPlan = document.getElementById('tripMealPlan');
     const highlights = document.getElementById('tripHighlights');
     const genericTripDetails = document.getElementById('genericTripDetails');
     const galleTourDetails = document.getElementById('galleTourDetails');
@@ -301,6 +695,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const kandyHeroSlider = document.getElementById('kandyHeroSlider');
+    const arugamBayHeroSlider = document.getElementById('arugamBayHeroSlider');
+    const ellaHeroSlider = document.getElementById('ellaHeroSlider');
 
     if (!dayLabel || !title || !description || !highlights) {
         return;
@@ -349,6 +745,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
         galleStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
         galleMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
+
+    if (day !== '01' && overview && quickFacts && dayPlans && stayPlan && mealPlan) {
+        overview.textContent = detail.overview || detail.description;
+
+        quickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            quickFacts.appendChild(li);
+        });
+
+        dayPlans.innerHTML = '';
+        (detail.dayPlans || []).forEach((plan) => {
+            const planBlock = document.createElement('div');
+            planBlock.className = 'trip-plan';
+
+            const heading = document.createElement('h3');
+            heading.textContent = plan.title;
+            planBlock.appendChild(heading);
+
+            const list = document.createElement('ul');
+            plan.items.forEach((item) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                list.appendChild(listItem);
+            });
+            planBlock.appendChild(list);
+            dayPlans.appendChild(planBlock);
+        });
+
+        stayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        mealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
     }
 
     highlights.innerHTML = '';
@@ -407,15 +836,27 @@ document.addEventListener("DOMContentLoaded", () => {
     if (kandyHeroSlider) {
         kandyHeroSlider.classList.add('hidden');
     }
+    if (arugamBayHeroSlider) {
+        arugamBayHeroSlider.classList.add('hidden');
+    }
+    if (ellaHeroSlider) {
+        ellaHeroSlider.classList.add('hidden');
+    }
 
     if (day === '01' && galleHeroSlider) {
         galleHeroSlider.classList.remove('hidden');
         initHeroSlider(galleHeroSlider);
-    } else if (day === '02' && anuradhapuraHeroSlider) {
+    } else if (day === '08' && anuradhapuraHeroSlider) {
         anuradhapuraHeroSlider.classList.remove('hidden');
         initHeroSlider(anuradhapuraHeroSlider);
-    } else if (day === '04' && kandyHeroSlider) {
+    } else if (day === '09' && kandyHeroSlider) {
         kandyHeroSlider.classList.remove('hidden');
         initHeroSlider(kandyHeroSlider);
+    } else if (day === '04' && arugamBayHeroSlider) {
+        arugamBayHeroSlider.classList.remove('hidden');
+        initHeroSlider(arugamBayHeroSlider);
+    } else if ((day === '11' || day === '12') && ellaHeroSlider) {
+        ellaHeroSlider.classList.remove('hidden');
+        initHeroSlider(ellaHeroSlider);
     }
 });

@@ -64,7 +64,7 @@
                 <div class="kandy-slide active" style="background-image: url('assets/images/anuradhapura/anuradhapura1.jpg');"></div>
                 <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/anuradhapura2.jpg');"></div>
                 <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/Gemini_Generated_Image_2jewxq2jewxq2jew.png');"></div>
-                <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/WhatsApp Image 2026-04-13 at 12.56.40.jpeg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/anuradhapura/anuradhapura-whatsapp.jpeg');"></div>
                 <div class="kandy-slider-overlay"></div>
             </div>
             <div class="kandy-slider-indicators" id="anuradhapuraHeroIndicators">
@@ -88,6 +88,48 @@
                 <button type="button" class="kandy-indicator" data-index="1" aria-label="Kandy slide 2"></button>
                 <button type="button" class="kandy-indicator" data-index="2" aria-label="Kandy slide 3"></button>
                 <button type="button" class="kandy-indicator" data-index="3" aria-label="Kandy slide 4"></button>
+            </div>
+        </section>
+
+        <section id="arugamBayHeroSlider" class="kandy-hero hidden" aria-label="Arugam Bay slideshow">
+            <div class="kandy-hero-slider">
+                <div class="kandy-slide active" style="background-image: url('assets/images/arugam-bay/arugam1.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/arugam2.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/arugam3.jpeg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/arugam4.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/arugam5.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/arugam7.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/arugam-bay/Gemini_Generated_Image_amlbjsamlbjsamlb.png');"></div>
+                <div class="kandy-slider-overlay"></div>
+            </div>
+            <div class="kandy-slider-indicators" id="arugamBayHeroIndicators">
+                <button type="button" class="kandy-indicator active" data-index="0" aria-label="Arugam Bay slide 1"></button>
+                <button type="button" class="kandy-indicator" data-index="1" aria-label="Arugam Bay slide 2"></button>
+                <button type="button" class="kandy-indicator" data-index="2" aria-label="Arugam Bay slide 3"></button>
+                <button type="button" class="kandy-indicator" data-index="3" aria-label="Arugam Bay slide 4"></button>
+                <button type="button" class="kandy-indicator" data-index="4" aria-label="Arugam Bay slide 5"></button>
+                <button type="button" class="kandy-indicator" data-index="5" aria-label="Arugam Bay slide 6"></button>
+                <button type="button" class="kandy-indicator" data-index="6" aria-label="Arugam Bay slide 7"></button>
+            </div>
+        </section>
+
+        <section id="ellaHeroSlider" class="kandy-hero hidden" aria-label="Ella slideshow">
+            <div class="kandy-hero-slider">
+                <div class="kandy-slide active" style="background-image: url('assets/images/ella/ella1.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/ella/ella3.jpg');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/ella/Gemini_Generated_Image_1f27zh1f27zh1f27.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/ella/Gemini_Generated_Image_420c9a420c9a420c.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/ella/Gemini_Generated_Image_6f5ukr6f5ukr6f5u.png');"></div>
+                <div class="kandy-slide" style="background-image: url('assets/images/ella/Gemini_Generated_Image_8fpcxn8fpcxn8fpc.png');"></div>
+                <div class="kandy-slider-overlay"></div>
+            </div>
+            <div class="kandy-slider-indicators" id="ellaHeroIndicators">
+                <button type="button" class="kandy-indicator active" data-index="0" aria-label="Ella slide 1"></button>
+                <button type="button" class="kandy-indicator" data-index="1" aria-label="Ella slide 2"></button>
+                <button type="button" class="kandy-indicator" data-index="2" aria-label="Ella slide 3"></button>
+                <button type="button" class="kandy-indicator" data-index="3" aria-label="Ella slide 4"></button>
+                <button type="button" class="kandy-indicator" data-index="4" aria-label="Ella slide 5"></button>
+                <button type="button" class="kandy-indicator" data-index="5" aria-label="Ella slide 6"></button>
             </div>
         </section>
 
@@ -129,6 +171,23 @@
 
             <section class="trip-details-grid">
                 <article class="trip-card">
+                    <h2>Tour Overview</h2>
+                    <p id="tripOverview"></p>
+                    <ul id="tripQuickFacts" class="trip-highlights-list"></ul>
+                </article>
+
+                <article class="trip-card">
+                    <h2>Daily Plan</h2>
+                    <div id="tripDayPlans"></div>
+                </article>
+
+                <article class="trip-card">
+                    <h2>Accommodation & Meals</h2>
+                    <div id="tripStayPlan" class="trip-plan"></div>
+                    <div id="tripMealPlan" class="trip-plan trip-plan-spaced"></div>
+                </article>
+
+                <article class="trip-card">
                     <h2>Highlights</h2>
                     <ul id="tripHighlights" class="trip-highlights-list">
                         <li>Temporary highlight item</li>
@@ -141,6 +200,10 @@
             </div>
         </div>
     </main>
+
+    <a href="https://wa.me/94740910780" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
 
     <script src="js/script.js"></script>
 </body>

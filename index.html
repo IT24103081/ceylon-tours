@@ -43,25 +43,11 @@
     <section class="hero" id="home">
         <!-- Slideshow Background -->
         <div class="hero-slider" id="heroSlider">
-            <div class="slide active" style="background-image: url('assets/images/slideshow1.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/images/slideshow2.jpg');"></div>
-            <div class="slide" style="background-image: url('assets/images/slideshow3.jpg');"></div>
+            <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="Sri Lanka travel highlights video background">
+                <source src="assets/images/Image_Slideshow_Video_Creation.mp4" type="video/mp4">
+            </video>
             <div class="slider-overlay"></div>
-        </div>
-
-        <!-- Slideshow Controls -->
-        <div class="slider-controls">
-            <button class="slide-nav prev" id="slidePrev" aria-label="Previous slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <div class="slide-indicators" id="slideIndicators">
-                <span class="indicator active" data-index="0"></span>
-                <span class="indicator" data-index="1"></span>
-                <span class="indicator" data-index="2"></span>
-            </div>
-            <button class="slide-nav next" id="slideNext" aria-label="Next slide">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
+            <div class="hero-watermark-mask" aria-hidden="true"></div>
         </div>
 
         <div class="container hero-content">
@@ -70,23 +56,15 @@
                 <h1>Tailor-made island travel designed around your pace.</h1>
                 <p class="hero-lead">Discover heritage cities, wild safaris, tea country, and coastal retreats with a team that knows Sri Lanka deeply.</p>
                 <div class="hero-actions">
-                    <button class="cta-button">PLAN MY TRIP</button>
+                    <a href="inquire.html" class="cta-button">INQUIRE NOW</a>
                     <a href="#experiences" class="cta-link">EXPLORE EXPERIENCES</a>
                 </div>
             </div>
             
             <div class="hero-metrics">
                 <div class="metric-item glass">
-                    <span>76+</span>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="metric-item glass">
                     <span>24/7</span>
                     <p>On-Tour Support</p>
-                </div>
-                <div class="metric-item glass">
-                    <span>1000+</span>
-                    <p>Happy Travelers</p>
                 </div>
             </div>
         </div>
@@ -299,6 +277,10 @@
             </div>
         </div>
     </footer>
+
+    <a href="https://wa.me/94740910780" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
 
     <script src="js/script.js"></script>
 </body>
