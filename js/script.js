@@ -695,10 +695,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const udawalaweHeroSlider = document.getElementById('udawalaweHeroSlider');
+    const yalaHeroSlider = document.getElementById('yalaHeroSlider');
+    const polonnaruwaHeroSlider = document.getElementById('polonnaruwaHeroSlider');
+    const habaranaHeroSlider = document.getElementById('habaranaHeroSlider');
     const sigiriyaDambullaHeroSlider = document.getElementById('sigiriyaDambullaHeroSlider');
     const kandyHeroSlider = document.getElementById('kandyHeroSlider');
     const arugamBayHeroSlider = document.getElementById('arugamBayHeroSlider');
     const ellaHeroSlider = document.getElementById('ellaHeroSlider');
+    const ellaAdventureHeroSlider = document.getElementById('ellaAdventureHeroSlider');
+    const haputaleBalangodaHeroSlider = document.getElementById('haputaleBalangodaHeroSlider');
+    const negomboHeroSlider = document.getElementById('negomboHeroSlider');
     const nuwaraEliyaHeroSlider = document.getElementById('nuwaraEliyaHeroSlider');
 
     if (!dayLabel || !title || !description || !highlights) {
@@ -839,6 +845,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (udawalaweHeroSlider) {
         udawalaweHeroSlider.classList.add('hidden');
     }
+    if (yalaHeroSlider) {
+        yalaHeroSlider.classList.add('hidden');
+    }
+    if (polonnaruwaHeroSlider) {
+        polonnaruwaHeroSlider.classList.add('hidden');
+    }
+    if (habaranaHeroSlider) {
+        habaranaHeroSlider.classList.add('hidden');
+    }
     if (sigiriyaDambullaHeroSlider) {
         sigiriyaDambullaHeroSlider.classList.add('hidden');
     }
@@ -851,6 +866,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ellaHeroSlider) {
         ellaHeroSlider.classList.add('hidden');
     }
+    if (ellaAdventureHeroSlider) {
+        ellaAdventureHeroSlider.classList.add('hidden');
+    }
+    if (haputaleBalangodaHeroSlider) {
+        haputaleBalangodaHeroSlider.classList.add('hidden');
+    }
+    if (negomboHeroSlider) {
+        negomboHeroSlider.classList.add('hidden');
+    }
     if (nuwaraEliyaHeroSlider) {
         nuwaraEliyaHeroSlider.classList.add('hidden');
     }
@@ -861,6 +885,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (day === '02' && udawalaweHeroSlider) {
         udawalaweHeroSlider.classList.remove('hidden');
         initHeroSlider(udawalaweHeroSlider);
+    } else if (day === '03' && yalaHeroSlider) {
+        yalaHeroSlider.classList.remove('hidden');
+        initHeroSlider(yalaHeroSlider);
+    } else if (day === '05' && polonnaruwaHeroSlider) {
+        polonnaruwaHeroSlider.classList.remove('hidden');
+        initHeroSlider(polonnaruwaHeroSlider);
+    } else if (day === '06' && habaranaHeroSlider) {
+        habaranaHeroSlider.classList.remove('hidden');
+        initHeroSlider(habaranaHeroSlider);
     } else if (day === '07' && sigiriyaDambullaHeroSlider) {
         sigiriyaDambullaHeroSlider.classList.remove('hidden');
         initHeroSlider(sigiriyaDambullaHeroSlider);
@@ -876,8 +909,17 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (day === '04' && arugamBayHeroSlider) {
         arugamBayHeroSlider.classList.remove('hidden');
         initHeroSlider(arugamBayHeroSlider);
-    } else if ((day === '11' || day === '12') && ellaHeroSlider) {
+    } else if (day === '11' && ellaHeroSlider) {
         ellaHeroSlider.classList.remove('hidden');
         initHeroSlider(ellaHeroSlider);
+    } else if (day === '12' && ellaAdventureHeroSlider) {
+        ellaAdventureHeroSlider.classList.remove('hidden');
+        initHeroSlider(ellaAdventureHeroSlider);
+    } else if (day === '13' && haputaleBalangodaHeroSlider) {
+        haputaleBalangodaHeroSlider.classList.remove('hidden');
+        initHeroSlider(haputaleBalangodaHeroSlider);
+    } else if (day === '14' && negomboHeroSlider) {
+        negomboHeroSlider.classList.remove('hidden');
+        initHeroSlider(negomboHeroSlider);
     }
 });
