@@ -695,9 +695,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const udawalaweHeroSlider = document.getElementById('udawalaweHeroSlider');
+    const sigiriyaDambullaHeroSlider = document.getElementById('sigiriyaDambullaHeroSlider');
     const kandyHeroSlider = document.getElementById('kandyHeroSlider');
     const arugamBayHeroSlider = document.getElementById('arugamBayHeroSlider');
     const ellaHeroSlider = document.getElementById('ellaHeroSlider');
+    const nuwaraEliyaHeroSlider = document.getElementById('nuwaraEliyaHeroSlider');
 
     if (!dayLabel || !title || !description || !highlights) {
         return;
@@ -837,6 +839,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (udawalaweHeroSlider) {
         udawalaweHeroSlider.classList.add('hidden');
     }
+    if (sigiriyaDambullaHeroSlider) {
+        sigiriyaDambullaHeroSlider.classList.add('hidden');
+    }
     if (kandyHeroSlider) {
         kandyHeroSlider.classList.add('hidden');
     }
@@ -846,6 +851,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ellaHeroSlider) {
         ellaHeroSlider.classList.add('hidden');
     }
+    if (nuwaraEliyaHeroSlider) {
+        nuwaraEliyaHeroSlider.classList.add('hidden');
+    }
 
     if (day === '01' && galleHeroSlider) {
         galleHeroSlider.classList.remove('hidden');
@@ -853,12 +861,18 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (day === '02' && udawalaweHeroSlider) {
         udawalaweHeroSlider.classList.remove('hidden');
         initHeroSlider(udawalaweHeroSlider);
+    } else if (day === '07' && sigiriyaDambullaHeroSlider) {
+        sigiriyaDambullaHeroSlider.classList.remove('hidden');
+        initHeroSlider(sigiriyaDambullaHeroSlider);
     } else if (day === '08' && anuradhapuraHeroSlider) {
         anuradhapuraHeroSlider.classList.remove('hidden');
         initHeroSlider(anuradhapuraHeroSlider);
     } else if (day === '09' && kandyHeroSlider) {
         kandyHeroSlider.classList.remove('hidden');
         initHeroSlider(kandyHeroSlider);
+    } else if (day === '10' && nuwaraEliyaHeroSlider) {
+        nuwaraEliyaHeroSlider.classList.remove('hidden');
+        initHeroSlider(nuwaraEliyaHeroSlider);
     } else if (day === '04' && arugamBayHeroSlider) {
         arugamBayHeroSlider.classList.remove('hidden');
         initHeroSlider(arugamBayHeroSlider);
