@@ -694,6 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleMealPlan = document.getElementById('galleMealPlan');
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
+    const udawalaweHeroSlider = document.getElementById('udawalaweHeroSlider');
     const kandyHeroSlider = document.getElementById('kandyHeroSlider');
     const arugamBayHeroSlider = document.getElementById('arugamBayHeroSlider');
     const ellaHeroSlider = document.getElementById('ellaHeroSlider');
@@ -833,6 +834,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (anuradhapuraHeroSlider) {
         anuradhapuraHeroSlider.classList.add('hidden');
     }
+    if (udawalaweHeroSlider) {
+        udawalaweHeroSlider.classList.add('hidden');
+    }
     if (kandyHeroSlider) {
         kandyHeroSlider.classList.add('hidden');
     }
@@ -846,6 +850,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (day === '01' && galleHeroSlider) {
         galleHeroSlider.classList.remove('hidden');
         initHeroSlider(galleHeroSlider);
+    } else if (day === '02' && udawalaweHeroSlider) {
+        udawalaweHeroSlider.classList.remove('hidden');
+        initHeroSlider(udawalaweHeroSlider);
     } else if (day === '08' && anuradhapuraHeroSlider) {
         anuradhapuraHeroSlider.classList.remove('hidden');
         initHeroSlider(anuradhapuraHeroSlider);
