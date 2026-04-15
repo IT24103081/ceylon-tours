@@ -8,6 +8,40 @@ if (newsletterForm) {
     });
 }
 
+// Inquiry Form Handling (mailto fallback for static hosting)
+const inquiryForm = document.getElementById('inquiryForm');
+if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const data = new FormData(inquiryForm);
+        const firstName = (data.get('firstName') || '').toString().trim();
+        const lastName = (data.get('lastName') || '').toString().trim();
+        const email = (data.get('email') || '').toString().trim();
+        const phone = (data.get('phone') || '').toString().trim();
+        const travelDate = (data.get('travelDate') || '').toString().trim();
+        const adults = (data.get('adults') || '').toString().trim();
+        const children = (data.get('children') || '').toString().trim();
+        const message = (data.get('message') || '').toString().trim();
+
+        const subject = encodeURIComponent('New Tour Inquiry - Golden Island Tours');
+        const bodyLines = [
+            'Full Name: ' + [firstName, lastName].filter(Boolean).join(' '),
+            'Email: ' + email,
+            'Phone / WhatsApp: ' + (phone || 'N/A'),
+            'Expected Travel Date: ' + (travelDate || 'N/A'),
+            'Adults: ' + (adults || 'N/A'),
+            'Children: ' + (children || 'N/A'),
+            '',
+            'Trip Details:',
+            message || 'N/A'
+        ];
+
+        const body = encodeURIComponent(bodyLines.join('\n'));
+        window.location.href = 'mailto:contact@goldenislandtours.com?subject=' + subject + '&body=' + body;
+    });
+}
+
 // Active Navigation Link
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section');
