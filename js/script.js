@@ -1,3 +1,75 @@
+const splashStorageKey = 'ceylonToursSplashSeen';
+const shouldShowSplash = (() => {
+    try {
+        return !sessionStorage.getItem(splashStorageKey);
+    } catch (_error) {
+        return true;
+    }
+})();
+
+const initSplashScreen = () => {
+    const splashScreen = document.querySelector('.splash-screen');
+
+    if (!splashScreen) {
+        return;
+    }
+
+    if (!shouldShowSplash) {
+        splashScreen.remove();
+        return;
+    }
+
+    try {
+        sessionStorage.setItem(splashStorageKey, '1');
+    } catch (_error) {
+        // Ignore storage failures.
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    const hideSplash = () => {
+        if (splashScreen.classList.contains('is-hidden')) {
+            return;
+        }
+
+        splashScreen.classList.add('is-hidden');
+        document.body.style.overflow = '';
+
+        window.setTimeout(() => {
+            try {
+                if (splashScreen && splashScreen.parentNode) {
+                    splashScreen.remove();
+                }
+            } catch (_error) {
+                // Ignore removal errors.
+            }
+        }, 500);
+    };
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        window.setTimeout(hideSplash, 1400);
+    } else {
+        window.addEventListener('load', () => {
+            window.setTimeout(hideSplash, 1400);
+        }, { once: true });
+    }
+
+    // Failsafe: force remove splash after 3 seconds if still present
+    window.setTimeout(() => {
+        const splash = document.querySelector('.splash-screen');
+        if (splash && splash.parentNode) {
+            splash.remove();
+            document.body.style.overflow = '';
+        }
+    }, 3000);
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSplashScreen, { once: true });
+} else {
+    initSplashScreen();
+}
+
 // Newsletter Form Handling
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
