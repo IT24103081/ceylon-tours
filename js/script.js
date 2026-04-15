@@ -7,60 +7,67 @@ const shouldShowSplash = (() => {
     }
 })();
 
-function createSplashScreen() {
-    let splash = document.querySelector('.splash-screen');
+const initSplashScreen = () => {
+    const splashScreen = document.querySelector('.splash-screen');
 
-    if (!splash) {
-        splash = document.createElement('div');
-        splash.className = 'splash-screen';
-        splash.setAttribute('aria-label', 'Loading Golden Island Tours');
-        splash.innerHTML = `
-            <div class="splash-screen__content">
-                <img src="assets/splashscreen.png" class="splash-screen__logo" alt="Golden Island Tours">
-                <div class="splash-screen__loader" aria-hidden="true"></div>
-            </div>
-        `;
-        document.body.appendChild(splash);
+    if (!splashScreen) {
+        return;
     }
-
-    return splash;
-}
-
-if (document.body) {
-    const splashScreen = createSplashScreen();
 
     if (!shouldShowSplash) {
         splashScreen.remove();
-    } else {
-        try {
-            sessionStorage.setItem(splashStorageKey, '1');
-        } catch (_error) {
-            // Ignore storage failures and still show the splash for this load.
-        }
-
-        const hideSplash = () => {
-            if (!splashScreen || splashScreen.classList.contains('is-hidden')) {
-                return;
-            }
-
-            splashScreen.classList.add('is-hidden');
-            document.body.style.overflow = '';
-
-            window.setTimeout(() => {
-                splashScreen.remove();
-            }, 500);
-        };
-
-        document.body.style.overflow = 'hidden';
-
-        if (document.readyState === 'complete') {
-            window.setTimeout(hideSplash, 1400);
-        } else {
-            window.addEventListener('load', () => {
-                window.setTimeout(hideSplash, 1400);
-            }, { once: true });
-        }
+        return;
     }
+
+    try {
+        sessionStorage.setItem(splashStorageKey, '1');
+    } catch (_error) {
+        // Ignore storage failures.
+    }
+
+    document.body.style.overflow = 'hidden';
+
+    const hideSplash = () => {
+        if (splashScreen.classList.contains('is-hidden')) {
+            return;
+        }
+
+        splashScreen.classList.add('is-hidden');
+        document.body.style.overflow = '';
+
+        window.setTimeout(() => {
+            try {
+                if (splashScreen && splashScreen.parentNode) {
+                    splashScreen.remove();
+                }
+            } catch (_error) {
+                // Ignore removal errors.
+            }
+        }, 500);
+    };
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        window.setTimeout(hideSplash, 1400);
+    } else {
+        window.addEventListener('load', () => {
+            window.setTimeout(hideSplash, 1400);
+        }, { once: true });
+    }
+
+    // Failsafe: force remove splash after 3 seconds if still present
+    window.setTimeout(() => {
+        const splash = document.querySelector('.splash-screen');
+        if (splash && splash.parentNode) {
+            splash.remove();
+            document.body.style.overflow = '';
+        }
+    }, 3000);
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSplashScreen, { once: true });
+} else {
+    initSplashScreen();
 }
 
 // Newsletter Form Handling
