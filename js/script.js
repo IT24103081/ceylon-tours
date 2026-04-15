@@ -8,48 +8,58 @@ const shouldShowSplash = (() => {
 })();
 
 function createSplashScreen() {
-    const splash = document.createElement('div');
-    splash.className = 'splash-screen';
-    splash.setAttribute('aria-label', 'Loading Golden Island Tours');
-    splash.innerHTML = `
-        <div class="splash-screen__content">
-            <img src="assets/splashscreen.png" class="splash-screen__logo" alt="Golden Island Tours">
-            <div class="splash-screen__loader" aria-hidden="true"></div>
-        </div>
-    `;
-    document.body.appendChild(splash);
+    let splash = document.querySelector('.splash-screen');
+
+    if (!splash) {
+        splash = document.createElement('div');
+        splash.className = 'splash-screen';
+        splash.setAttribute('aria-label', 'Loading Golden Island Tours');
+        splash.innerHTML = `
+            <div class="splash-screen__content">
+                <img src="assets/splashscreen.png" class="splash-screen__logo" alt="Golden Island Tours">
+                <div class="splash-screen__loader" aria-hidden="true"></div>
+            </div>
+        `;
+        document.body.appendChild(splash);
+    }
+
     return splash;
 }
 
-if (shouldShowSplash && document.body) {
-    try {
-        sessionStorage.setItem(splashStorageKey, '1');
-    } catch (_error) {
-        // Ignore storage failures and still show the splash for this load.
-    }
-
+if (document.body) {
     const splashScreen = createSplashScreen();
-    const hideSplash = () => {
-        if (!splashScreen || splashScreen.classList.contains('is-hidden')) {
-            return;
+
+    if (!shouldShowSplash) {
+        splashScreen.remove();
+    } else {
+        try {
+            sessionStorage.setItem(splashStorageKey, '1');
+        } catch (_error) {
+            // Ignore storage failures and still show the splash for this load.
         }
 
-        splashScreen.classList.add('is-hidden');
-        document.body.style.overflow = '';
+        const hideSplash = () => {
+            if (!splashScreen || splashScreen.classList.contains('is-hidden')) {
+                return;
+            }
 
-        window.setTimeout(() => {
-            splashScreen.remove();
-        }, 500);
-    };
+            splashScreen.classList.add('is-hidden');
+            document.body.style.overflow = '';
 
-    document.body.style.overflow = 'hidden';
+            window.setTimeout(() => {
+                splashScreen.remove();
+            }, 500);
+        };
 
-    if (document.readyState === 'complete') {
-        window.setTimeout(hideSplash, 900);
-    } else {
-        window.addEventListener('load', () => {
-            window.setTimeout(hideSplash, 900);
-        }, { once: true });
+        document.body.style.overflow = 'hidden';
+
+        if (document.readyState === 'complete') {
+            window.setTimeout(hideSplash, 1400);
+        } else {
+            window.addEventListener('load', () => {
+                window.setTimeout(hideSplash, 1400);
+            }, { once: true });
+        }
     }
 }
 

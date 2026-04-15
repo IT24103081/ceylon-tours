@@ -60,21 +60,23 @@ body {
 .splash-screen__content {
     display: grid;
     place-items: center;
-    gap: 1.1rem;
-    padding: 2rem;
+    gap: 1.35rem;
+    padding: 2.25rem;
     text-align: center;
 }
 
 .splash-screen__logo {
-    width: min(320px, 72vw);
+    width: min(520px, 82vw);
+    max-height: 58vh;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 14px 30px rgba(8, 127, 216, 0.16));
+    filter: drop-shadow(0 18px 36px rgba(8, 127, 216, 0.14));
+    transform: scale(1.04);
 }
 
 .splash-screen__loader {
-    width: 130px;
-    height: 3px;
+    width: min(180px, 50vw);
+    height: 4px;
     overflow: hidden;
     border-radius: 999px;
     background: rgba(8, 127, 216, 0.12);
