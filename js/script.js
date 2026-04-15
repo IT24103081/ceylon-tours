@@ -378,70 +378,60 @@ const tripDetailsData = {
         videoText: 'Temporary placeholder: upload Day 3 Yala videos later.'
     },
     '04': {
-        title: 'Arugam Bay Surf & Lagoon',
-        description: 'A beach and lagoon day in Arugam Bay centered on surfing, laid-back coastal vibes, and a cabana stay.',
-        overview: 'Stay one night in cabanas with breakfast, lunch, and dinner from a 5-star rated hotel while you enjoy the surf and lagoon.',
-        quickFacts: ['1 Night in Cabanas', 'Surfing Focus', 'Lagoon Experience', 'Meals from 5-Star Hotel'],
+        title: 'Day 4 - Arugam Bay (1 Night)',
+        description: 'Travel to Arugam Bay, a famous coastal destination known for its relaxed vibe and great surfing spots, with an overnight stay in comfortable beachside cabanas.',
+        overview: 'Spend your day experiencing the best of Arugam Bay, with a strong focus on surfing. Whether you are a beginner or experienced, the waves here offer an exciting and fun experience. You will also enjoy a peaceful lagoon experience where you can explore calm waters, spot birds, and take in the natural beauty of the surroundings.',
+        quickFacts: ['1 Night in Arugam Bay', 'Beachside Cabanas', 'Surfing for All Levels', 'Peaceful Lagoon Experience', 'Meals at Selected 5-Star Rated Hotels'],
         dayPlans: [
             {
-                title: 'Surf and Beach Time',
+                title: 'Day 4 | Surf, Lagoon, and Coastal Relaxation',
                 items: [
-                    'Spend the day around Arugam Bay with a focus on surfing and the beach.',
-                    'Enjoy the relaxed east coast atmosphere and sunset.'
-                ]
-            },
-            {
-                title: 'Lagoon Experience and Cabana Stay',
-                items: [
-                    'Add a lagoon experience or boat outing where timing allows.',
-                    'Sleep in cabanas for a true coastal escape.'
+                    'Travel to Arugam Bay and settle into your beachside cabana stay.',
+                    'Enjoy surfing at Arugam Bay, with waves suitable for both beginners and experienced surfers.',
+                    'Take a peaceful lagoon experience through calm waters with opportunities for bird watching.',
+                    'Relax in the tropical coastal atmosphere before your overnight stay.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in cabanas at Arugam Bay',
-            'A relaxed east coast base with easy beach access'
+            '1 night in comfortable beachside cabanas in Arugam Bay',
+            'Relaxed coastal stay with easy access to the beach and surf points'
         ],
         mealPlan: [
-            'Breakfast: from the 5-star rated hotel',
-            'Lunch: from the 5-star rated hotel',
-            'Dinner: from the 5-star rated hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Arugam Bay', 'Surfing', 'Lagoon Experience', 'Cabana Stay'],
+        highlights: ['Arugam Bay', 'Surfing Experience', 'Lagoon and Birdlife', 'Beachside Cabana Stay', 'Tropical East Coast Atmosphere'],
         photoText: 'Temporary placeholder: upload Day 4 Arugam Bay photos later.',
         videoText: 'Temporary placeholder: upload Day 4 Arugam Bay videos later.'
     },
     '05': {
-        title: 'Polonnaruwa Heritage Loop',
-        description: 'A day of religious and archaeological heritage around Polonnaruwa with nearby wildlife viewing options.',
-        overview: 'Stay one night in a 5-star hotel while exploring ancient religious sites and the surrounding park and lake network.',
-        quickFacts: ['1 Night in a 5-Star Hotel', 'Religious and Heritage Sites', 'Minneriya Option', 'Kaudulla Lake Option'],
+        title: 'Day 6 - Polonnaruwa (1 Night)',
+        description: 'Travel to the historic city of Polonnaruwa, known for rich cultural heritage and ancient religious landmarks, with an overnight stay and evening wildlife experience.',
+        overview: 'Visit sacred Polonnaruwa Vatadage, continue to Gal Vihara with its impressive rock-carved Buddha statues, and enjoy views of Parakrama Samudra, a vast ancient reservoir showcasing advanced early Sri Lankan engineering. In the evening, experience wildlife at Minneriya National Park or Kaudulla National Park, where large elephant gatherings are often seen.',
+        quickFacts: ['1 Night in Polonnaruwa', 'Polonnaruwa Vatadage', 'Gal Vihara', 'Parakrama Samudra', 'Minneriya or Kaudulla Wildlife Safari', 'Meals at Selected 5-Star Rated Hotels'],
         dayPlans: [
             {
-                title: 'Ancient City Highlights',
+                title: 'Day 6 | Heritage Monuments and Wildlife Safari',
                 items: [
-                    'Visit Vatadage and Gal Viharaya for the classic Polonnaruwa heritage circuit.',
-                    'See Parakrama Samudra and the ancient royal city landscape.'
-                ]
-            },
-            {
-                title: 'Wildlife Add-On',
-                items: [
-                    'Add Minneriya National Park or Kaudulla Lake depending on timing and wildlife movement.',
-                    'Return to a comfortable 5-star hotel for the night.'
+                    'Travel to Polonnaruwa and begin with the sacred Vatadage, a beautifully preserved circular monument.',
+                    'Continue to Gal Vihara to see the famous rock-carved Buddha statues.',
+                    'Visit Parakrama Samudra and enjoy the scale of this historic ancient reservoir.',
+                    'In the evening, take a wildlife safari in Minneriya or Kaudulla National Park for possible elephant gatherings and other wildlife sightings.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in a 5-star hotel in the Polonnaruwa area',
-            'A comfortable base for heritage sightseeing and wildlife viewing'
+            '1 night stay in the Polonnaruwa area with convenient access to heritage sites',
+            'Comfortable overnight base before continuing the journey'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Vatadage', 'Gal Viharaya', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla Lake'],
+        highlights: ['Polonnaruwa Vatadage', 'Gal Vihara', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla National Park', 'Elephant Gatherings'],
         photoText: 'Temporary placeholder: upload Day 5 Polonnaruwa photos later.',
         videoText: 'Temporary placeholder: upload Day 5 Polonnaruwa videos later.'
     },
@@ -741,6 +731,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const galleTourDetails = document.getElementById('galleTourDetails');
     const udawalaweTourDetails = document.getElementById('udawalaweTourDetails');
     const yalaTourDetails = document.getElementById('yalaTourDetails');
+    const polonnaruwaTourDetails = document.getElementById('polonnaruwaTourDetails');
+    const arugamBayTourDetails = document.getElementById('arugamBayTourDetails');
     const galleTourOverview = document.getElementById('galleTourOverview');
     const galleQuickFacts = document.getElementById('galleQuickFacts');
     const galleDayPlans = document.querySelectorAll('[data-galle-day-plan]');
@@ -756,6 +748,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const yalaDayPlan = document.getElementById('yalaDayPlan');
     const yalaStayPlan = document.getElementById('yalaStayPlan');
     const yalaMealPlan = document.getElementById('yalaMealPlan');
+    const polonnaruwaTourOverview = document.getElementById('polonnaruwaTourOverview');
+    const polonnaruwaQuickFacts = document.getElementById('polonnaruwaQuickFacts');
+    const polonnaruwaDayPlan = document.getElementById('polonnaruwaDayPlan');
+    const polonnaruwaStayPlan = document.getElementById('polonnaruwaStayPlan');
+    const polonnaruwaMealPlan = document.getElementById('polonnaruwaMealPlan');
+    const arugamBayTourOverview = document.getElementById('arugamBayTourOverview');
+    const arugamBayQuickFacts = document.getElementById('arugamBayQuickFacts');
+    const arugamBayDayPlan = document.getElementById('arugamBayDayPlan');
+    const arugamBayStayPlan = document.getElementById('arugamBayStayPlan');
+    const arugamBayMealPlan = document.getElementById('arugamBayMealPlan');
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const udawalaweHeroSlider = document.getElementById('udawalaweHeroSlider');
@@ -783,27 +785,49 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = detail.title;
     description.textContent = detail.description;
 
-    if (genericTripDetails && galleTourDetails && udawalaweTourDetails && yalaTourDetails) {
+    if (genericTripDetails && galleTourDetails && udawalaweTourDetails && yalaTourDetails && polonnaruwaTourDetails && arugamBayTourDetails) {
         if (day === '01') {
             genericTripDetails.classList.add('hidden');
             galleTourDetails.classList.remove('hidden');
             udawalaweTourDetails.classList.add('hidden');
             yalaTourDetails.classList.add('hidden');
+            polonnaruwaTourDetails.classList.add('hidden');
+            arugamBayTourDetails.classList.add('hidden');
         } else if (day === '02') {
             genericTripDetails.classList.add('hidden');
             galleTourDetails.classList.add('hidden');
             udawalaweTourDetails.classList.remove('hidden');
             yalaTourDetails.classList.add('hidden');
+            polonnaruwaTourDetails.classList.add('hidden');
+            arugamBayTourDetails.classList.add('hidden');
         } else if (day === '03') {
             genericTripDetails.classList.add('hidden');
             galleTourDetails.classList.add('hidden');
             udawalaweTourDetails.classList.add('hidden');
             yalaTourDetails.classList.remove('hidden');
+            polonnaruwaTourDetails.classList.add('hidden');
+            arugamBayTourDetails.classList.add('hidden');
+        } else if (day === '05') {
+            genericTripDetails.classList.add('hidden');
+            galleTourDetails.classList.add('hidden');
+            udawalaweTourDetails.classList.add('hidden');
+            yalaTourDetails.classList.add('hidden');
+            polonnaruwaTourDetails.classList.remove('hidden');
+            arugamBayTourDetails.classList.add('hidden');
+        } else if (day === '04') {
+            genericTripDetails.classList.add('hidden');
+            galleTourDetails.classList.add('hidden');
+            udawalaweTourDetails.classList.add('hidden');
+            yalaTourDetails.classList.add('hidden');
+            polonnaruwaTourDetails.classList.add('hidden');
+            arugamBayTourDetails.classList.remove('hidden');
         } else {
             genericTripDetails.classList.remove('hidden');
             galleTourDetails.classList.add('hidden');
             udawalaweTourDetails.classList.add('hidden');
             yalaTourDetails.classList.add('hidden');
+            polonnaruwaTourDetails.classList.add('hidden');
+            arugamBayTourDetails.classList.add('hidden');
         }
     }
 
@@ -882,7 +906,55 @@ document.addEventListener("DOMContentLoaded", () => {
         yalaMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
     }
 
-    if (day !== '01' && day !== '02' && day !== '03' && overview && quickFacts && dayPlans && stayPlan && mealPlan) {
+    if (day === '04' && arugamBayTourOverview && arugamBayQuickFacts && arugamBayDayPlan && arugamBayStayPlan && arugamBayMealPlan) {
+        arugamBayTourOverview.textContent = detail.overview || detail.description;
+
+        arugamBayQuickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            arugamBayQuickFacts.appendChild(li);
+        });
+
+        const firstPlan = (detail.dayPlans && detail.dayPlans[0]) || null;
+        if (firstPlan) {
+            arugamBayDayPlan.innerHTML = `
+                <h3>${firstPlan.title}</h3>
+                <ul>${firstPlan.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+            `;
+        } else {
+            arugamBayDayPlan.innerHTML = '';
+        }
+
+        arugamBayStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        arugamBayMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
+
+    if (day === '05' && polonnaruwaTourOverview && polonnaruwaQuickFacts && polonnaruwaDayPlan && polonnaruwaStayPlan && polonnaruwaMealPlan) {
+        polonnaruwaTourOverview.textContent = detail.overview || detail.description;
+
+        polonnaruwaQuickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            polonnaruwaQuickFacts.appendChild(li);
+        });
+
+        const firstPlan = (detail.dayPlans && detail.dayPlans[0]) || null;
+        if (firstPlan) {
+            polonnaruwaDayPlan.innerHTML = `
+                <h3>${firstPlan.title}</h3>
+                <ul>${firstPlan.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+            `;
+        } else {
+            polonnaruwaDayPlan.innerHTML = '';
+        }
+
+        polonnaruwaStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        polonnaruwaMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
+
+    if (day !== '01' && day !== '02' && day !== '03' && day !== '04' && day !== '05' && overview && quickFacts && dayPlans && stayPlan && mealPlan) {
         overview.textContent = detail.overview || detail.description;
 
         quickFacts.innerHTML = '';
