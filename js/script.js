@@ -183,10 +183,21 @@ if (heroVideo) {
         }
     };
 
+    const showHeroVideo = () => {
+        heroVideo.classList.add('is-ready');
+    };
+
+    heroVideo.addEventListener('loadeddata', showHeroVideo, { once: true });
+    heroVideo.addEventListener('canplay', showHeroVideo, { once: true });
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', tuneHeroVideo);
     } else {
         tuneHeroVideo();
+    }
+
+    if (heroVideo.readyState >= 2) {
+        showHeroVideo();
     }
 }
 
@@ -238,6 +249,20 @@ document.addEventListener("DOMContentLoaded", () => {
 // Accordion Logic
 document.addEventListener("DOMContentLoaded", () => {
     const accordions = document.querySelectorAll('.accordion-header');
+
+    const syncAccordionHeights = () => {
+        accordions.forEach((acc) => {
+            const panel = acc.nextElementSibling;
+            if (!panel) return;
+
+            if (acc.classList.contains('active')) {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                panel.style.maxHeight = null;
+            }
+        });
+    };
+
     accordions.forEach(acc => {
         acc.addEventListener('click', function() {
             this.classList.toggle('active');
@@ -249,113 +274,106 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    syncAccordionHeights();
+    window.addEventListener('resize', syncAccordionHeights);
 });
 
 const tripDetailsData = {
     '01': {
-        title: 'Galle Coastal Escape',
-        description: 'A relaxed 2-night Galle getaway with heritage sites, beach time, wildlife experiences, and a luxury villa stay.',
-        overview: 'Spend 2 nights in Galle with breakfast at the villa each morning. Lunch and dinner are taken out, giving you plenty of flexibility while you enjoy the coast at a comfortable pace.',
-        quickFacts: ['2 Nights in Galle', '5-Star Villa Stay', 'Breakfast at the villa', 'Lunch out', 'Dinner out'],
+        title: 'Day 1 & Day 2 - Galle Stay (2 Nights)',
+        description: 'Spend two relaxing nights in the coastal city of Galle, staying in a luxury 5-star villa with a calm and comfortable atmosphere.',
+        overview: 'This short stay in Galle offers a perfect mix of beach time, nature, and local experiences in a relaxing coastal setting. You stay two nights in a luxury 5-star villa, with breakfast served at the villa each day and lunch and dinner enjoyed at selected local restaurants.',
+        quickFacts: ['2 Nights in Galle', 'Luxury 5-Star Villa', 'Beach + Nature + Local Experiences', 'Breakfast at Villa', 'Lunch & Dinner at Selected Local Restaurants'],
         dayPlans: [
             {
-                title: 'Day 1 | Galle Fort, Beach Time, and Peace Pagoda',
+                title: 'Day 1 | Galle Fort, Beach Relaxation, and Peace Pagoda',
                 items: [
-                    'Explore Galle Fort and the old Dutch quarter at an easy pace.',
-                    'Choose Unawatuna Beach or Jungle Beach for swimming or snorkeling.',
-                    'Visit the Japanese Peace Pagoda for a calm sunset viewpoint.',
-                    'Return to your 5-star villa for the night after lunch and dinner out.'
+                    'Explore beautiful Galle Fort, known for charming streets, sea views, and lively surroundings.',
+                    'Enjoy time at Unawatuna Beach or Jungle Beach to relax, swim, or try snorkeling in clear waters.',
+                    'Visit the peaceful Japanese Peace Pagoda, a perfect place for quiet moments and scenic coastal views.',
+                    'Return to your luxury villa for a calm and comfortable overnight stay.'
                 ]
             },
             {
-                title: 'Day 2 | Turtle Hatchery, Koggala Lake, and Stilt Fishing',
+                title: 'Day 2 | Turtle Hatchery, Koggala Lake, and Stick Fishing',
                 items: [
-                    'Visit the Habaraduwa Turtle Hatchery to see conservation work up close.',
-                    'Enjoy a Koggala Lake safari and the surrounding lagoon scenery.',
-                    'Stop for a traditional stilt fishing experience and photos.',
-                    'Breakfast is served at the villa, with lunch and dinner out again.'
+                    'Start with breakfast at the villa before visiting the Habaraduwa Turtle Hatchery to see and learn about sea turtles.',
+                    'Take a relaxing boat ride on Koggala Lake, surrounded by mangroves and small islands.',
+                    'See traditional Sri Lankan stick fishing, a unique and interesting local activity.',
+                    'Enjoy lunch and dinner at selected local restaurants to experience authentic coastal flavors.'
                 ]
             }
         ],
         stayPlan: [
-            '2 nights in a 5-star villa in Galle',
-            'Private, comfortable accommodation for a relaxed coastal break',
-            'Ideal for couples, families, or small private groups'
+            '2 nights in a luxury 5-star villa in Galle',
+            'Calm and comfortable atmosphere with quality service',
+            'Great for couples, families, and private small groups'
         ],
         mealPlan: [
-            'Breakfast: from the villa',
-            'Lunch: out',
-            'Dinner: out'
+            'Breakfast: served at the villa each day',
+            'Lunch: at selected local restaurants',
+            'Dinner: at selected local restaurants'
         ],
-        highlights: ['Galle Fort', 'Unawatuna Beach', 'Jungle Beach', 'Japanese Peace Pagoda', 'Habaraduwa Turtle Hatchery', 'Koggala Lake Safari', 'Stilt Fishing'],
+        highlights: ['Galle Fort', 'Unawatuna Beach', 'Jungle Beach', 'Japanese Peace Pagoda', 'Habaraduwa Turtle Hatchery', 'Koggala Lake', 'Traditional Stick Fishing'],
         photoText: 'Temporary placeholder: upload Day 1 Galle photos later.',
         videoText: 'Temporary placeholder: upload Day 1 Galle videos later.'
     },
     '02': {
-        title: 'Udawalawe Safari Stop',
-        description: 'A wildlife-focused stop in Udawalawe with a morning safari and a relaxed night near the park.',
-        overview: 'Stay one night near Udawalawe National Park with breakfast and lunch from the villa, then enjoy dinner out after your safari day.',
-        quickFacts: ['1 Night Near Udawalawe Park', 'Morning Safari', 'Breakfast and Lunch at the Villa', 'Dinner Out'],
+        title: 'Day 2 - Udawalawe (1 Night)',
+        description: 'Travel to Udawalawe for an exciting wildlife experience and a peaceful one-night stay close to nature in a comfortable villa near the national park.',
+        overview: 'Start your day early with a morning safari at Udawalawe National Park, one of the best places in Sri Lanka to see wild elephants in their natural habitat. The park is also home to buffalo, deer, crocodiles, and many bird species, offering a true safari adventure. After the safari, return to your villa near the park for a relaxing breakfast and lunch surrounded by nature, then enjoy a calm afternoon at leisure before dinner at a selected local restaurant.',
+        quickFacts: ['1 Night in Udawalawe', 'Morning Safari Adventure', 'Comfortable Villa Stay Near the Park', 'Wildlife: Elephants, Deer, Buffalo, Birds', 'Breakfast & Lunch at Villa | Dinner Out'],
         dayPlans: [
             {
-                title: 'Morning Safari',
+                title: 'Day 2 | Safari, Nature, and Relaxed Evening',
                 items: [
-                    'Head out early for a morning safari in Udawalawe National Park.',
-                    'Look for elephants and other wildlife in open grassland and reservoir views.'
-                ]
-            },
-            {
-                title: 'Eco Stay Near the Park',
-                items: [
-                    'Relax at a villa or eco stay close to the park after the safari.',
-                    'Enjoy dinner out before settling in for the night.'
+                    'Leave early for a morning safari in Udawalawe National Park to see wild elephants and other wildlife in natural surroundings.',
+                    'After safari, return to the villa and enjoy a peaceful breakfast and lunch close to nature.',
+                    'Spend the afternoon at leisure in the calm environment near the park.',
+                    'In the evening, head out for dinner at a selected local restaurant.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in an eco stay or villa near Udawalawe National Park',
-            'Comfortable base for the safari and early departure next day'
+            '1 night in a comfortable villa near Udawalawe National Park',
+            'Peaceful nature stay ideal for safari timing and relaxation'
         ],
         mealPlan: [
-            'Breakfast: from the villa',
-            'Lunch: from the villa',
-            'Dinner: out'
+            'Breakfast: at the villa',
+            'Lunch: at the villa',
+            'Dinner: at a selected local restaurant'
         ],
-        highlights: ['Udawalawe National Park', 'Morning Safari', 'Elephant Viewing', 'Eco Stay Near Park'],
+        highlights: ['Udawalawe National Park', 'Morning Safari', 'Wild Elephants', 'Buffalo, Deer, Crocodiles, and Birds', 'Calm Villa Stay in Nature'],
         photoText: 'Temporary placeholder: upload Day 2 Udawalawe photos later.',
         videoText: 'Temporary placeholder: upload Day 2 Udawalawe videos later.'
     },
     '03': {
-        title: 'Yala Leopard Country',
-        description: 'A scenic transfer to Yala with a strong focus on leopard sightings and an eco stay near the park.',
-        overview: 'Spend one night near Yala National Park in an eco stay, with breakfast, lunch, and dinner from the villa near the park.',
-        quickFacts: ['1 Night Near Yala Park', 'Leopard Focus', 'Eco Stay', 'All Meals from Villa'],
+        title: 'Day 3 - Yala (1 Night)',
+        description: 'Continue your journey to Yala for an exciting wildlife experience, with one night in an eco-friendly villa close to the park and surrounded by nature.',
+        overview: 'Visit Yala National Park, one of the best places in the world to spot leopards. Enjoy a thrilling safari where you may see leopards, elephants, crocodiles, and a wide variety of birds in their natural environment. After the safari, relax at your eco-stay near the park, enjoying the peaceful atmosphere and natural surroundings.',
+        quickFacts: ['1 Night in Yala', 'Yala National Park Safari', 'Leopard, Elephant, Crocodile & Bird Sightings', 'Eco-Friendly Villa Near the Park', 'All Meals at the Villa'],
         dayPlans: [
             {
-                title: 'Yala Safari Drive',
+                title: 'Day 3 | Yala Safari and Eco-Stay',
                 items: [
-                    'Set out for a safari in Yala National Park with a focus on leopards.',
-                    'Enjoy birdlife, dry-zone forest, and open plains.'
-                ]
-            },
-            {
-                title: 'Eco Stay and Rest',
-                items: [
-                    'Return to an eco stay near the park for a relaxed evening.',
-                    'Meals are served from the villa throughout the day.'
+                    'Continue to Yala for an exciting wildlife-focused day and overnight nature stay.',
+                    'Explore Yala National Park on safari, one of the best places in the world to spot leopards.',
+                    'Look for elephants, crocodiles, and a wide variety of birds in their natural habitat.',
+                    'After safari, return to your eco-friendly villa near the park and unwind in peaceful surroundings.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in an eco stay near Yala National Park',
-            'Ideal for an early start and a quiet wildlife-focused evening'
+            '1 night in an eco-friendly villa near Yala National Park',
+            'Nature-focused stay with a calm and comfortable atmosphere'
         ],
         mealPlan: [
-            'Breakfast: from the villa',
-            'Lunch: from the villa',
-            'Dinner: from the villa'
+            'Breakfast: at the villa',
+            'Lunch: at the villa',
+            'Dinner: at the villa'
         ],
-        highlights: ['Yala National Park', 'Leopard Safari', 'Eco Stay', 'Birdlife and Dry-Zone Landscapes'],
+        highlights: ['Yala National Park', 'Leopard Spotting Safari', 'Elephants and Crocodiles', 'Rich Birdlife', 'Eco-Friendly Villa Stay'],
         photoText: 'Temporary placeholder: upload Day 3 Yala photos later.',
         videoText: 'Temporary placeholder: upload Day 3 Yala videos later.'
     },
@@ -721,11 +739,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const highlights = document.getElementById('tripHighlights');
     const genericTripDetails = document.getElementById('genericTripDetails');
     const galleTourDetails = document.getElementById('galleTourDetails');
+    const udawalaweTourDetails = document.getElementById('udawalaweTourDetails');
+    const yalaTourDetails = document.getElementById('yalaTourDetails');
     const galleTourOverview = document.getElementById('galleTourOverview');
     const galleQuickFacts = document.getElementById('galleQuickFacts');
     const galleDayPlans = document.querySelectorAll('[data-galle-day-plan]');
     const galleStayPlan = document.getElementById('galleStayPlan');
     const galleMealPlan = document.getElementById('galleMealPlan');
+    const udawalaweTourOverview = document.getElementById('udawalaweTourOverview');
+    const udawalaweQuickFacts = document.getElementById('udawalaweQuickFacts');
+    const udawalaweDayPlan = document.getElementById('udawalaweDayPlan');
+    const udawalaweStayPlan = document.getElementById('udawalaweStayPlan');
+    const udawalaweMealPlan = document.getElementById('udawalaweMealPlan');
+    const yalaTourOverview = document.getElementById('yalaTourOverview');
+    const yalaQuickFacts = document.getElementById('yalaQuickFacts');
+    const yalaDayPlan = document.getElementById('yalaDayPlan');
+    const yalaStayPlan = document.getElementById('yalaStayPlan');
+    const yalaMealPlan = document.getElementById('yalaMealPlan');
     const galleHeroSlider = document.getElementById('galleHeroSlider');
     const anuradhapuraHeroSlider = document.getElementById('anuradhapuraHeroSlider');
     const udawalaweHeroSlider = document.getElementById('udawalaweHeroSlider');
@@ -753,13 +783,27 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = detail.title;
     description.textContent = detail.description;
 
-    if (genericTripDetails && galleTourDetails) {
+    if (genericTripDetails && galleTourDetails && udawalaweTourDetails && yalaTourDetails) {
         if (day === '01') {
             genericTripDetails.classList.add('hidden');
             galleTourDetails.classList.remove('hidden');
+            udawalaweTourDetails.classList.add('hidden');
+            yalaTourDetails.classList.add('hidden');
+        } else if (day === '02') {
+            genericTripDetails.classList.add('hidden');
+            galleTourDetails.classList.add('hidden');
+            udawalaweTourDetails.classList.remove('hidden');
+            yalaTourDetails.classList.add('hidden');
+        } else if (day === '03') {
+            genericTripDetails.classList.add('hidden');
+            galleTourDetails.classList.add('hidden');
+            udawalaweTourDetails.classList.add('hidden');
+            yalaTourDetails.classList.remove('hidden');
         } else {
             genericTripDetails.classList.remove('hidden');
             galleTourDetails.classList.add('hidden');
+            udawalaweTourDetails.classList.add('hidden');
+            yalaTourDetails.classList.add('hidden');
         }
     }
 
@@ -790,7 +834,55 @@ document.addEventListener("DOMContentLoaded", () => {
         galleMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
     }
 
-    if (day !== '01' && overview && quickFacts && dayPlans && stayPlan && mealPlan) {
+    if (day === '02' && udawalaweTourOverview && udawalaweQuickFacts && udawalaweDayPlan && udawalaweStayPlan && udawalaweMealPlan) {
+        udawalaweTourOverview.textContent = detail.overview || detail.description;
+
+        udawalaweQuickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            udawalaweQuickFacts.appendChild(li);
+        });
+
+        const firstPlan = (detail.dayPlans && detail.dayPlans[0]) || null;
+        if (firstPlan) {
+            udawalaweDayPlan.innerHTML = `
+                <h3>${firstPlan.title}</h3>
+                <ul>${firstPlan.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+            `;
+        } else {
+            udawalaweDayPlan.innerHTML = '';
+        }
+
+        udawalaweStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        udawalaweMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
+
+    if (day === '03' && yalaTourOverview && yalaQuickFacts && yalaDayPlan && yalaStayPlan && yalaMealPlan) {
+        yalaTourOverview.textContent = detail.overview || detail.description;
+
+        yalaQuickFacts.innerHTML = '';
+        (detail.quickFacts || []).forEach((item) => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            yalaQuickFacts.appendChild(li);
+        });
+
+        const firstPlan = (detail.dayPlans && detail.dayPlans[0]) || null;
+        if (firstPlan) {
+            yalaDayPlan.innerHTML = `
+                <h3>${firstPlan.title}</h3>
+                <ul>${firstPlan.items.map((item) => `<li>${item}</li>`).join('')}</ul>
+            `;
+        } else {
+            yalaDayPlan.innerHTML = '';
+        }
+
+        yalaStayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+        yalaMealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+    }
+
+    if (day !== '01' && day !== '02' && day !== '03' && overview && quickFacts && dayPlans && stayPlan && mealPlan) {
         overview.textContent = detail.overview || detail.description;
 
         quickFacts.innerHTML = '';
