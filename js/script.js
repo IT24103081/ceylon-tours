@@ -1,3 +1,58 @@
+const splashStorageKey = 'ceylonToursSplashSeen';
+const shouldShowSplash = (() => {
+    try {
+        return !sessionStorage.getItem(splashStorageKey);
+    } catch (_error) {
+        return true;
+    }
+})();
+
+function createSplashScreen() {
+    const splash = document.createElement('div');
+    splash.className = 'splash-screen';
+    splash.setAttribute('aria-label', 'Loading Golden Island Tours');
+    splash.innerHTML = `
+        <div class="splash-screen__content">
+            <img src="assets/splashscreen.png" class="splash-screen__logo" alt="Golden Island Tours">
+            <div class="splash-screen__loader" aria-hidden="true"></div>
+        </div>
+    `;
+    document.body.appendChild(splash);
+    return splash;
+}
+
+if (shouldShowSplash && document.body) {
+    try {
+        sessionStorage.setItem(splashStorageKey, '1');
+    } catch (_error) {
+        // Ignore storage failures and still show the splash for this load.
+    }
+
+    const splashScreen = createSplashScreen();
+    const hideSplash = () => {
+        if (!splashScreen || splashScreen.classList.contains('is-hidden')) {
+            return;
+        }
+
+        splashScreen.classList.add('is-hidden');
+        document.body.style.overflow = '';
+
+        window.setTimeout(() => {
+            splashScreen.remove();
+        }, 500);
+    };
+
+    document.body.style.overflow = 'hidden';
+
+    if (document.readyState === 'complete') {
+        window.setTimeout(hideSplash, 900);
+    } else {
+        window.addEventListener('load', () => {
+            window.setTimeout(hideSplash, 900);
+        }, { once: true });
+    }
+}
+
 // Newsletter Form Handling
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
