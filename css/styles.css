@@ -625,6 +625,7 @@ section {
 
 .footer-middle {
     grid-template-columns: 1fr 1fr;
+    align-self: start;
 }
 
 .footer-info {
@@ -660,6 +661,8 @@ section {
 
 .footer-column {
     display: grid;
+    align-content: start;
+    justify-items: start;
     gap: 0.45rem;
 }
 
