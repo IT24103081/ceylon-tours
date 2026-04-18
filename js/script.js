@@ -70,6 +70,234 @@ if (document.readyState === 'loading') {
     initSplashScreen();
 }
 
+const initToursRouteMap = () => {
+    const routeMapElement = document.getElementById('tourRouteMap');
+    if (!routeMapElement || typeof L === 'undefined') {
+        return;
+    }
+
+    const orsApiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjcyOTcwM2E3ODJiMTRhMWNhYjJiZjhjN2Q4NjY2ODZhIiwiaCI6Im11cm11cjY0In0=';
+    const routeStops = [
+        { day: 'DAY 01', name: 'Galle', lat: 6.0535, lng: 80.2210 },
+        { day: 'DAY 02', name: 'Udawalawe', lat: 6.4746, lng: 80.8883 },
+        { day: 'DAY 03', name: 'Yala', lat: 6.3723, lng: 81.5185 },
+        { day: 'DAY 04', name: 'Arugam Bay', lat: 6.8404, lng: 81.8368 },
+        { day: 'DAY 05', name: 'Polonnaruwa', lat: 7.9403, lng: 81.0188 },
+        { day: 'DAY 06', name: 'Habarana', lat: 8.0343, lng: 80.7505 },
+        { day: 'DAY 07', name: 'Sigiriya & Dambulla', lat: 7.9160, lng: 80.7060 },
+        { day: 'DAY 08', name: 'Anuradhapura', lat: 8.3114, lng: 80.4037 },
+        { day: 'DAY 09', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+        { day: 'DAY 10', name: 'Nuwara Eliya', lat: 6.9497, lng: 80.7891 },
+        { day: 'DAY 11', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+        { day: 'DAY 12', name: 'Ella Adventure', lat: 6.8667, lng: 81.0466 },
+        { day: 'DAY 13', name: 'Haputale & Balangoda', lat: 6.6615, lng: 80.6933 },
+        { day: 'DAY 14', name: 'Negombo', lat: 7.2083, lng: 79.8358 }
+    ];
+
+    const map = L.map(routeMapElement, {
+        zoomControl: true,
+        scrollWheelZoom: false
+    }).setView([7.4, 80.7], 7);
+
+    map.attributionControl.setPrefix(false);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        maxZoom: 20,
+        subdomains: 'abcd',
+        attribution: '&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+
+    const weatherCache = {};
+    const weatherCodeMap = {
+        0: 'Clear sky',
+        1: 'Mainly clear',
+        2: 'Partly cloudy',
+        3: 'Overcast',
+        45: 'Fog',
+        48: 'Rime fog',
+        51: 'Light drizzle',
+        53: 'Moderate drizzle',
+        55: 'Dense drizzle',
+        56: 'Light freezing drizzle',
+        57: 'Dense freezing drizzle',
+        61: 'Slight rain',
+        63: 'Moderate rain',
+        65: 'Heavy rain',
+        66: 'Light freezing rain',
+        67: 'Heavy freezing rain',
+        71: 'Slight snow fall',
+        73: 'Moderate snow fall',
+        75: 'Heavy snow fall',
+        77: 'Snow grains',
+        80: 'Slight rain showers',
+        81: 'Moderate rain showers',
+        82: 'Violent rain showers',
+        85: 'Slight snow showers',
+        86: 'Heavy snow showers',
+        95: 'Thunderstorm',
+        96: 'Thunderstorm with slight hail',
+        99: 'Thunderstorm with heavy hail'
+    };
+
+    const getWeatherContent = async (stop) => {
+        const cacheKey = `${stop.lat},${stop.lng}`;
+        if (weatherCache[cacheKey]) {
+            return weatherCache[cacheKey];
+        }
+
+        try {
+            const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${stop.lat}&longitude=${stop.lng}&current=temperature_2m,apparent_temperature,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`;
+            const response = await fetch(weatherUrl);
+
+            if (!response.ok) {
+                throw new Error(`Weather request failed with ${response.status}`);
+            }
+
+            const data = await response.json();
+            const current = data && data.current;
+
+            if (!current) {
+                throw new Error('No current weather payload');
+            }
+
+            const weatherDescription = weatherCodeMap[current.weather_code] || 'Unknown conditions';
+            const weatherMarkup = [
+                `<strong>${stop.day}</strong><br>${stop.name}`,
+                '<br><br><strong>Weather now</strong>',
+                `<br>${weatherDescription}`,
+                `<br>Temperature: ${Math.round(current.temperature_2m)}°C`,
+                `<br>Feels like: ${Math.round(current.apparent_temperature)}°C`,
+                `<br>Humidity: ${current.relative_humidity_2m}%`,
+                `<br>Wind: ${Math.round(current.wind_speed_10m)} km/h`
+            ].join('');
+
+            weatherCache[cacheKey] = weatherMarkup;
+            return weatherMarkup;
+        } catch (_error) {
+            return `<strong>${stop.day}</strong><br>${stop.name}<br><br><strong>Weather now</strong><br>Weather unavailable right now.`;
+        }
+    };
+
+    const bounds = L.latLngBounds(routeStops.map((stop) => [stop.lat, stop.lng]));
+    map.fitBounds(bounds.pad(0.12));
+
+    routeStops.forEach((stop, index) => {
+        const marker = L.marker([stop.lat, stop.lng], {
+            icon: L.divIcon({
+                className: 'tour-route-stop-marker',
+                html: `${index + 1}`,
+                iconSize: [24, 24],
+                iconAnchor: [12, 12],
+                popupAnchor: [0, -10]
+            })
+        }).addTo(map);
+
+        marker.bindPopup(`<div class="tour-route-popup"><strong>${stop.day}</strong><br>${stop.name}<br><br><strong>Weather now</strong><br>Loading...</div>`);
+
+        marker.on('popupopen', async () => {
+            const weatherMarkup = await getWeatherContent(stop);
+            marker.setPopupContent(`<div class="tour-route-popup">${weatherMarkup}</div>`);
+            marker.getPopup().update();
+        });
+    });
+
+    const fallbackPolyline = L.polyline(routeStops.map((stop) => [stop.lat, stop.lng]), {
+        color: '#0f4e92',
+        weight: 3,
+        opacity: 0.55,
+        dashArray: '7 7',
+        lineJoin: 'round'
+    });
+
+    const drawRoute = async () => {
+        const routingStops = routeStops.filter((stop, index, stops) => {
+            if (index === 0) {
+                return true;
+            }
+
+            const previousStop = stops[index - 1];
+            return stop.lat !== previousStop.lat || stop.lng !== previousStop.lng;
+        });
+
+        const coordinates = routingStops.map((stop) => [stop.lng, stop.lat]);
+        const drawGeoJsonRoute = (geoJson) => {
+            const routeLayer = L.geoJSON(geoJson, {
+                style: {
+                    color: '#087fd8',
+                    weight: 5,
+                    opacity: 0.85
+                }
+            }).addTo(map);
+
+            const routeBounds = routeLayer.getBounds();
+            if (routeBounds.isValid()) {
+                map.fitBounds(routeBounds.pad(0.1));
+            }
+        };
+
+        try {
+            const response = await fetch('https://api.openrouteservice.org/v2/directions/driving-car/geojson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': orsApiKey
+                },
+                body: JSON.stringify({
+                    coordinates
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`OpenRouteService request failed with ${response.status}`);
+            }
+
+            const geoJson = await response.json();
+            drawGeoJsonRoute(geoJson);
+            return;
+        } catch (_error) {
+            // Try a second road-routing provider before falling back to straight segments.
+        }
+
+        try {
+            const osrmCoordinates = coordinates.map((point) => `${point[0]},${point[1]}`).join(';');
+            const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${osrmCoordinates}?overview=full&geometries=geojson`;
+            const response = await fetch(osrmUrl);
+
+            if (!response.ok) {
+                throw new Error(`OSRM request failed with ${response.status}`);
+            }
+
+            const osrmData = await response.json();
+            const routeGeometry = osrmData && osrmData.routes && osrmData.routes[0] && osrmData.routes[0].geometry;
+
+            if (!routeGeometry || !routeGeometry.coordinates || routeGeometry.coordinates.length === 0) {
+                throw new Error('OSRM returned no route geometry');
+            }
+
+            drawGeoJsonRoute({
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {},
+                        geometry: routeGeometry
+                    }
+                ]
+            });
+        } catch (_error) {
+            fallbackPolyline.addTo(map);
+        }
+    };
+
+    drawRoute();
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initToursRouteMap, { once: true });
+} else {
+    initToursRouteMap();
+}
+
 // Newsletter Form Handling
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
