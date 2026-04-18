@@ -1896,6 +1896,24 @@ section {
     display: none !important;
 }
 
+@keyframes slideShowFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideShowZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15);
+    }
+}
+
 .kandy-hero {
     position: relative;
     width: 100%;
@@ -1917,16 +1935,17 @@ section {
     background-position: center 64%;
     background-repeat: no-repeat;
     opacity: 0;
-    transform: none;
-    transition: opacity 0.7s ease;
-    will-change: opacity;
+    transform: scale(1.15);
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity, transform;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
 
 .kandy-slide.active {
     opacity: 1;
-    transform: none;
+    transform: scale(1);
+    animation: slideShowZoom 5s ease-in-out forwards;
 }
 
 .kandy-slider-overlay {
@@ -1942,7 +1961,7 @@ section {
     bottom: 1.3rem;
     transform: translateX(-50%);
     z-index: 3;
-    display: flex;
+    display: none;
     align-items: center;
     gap: 0.5rem;
 }
