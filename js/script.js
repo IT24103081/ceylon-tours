@@ -307,39 +307,99 @@ if (newsletterForm) {
     });
 }
 
-// Inquiry Form Handling (mailto fallback for static hosting)
-const inquiryForm = document.getElementById('inquiryForm');
-if (inquiryForm) {
-    inquiryForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+// Web3Forms AJAX handling to keep users on-site after submit
+const initWeb3Forms = () => {
+    const web3Forms = document.querySelectorAll(
+        '#inquiryForm[action="https://api.web3forms.com/submit"], #contactForm[action="https://api.web3forms.com/submit"]'
+    );
 
-        const data = new FormData(inquiryForm);
-        const firstName = (data.get('firstName') || '').toString().trim();
-        const lastName = (data.get('lastName') || '').toString().trim();
-        const email = (data.get('email') || '').toString().trim();
-        const phone = (data.get('phone') || '').toString().trim();
-        const travelDate = (data.get('travelDate') || '').toString().trim();
-        const adults = (data.get('adults') || '').toString().trim();
-        const children = (data.get('children') || '').toString().trim();
-        const message = (data.get('message') || '').toString().trim();
+    if (web3Forms.length === 0) {
+        return;
+    }
 
-        const subject = encodeURIComponent('New Tour Inquiry - Golden Island Tours');
-        const bodyLines = [
-            'Full Name: ' + [firstName, lastName].filter(Boolean).join(' '),
-            'Email: ' + email,
-            'Phone / WhatsApp: ' + (phone || 'N/A'),
-            'Expected Travel Date: ' + (travelDate || 'N/A'),
-            'Adults: ' + (adults || 'N/A'),
-            'Children: ' + (children || 'N/A'),
-            '',
-            'Trip Details:',
-            message || 'N/A'
-        ];
+    const setFormStatus = (form, isSuccess, message) => {
+        let statusEl = form.querySelector('.form-submit-status');
 
-        const body = encodeURIComponent(bodyLines.join('\n'));
-        window.location.href = 'mailto:contact@goldenislandtours.com?subject=' + subject + '&body=' + body;
+        if (!statusEl) {
+            statusEl = document.createElement('div');
+            statusEl.className = 'form-submit-status';
+            statusEl.setAttribute('aria-live', 'polite');
+            statusEl.style.marginTop = '1rem';
+            statusEl.style.padding = '0.85rem 1rem';
+            statusEl.style.borderRadius = '8px';
+            statusEl.style.fontWeight = '600';
+            statusEl.style.fontSize = '0.95rem';
+            form.appendChild(statusEl);
+        }
+
+        statusEl.textContent = message;
+
+        if (isSuccess) {
+            statusEl.style.backgroundColor = '#e6f7ec';
+            statusEl.style.border = '1px solid #1f9d55';
+            statusEl.style.color = '#166534';
+            return;
+        }
+
+        statusEl.style.backgroundColor = '#fde8e8';
+        statusEl.style.border = '1px solid #e53e3e';
+        statusEl.style.color = '#9b1c1c';
+    };
+
+    web3Forms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (form.id === 'inquiryForm') {
+                const firstName = (form.querySelector('[name="firstName"]')?.value || '').trim();
+                const lastName = (form.querySelector('[name="lastName"]')?.value || '').trim();
+                const fullName = [firstName, lastName].filter(Boolean).join(' ').trim();
+                const hiddenName = form.querySelector('[name="name"]');
+
+                if (hiddenName) {
+                    hiddenName.value = fullName || 'Inquiry Visitor';
+                }
+            }
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const previousText = submitButton ? submitButton.textContent : '';
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'SENDING...';
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error((data && data.message) || 'Form submission failed.');
+                }
+
+                setFormStatus(form, true, 'Thank you! Your message has been sent successfully.');
+                form.reset();
+            } catch (error) {
+                setFormStatus(form, false, 'Submission failed. Please try again in a moment.');
+                console.error('Web3Forms submission error:', error);
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = previousText;
+                }
+            }
+        });
     });
-}
+};
+
+initWeb3Forms();
 
 // Active Navigation Link
 const navLinks = document.querySelectorAll('.nav-link');
