@@ -351,6 +351,69 @@ const initWeb3Forms = () => {
             event.preventDefault();
 
             if (form.id === 'inquiryForm') {
+                const travelDateInput = form.querySelector('#inquiryTravelDate');
+                const tourPackageSelect = form.querySelector('#inquiryTourPackage');
+                const adultsInput = form.querySelector('#inquiryAdults');
+                const childrenInput = form.querySelector('#inquiryChildren');
+
+                if (travelDateInput) {
+                    const today = new Date();
+                    const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+                        .toISOString()
+                        .split('T')[0];
+
+                    if (!travelDateInput.min || travelDateInput.min < localToday) {
+                        travelDateInput.min = localToday;
+                    }
+
+                    if (travelDateInput.value && travelDateInput.value < localToday) {
+                        setFormStatus(form, false, 'Travel date cannot be in the past. Please select today or a future date.');
+                        travelDateInput.setCustomValidity('Please choose today or a future date.');
+                        travelDateInput.reportValidity();
+                        return;
+                    }
+
+                    travelDateInput.setCustomValidity('');
+                }
+
+                const parseTravelerCount = (value) => {
+                    if (!value) {
+                        return 0;
+                    }
+
+                    return Number.parseInt(value, 10) || 0;
+                };
+
+                const adultsCount = parseTravelerCount(adultsInput ? adultsInput.value : '');
+                const childrenCount = parseTravelerCount(childrenInput ? childrenInput.value : '');
+
+                if (adultsInput) {
+                    adultsInput.setCustomValidity('');
+                }
+
+                if (childrenInput) {
+                    childrenInput.setCustomValidity('');
+                }
+
+                if (adultsCount + childrenCount < 1) {
+                    setFormStatus(form, false, 'Please select at least one traveler (adult or child).');
+                    if (adultsInput) {
+                        adultsInput.setCustomValidity('Enter at least one traveler (adult or child).');
+                        adultsInput.reportValidity();
+                    }
+                    return;
+                }
+
+                if (tourPackageSelect) {
+                    tourPackageSelect.setCustomValidity('');
+                }
+
+                if (!form.checkValidity()) {
+                    setFormStatus(form, false, 'Please complete all required inquiry details.');
+                    form.reportValidity();
+                    return;
+                }
+
                 const firstName = (form.querySelector('[name="firstName"]')?.value || '').trim();
                 const lastName = (form.querySelector('[name="lastName"]')?.value || '').trim();
                 const fullName = [firstName, lastName].filter(Boolean).join(' ').trim();
@@ -400,6 +463,43 @@ const initWeb3Forms = () => {
 };
 
 initWeb3Forms();
+
+const initInquiryFormRules = () => {
+    const inquiryForm = document.getElementById('inquiryForm');
+    if (!inquiryForm) {
+        return;
+    }
+
+    const travelDateInput = inquiryForm.querySelector('#inquiryTravelDate');
+    const adultsInput = inquiryForm.querySelector('#inquiryAdults');
+    const childrenInput = inquiryForm.querySelector('#inquiryChildren');
+
+    if (travelDateInput) {
+        const today = new Date();
+        const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+            .toISOString()
+            .split('T')[0];
+        travelDateInput.min = localToday;
+
+        travelDateInput.addEventListener('input', () => {
+            travelDateInput.setCustomValidity('');
+        });
+    }
+
+    if (adultsInput) {
+        adultsInput.addEventListener('input', () => {
+            adultsInput.setCustomValidity('');
+        });
+    }
+
+    if (childrenInput) {
+        childrenInput.addEventListener('input', () => {
+            childrenInput.setCustomValidity('');
+        });
+    }
+};
+
+initInquiryFormRules();
 
 // Active Navigation Link
 const navLinks = document.querySelectorAll('.nav-link');
@@ -603,6 +703,38 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const inquiryTourPackage = document.getElementById('inquiryTourPackage');
+    const inquiryForm = document.getElementById('inquiryForm');
+
+    if (!inquiryTourPackage || !inquiryForm) {
+        return;
+    }
+
+    const childrenInput = inquiryForm.querySelector('#inquiryChildren');
+    if (!childrenInput) {
+        return;
+    }
+
+    const syncChildrenAvailability = () => {
+        const selectedTour = (inquiryTourPackage.value || '').toLowerCase();
+        const isHoneymoonTour = selectedTour.includes('honeymoon');
+
+        childrenInput.disabled = isHoneymoonTour;
+
+        if (isHoneymoonTour) {
+            childrenInput.value = '0';
+            childrenInput.setAttribute('title', 'Children selection is disabled for honeymoon packages.');
+            return;
+        }
+
+        childrenInput.removeAttribute('title');
+    };
+
+    syncChildrenAvailability();
+    inquiryTourPackage.addEventListener('change', syncChildrenAvailability);
 });
 
 // Accordion Logic

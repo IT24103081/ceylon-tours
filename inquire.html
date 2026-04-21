@@ -23,8 +23,6 @@
                     <span class="divider">|</span>
                     <a href="tel:+94740910780" class="contact-item">+94 740910780</a>
                     <span class="divider">|</span>
-                    <a href="tel:+447467496390" class="contact-item">+44 7467496390</a>
-                    <span class="divider">|</span>
                     <a href="mailto:contact@goldenislandtours.com" class="contact-item">contact@goldenislandtours.com</a>
                 </div>
             </div>
@@ -93,33 +91,49 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Phone Number / WhatsApp</label>
-                            <input type="tel" name="phone" class="form-control" placeholder="+1 234 567 8900">
+                            <input type="tel" name="phone" class="form-control" required placeholder="+1 234 567 8900">
                         </div>
                         
                         <div class="form-group full-width">
                             <label class="form-label">Expected Travel Date</label>
-                            <input type="date" name="travelDate" class="form-control">
+                            <input type="date" id="inquiryTravelDate" name="travelDate" class="form-control" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label class="form-label" for="inquiryTourPackage">Tour Package</label>
+                            <select id="inquiryTourPackage" name="tourPackage" class="form-control" required>
+                                <option value="" selected>Choose a tour package</option>
+                                <option value="East Coast Tour">East Coast Tour</option>
+                                <option value="North Coast Tour">North Coast Tour</option>
+                                <option value="Honeymoon Package 1">Honeymoon Package 1</option>
+                                <option value="Honeymoon Package 2">Honeymoon Package 2</option>
+                                <option value="Other Packages">Other Packages</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
                             <label class="form-label">Number of Adults</label>
-                            <select name="adults" class="form-control">
-                                <option>1</option>
-                                <option selected>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5+</option>
-                            </select>
+                            <input id="inquiryAdults" name="adults" class="form-control" type="number" min="0" step="1" list="inquiryAdultsOptions" required placeholder="Select or type adults">
+                            <datalist id="inquiryAdultsOptions">
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                                <option value="4"></option>
+                                <option value="5"></option>
+                                <option value="6"></option>
+                            </datalist>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Number of Children</label>
-                            <select name="children" class="form-control">
-                                <option selected>0</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4+</option>
-                            </select>
+                            <input id="inquiryChildren" name="children" class="form-control" type="number" min="0" step="1" list="inquiryChildrenOptions" required placeholder="Select or type children">
+                            <datalist id="inquiryChildrenOptions">
+                                <option value="0"></option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+                                <option value="4"></option>
+                                <option value="5"></option>
+                            </datalist>
                         </div>
                         
                         <div class="form-group full-width">
@@ -149,10 +163,6 @@
                         <p>Via Berera 29,</p>
                         <p>Milano,</p>
                         <p>20121 (MI), Italy</p>
-                        <p style="margin-top: 0.75rem;">(Address 2 - England)</p>
-                        <p>Hockmore Street,</p>
-                        <p>Oxford,</p>
-                        <p>England</p>
                         <p style="margin-top: 0.75rem;">(Address 3 - Sri Lanka)</p>
                         <p>No 105D,</p>
                         <p>Mathara Road,</p>
@@ -164,7 +174,6 @@
                     <div>
                         <p><a href="tel:+393314886545">+39 3314886545</a></p>
                         <p><a href="tel:+94740910780">+94 740910780</a></p>
-                        <p><a href="tel:+447467496390">+44 7467496390</a></p>
                     </div>
                 </div>
                 <div class="footer-info">

@@ -219,19 +219,21 @@ h3,
 }
 
 .nav-item-dropdown .nav-link {
-    padding-right: 1rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding-right: 0.25rem;
 }
 
 .nav-item-dropdown .nav-link::after {
     content: '';
-    position: absolute;
-    right: 0.2rem;
-    top: 50%;
+    display: inline-block;
     width: 7px;
     height: 7px;
     border-right: 2px solid currentColor;
     border-bottom: 2px solid currentColor;
-    transform: translateY(-65%) rotate(45deg);
+    transform: rotate(45deg);
     opacity: 0.7;
     transition: transform 0.2s ease;
 }
@@ -276,7 +278,7 @@ h3,
 
 .nav-item-dropdown:hover .nav-link::after,
 .nav-item-dropdown:focus-within .nav-link::after {
-    transform: translateY(-35%) rotate(225deg);
+    transform: rotate(225deg) translateY(-1px);
 }
 
 .nav-dropdown-link {
@@ -1444,7 +1446,7 @@ section {
     }
 
     .nav-item-dropdown .nav-link::after {
-        right: -0.9rem;
+        margin-left: 0.2rem;
     }
 
     .nav-dropdown {
