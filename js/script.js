@@ -585,7 +585,7 @@ window.addEventListener('load', () => {
 document.addEventListener("DOMContentLoaded", () => {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-dropdown-link');
     
     if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', () => {
@@ -767,248 +767,312 @@ const tripDetailsData = {
     },
     '05': {
         title: 'Day 6 - Polonnaruwa (1 Night)',
-        description: 'Travel to the historic city of Polonnaruwa, known for rich cultural heritage and ancient religious landmarks, with an overnight stay and evening wildlife experience.',
-        overview: 'Visit sacred Polonnaruwa Vatadage, continue to Gal Vihara with its impressive rock-carved Buddha statues, and enjoy views of Parakrama Samudra, a vast ancient reservoir showcasing advanced early Sri Lankan engineering. In the evening, experience wildlife at Minneriya National Park or Kaudulla National Park, where large elephant gatherings are often seen.',
-        quickFacts: ['1 Night in Polonnaruwa', 'Polonnaruwa Vatadage', 'Gal Vihara', 'Parakrama Samudra', 'Minneriya or Kaudulla Wildlife Safari', 'Meals at Selected 5-Star Rated Hotels'],
+        description: 'Travel to the historic city of Polonnaruwa, known for its rich cultural heritage and ancient religious sites. Stay overnight while exploring some of Sri Lanka\'s most important historical landmarks.',
+        overview: 'Visit the sacred Polonnaruwa Vatadage, a beautifully preserved circular structure with religious significance. Continue to Gal Vihara, famous for its impressive rock-carved Buddha statues. You will also see Parakrama Samudra, a vast ancient reservoir that showcases the advanced engineering of early Sri Lankan civilization. In the evening, enjoy a wildlife experience at either Minneriya National Park or Kaudulla National Park, where you may witness large gatherings of elephants and other wildlife in their natural habitat.',
+        quickFacts: ['1 Night in Polonnaruwa', 'Polonnaruwa Vatadage (Sacred Circular Structure)', 'Gal Vihara (Rock-Carved Buddha Statues)', 'Parakrama Samudra (Ancient Reservoir)', 'Minneriya or Kaudulla Wildlife Safari', 'Breakfast, Lunch & Dinner at Selected 5-Star Rated Hotels'],
         dayPlans: [
             {
-                title: 'Day 6 | Heritage Monuments and Wildlife Safari',
+                title: 'Day 6 | Polonnaruwa Heritage Sites and Wildlife Safari',
                 items: [
-                    'Travel to Polonnaruwa and begin with the sacred Vatadage, a beautifully preserved circular monument.',
-                    'Continue to Gal Vihara to see the famous rock-carved Buddha statues.',
-                    'Visit Parakrama Samudra and enjoy the scale of this historic ancient reservoir.',
-                    'In the evening, take a wildlife safari in Minneriya or Kaudulla National Park for possible elephant gatherings and other wildlife sightings.'
+                    'Travel to Polonnaruwa and visit the sacred Polonnaruwa Vatadage, a beautifully preserved circular structure with profound religious significance.',
+                    'Continue to Gal Vihara to witness the impressive rock-carved Buddha statues carved into the natural rock face.',
+                    'Visit Parakrama Samudra, a vast ancient reservoir that showcases the advanced engineering and hydraulic technology of early Sri Lankan civilization.',
+                    'In the evening, take a wildlife safari in Minneriya or Kaudulla National Park where you may witness large gatherings of elephants and other wildlife in their natural habitat.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night stay in the Polonnaruwa area with convenient access to heritage sites',
-            'Comfortable overnight base before continuing the journey'
+            '1 night stay in the Polonnaruwa area with access to heritage sites',
+            'Comfortable overnight base in a selected 5-star rated hotel'
         ],
         mealPlan: [
             'Breakfast: at selected 5-star rated hotels',
             'Lunch: at selected 5-star rated hotels',
             'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Polonnaruwa Vatadage', 'Gal Vihara', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla National Park', 'Elephant Gatherings'],
+        highlights: ['Polonnaruwa Vatadage', 'Gal Vihara', 'Rock-Carved Buddha Statues', 'Parakrama Samudra', 'Minneriya National Park', 'Kaudulla National Park', 'Elephant Gatherings', 'Ancient Engineering'],
         photoText: 'Temporary placeholder: upload Day 5 Polonnaruwa photos later.',
         videoText: 'Temporary placeholder: upload Day 5 Polonnaruwa videos later.'
     },
     '06': {
-        title: 'Habarana Village Stay',
-        description: 'A relaxed stop in Habarana with a village-style experience and a comfortable hotel base.',
-        overview: 'Enjoy a 5-star hotel stay in the Habarana area with breakfast, lunch, and dinner all taken at the hotel.',
-        quickFacts: ['1 Night in Habarana', 'Village Experience', '5-Star Hotel', 'All Meals at Hotel'],
+        title: 'Habarana (1 Night)',
+        description: 'Travel to the peaceful area of Habarana and enjoy a relaxing stay surrounded by nature, lakes, and village life.',
+        overview: 'Spend one night in Habarana with a traditional village experience that includes local farming activities, interaction with villagers, a village walk, traditional cooking, and a relaxing boat ride on a quiet lake. Breakfast, lunch, and dinner are served at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Habarana', 'Traditional Village Experience', 'Lake Boat Ride', 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
-                title: 'Habarana Village Experience',
+                title: 'Village Experience and Lake Time',
                 items: [
-                    'Spend time in Habarana village and enjoy the local rural atmosphere.',
-                    'Use the area as a calm base before Sigiriya and Dambulla.'
+                    'Take part in a traditional village walk and see local farming activities.',
+                    'Interact with villagers and enjoy the simple rural lifestyle of Sri Lanka.',
+                    'Enjoy a calm boat ride on a quiet lake before returning to the hotel.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in a 5-star hotel in Habarana',
-            'Comfortable central base for the cultural triangle'
+            '1 night in Habarana at a selected 5-star rated hotel',
+            'Relaxing nature-based stay with easy access to the cultural triangle'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Habarana Village', 'Rural Experience', '5-Star Hotel Stay', 'Central Cultural Triangle Base'],
+        highlights: ['Habarana Village', 'Lake Ride', 'Rural Life', '5-Star Hotel Meals'],
+        galleryTitle: 'Day 6 Gallery | Habarana Village Life',
+        galleryItems: [
+            { src: 'assets/images/habarana/pexels-buddh-sharan-sahu-2109761-13436699.webp', alt: 'Calm lakeside views in Habarana', caption: 'Calm lakeside views around Habarana' },
+            { src: 'assets/images/habarana/pexels-dana-cruz-364767400-14697225.webp', alt: 'Traditional village life in Habarana', caption: 'Traditional village life in Habarana' },
+            { src: 'assets/images/habarana/pexels-inguaribile-viaggiatore-8806145-7015742.webp', alt: 'Local farming scenes in Habarana', caption: 'Local farming and rural scenery' },
+            { src: 'assets/images/habarana/pexels-ralfsziigurs-20321536.webp', alt: 'Quiet nature moments in Habarana', caption: 'Quiet nature moments in the Habarana area' },
+            { src: 'assets/images/habarana/pexels-renjith-tomy-pkm-138432405-11466145.webp', alt: 'Village boat ride in Habarana', caption: 'Village boat ride through peaceful waters' },
+            { src: 'assets/images/habarana/sheila-c-FQi-RnPG92M-unsplash.webp', alt: 'Sunset over Habarana landscape', caption: 'Sunset over Habarana\'s calm landscape' }
+        ],
         photoText: 'Temporary placeholder: upload Day 6 Habarana photos later.',
         videoText: 'Temporary placeholder: upload Day 6 Habarana videos later.'
     },
     '07': {
         title: 'Sigiriya & Dambulla',
-        description: 'The classic cultural triangle day with Sigiriya Rock Fortress and Dambulla Cave Temple.',
-        overview: 'Continue the Habarana-area stay with breakfast, lunch, and dinner from the hotel while visiting the region’s landmark heritage sites.',
-        quickFacts: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Second Night in Habarana Area', 'All Meals at Hotel'],
+        description: 'After breakfast, visit the famous Sigiriya Rock Fortress and continue to the historic Dambulla Cave Temple.',
+        overview: 'Climb Sigiriya Rock Fortress for stunning views of the surrounding landscape while passing ancient frescoes and gardens. Continue to Dambulla Cave Temple, a historic complex built inside natural caves with impressive Buddha statues and wall paintings. Enjoy all meals at selected 5-star rated hotels.',
+        quickFacts: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Ancient Frescoes', 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
                 title: 'Sigiriya Rock Fortress',
                 items: [
-                    'Visit Sigiriya Rock Fortress for the main climb and panorama views.',
-                    'Take time for photos and the surrounding gardens.'
+                    'Visit Sigiriya Rock Fortress for the main climb and sweeping views.',
+                    'Pass ancient frescoes and beautiful gardens along the way.'
                 ]
             },
             {
                 title: 'Dambulla Cave Temple',
                 items: [
                     'Continue to Dambulla Cave Temple for painted caves and religious history.',
-                    'Return to the hotel for a relaxed evening meal.'
+                    'See Buddha statues and wall paintings inside the natural caves.'
                 ]
             }
         ],
         stayPlan: [
-            'Second night in the Habarana area at a 5-star hotel',
-            'Ideal for a smooth cultural triangle route'
+            'Second night in the Habarana area at a selected 5-star rated hotel',
+            'Ideal base for the cultural triangle route'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Habarana Area', 'Cultural Triangle'],
+        highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Ancient Frescoes', 'Cultural Triangle'],
+        galleryTitle: 'Day 7 Gallery | Sigiriya and Dambulla',
+        galleryItems: [
+            { src: 'assets/images/sigiriya-dambulla/agnieszka-stankiewicz-bkfBxbI7a1g-unsplash.webp', alt: 'Sigiriya Rock Fortress rising above the plains', caption: 'Sigiriya Rock Fortress above the plains' },
+            { src: 'assets/images/sigiriya-dambulla/filiz-elaerts-TSNwuN9IdOk-unsplash.webp', alt: 'Ancient path and gardens at Sigiriya', caption: 'Ancient pathways and gardens at Sigiriya' },
+            { src: 'assets/images/sigiriya-dambulla/Gemini_Generated_Image_8lee3p8lee3p8lee.webp', alt: 'Sigiriya sunrise views', caption: 'Sigiriya views at sunrise' },
+            { src: 'assets/images/sigiriya-dambulla/matt-dany-1ul4-hqm48M-unsplash.webp', alt: 'Gardens and heritage surroundings at Sigiriya', caption: 'Gardens and heritage surroundings' },
+            { src: 'assets/images/sigiriya-dambulla/pexels-harsha-samaranayake-303340503-13391116.webp', alt: 'Dambulla Cave Temple interior', caption: 'Dambulla Cave Temple interior' },
+            { src: 'assets/images/sigiriya-dambulla/pexels-kseniya-buraya-124360874-10610942.webp', alt: 'Buddha statues and cave paintings in Dambulla', caption: 'Buddha statues and cave paintings' }
+        ],
         photoText: 'Temporary placeholder: upload Day 7 Sigiriya photos later.',
         videoText: 'Temporary placeholder: upload Day 7 Sigiriya videos later.'
     },
     '08': {
         title: 'Anuradhapura Sacred City',
-        description: 'A full heritage day in Anuradhapura focused on sacred monuments and ancient city landmarks.',
-        overview: 'Stay one night in a 5-star hotel while exploring the most important religious and archaeological places in the ancient capital.',
-        quickFacts: ['1 Night in Anuradhapura', 'Sacred City Focus', '5-Star Hotel', 'Meals at Hotel'],
+        description: 'Travel to Anuradhapura, one of Sri Lanka’s most important spiritual and historical cities.',
+        overview: 'Visit sacred places including Ruwanwelisaya, Jaya Sri Maha Bodhi, Thuparamaya, Jetavanaramaya, and Abhayagiri Monastery. You will also visit Tissa Wewa, a peaceful lake that adds to the beauty of the area. This day offers a deep cultural and spiritual experience, with opportunities to learn about Sri Lanka’s rich history. All meals are provided at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Anuradhapura', 'Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
                 title: 'Sacred Monuments',
                 items: [
                     'See Ruwanwelisaya and Jaya Sri Maha Bodhi, the key pilgrimage stops in the city.',
-                    'Continue to Thuparamaya and Jethawanaramaya.'
+                    'Continue to Thuparamaya and Jethawanaramaya for more sacred heritage.'
                 ]
             },
             {
                 title: 'Ancient City Circuit',
                 items: [
-                    'Visit Abhayagiriya and Tissa Lake to round out the heritage circuit.',
+                    'Visit Abhayagiriya and Tissa Wewa to round out the heritage circuit.',
                     'Return to the hotel for the night.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in a 5-star hotel in Anuradhapura',
+            '1 night in Anuradhapura at a selected 5-star rated hotel',
             'Comfortable stay for a full sacred city program'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jethawanaramaya', 'Abhayagiriya', 'Tissa Lake'],
+        highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jetavanaramaya', 'Abhayagiri Monastery', 'Tissa Wewa'],
+        galleryTitle: 'Day 8 Gallery | Anuradhapura Sacred City',
+        galleryItems: [
+            { src: 'assets/images/anuradhapura/anuradhapura1.webp', alt: 'Ruwanwelisaya sacred stupa', caption: 'Ruwanwelisaya sacred stupa' },
+            { src: 'assets/images/anuradhapura/anuradhapura2.webp', alt: 'Jaya Sri Maha Bodhi pilgrimage site', caption: 'Jaya Sri Maha Bodhi pilgrimage site' },
+            { src: 'assets/images/anuradhapura/Gemini_Generated_Image_2jewxq2jewxq2jew.webp', alt: 'Thuparamaya and ancient ruins', caption: 'Thuparamaya and ancient ruins' },
+            { src: 'assets/images/anuradhapura/anuradhapura-whatsapp.webp', alt: 'Tissa Wewa lakeside views', caption: 'Peaceful views of Tissa Wewa' },
+            { src: 'assets/images/anuradhapura/anuradhapura1.webp', alt: 'Jetavanaramaya monument view', caption: 'Jetavanaramaya monument view' },
+            { src: 'assets/images/anuradhapura/anuradhapura2.webp', alt: 'Abhayagiri monastery atmosphere', caption: 'Abhayagiri monastery atmosphere' }
+        ],
         photoText: 'Temporary placeholder: upload Day 8 Anuradhapura photos later.',
         videoText: 'Temporary placeholder: upload Day 8 Anuradhapura videos later.'
     },
     '09': {
-        title: 'Kandy Cultural Capital',
-        description: 'A cultural day in Kandy with the Temple of the Tooth and Peradeniya Botanic Gardens.',
-        overview: 'Stay one night in a 5-star hotel in Kandy with breakfast and lunch from the hotel while you explore the city’s best-known landmarks.',
-        quickFacts: ['1 Night in Kandy', 'Temple of the Tooth', 'Peradeniya Botanical Garden', 'Breakfast and Lunch at Hotel'],
+        title: 'Kandy (1 Night)',
+        description: 'Continue your journey to Kandy, a beautiful city surrounded by mountains and greenery.',
+        overview: 'Visit the sacred Temple of the Sacred Tooth Relic, an important religious site visited by people from around the world. Then explore the lush Royal Botanic Gardens, Peradeniya, home to a wide variety of plants, trees, and orchids. Breakfast and lunch will be served at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Kandy', 'Temple of the Sacred Tooth Relic', 'Royal Botanic Gardens, Peradeniya', 'Breakfast and Lunch at Selected 5-Star Rated Hotels'],
         dayPlans: [
             {
-                title: 'Temple of the Tooth',
+                title: 'Temple of the Sacred Tooth Relic',
                 items: [
-                    'Visit the Temple of the Tooth, Kandy’s most important religious site.',
+                    'Visit the Temple of the Sacred Tooth Relic, one of the country’s most important religious sites.',
                     'Take in the atmosphere around the lake and city center.'
                 ]
             },
             {
-                title: 'Peradeniya Botanical Garden',
+                title: 'Royal Botanic Gardens, Peradeniya',
                 items: [
-                    'Continue to Royal Botanic Gardens Peradeniya for a relaxed scenic walk.',
-                    'Spend the evening in Kandy before dinner and overnight stay.'
+                    'Continue to Royal Botanic Gardens, Peradeniya for a relaxed scenic walk.',
+                    'Spend the evening in Kandy before overnight stay.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in a 5-star hotel in Kandy',
+            '1 night in Kandy at a selected 5-star rated hotel',
             'Central base for temple and garden sightseeing'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: out'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at own arrangement'
         ],
-        highlights: ['Temple of the Tooth', 'Royal Botanic Gardens Peradeniya', 'Kandy Lake', 'Cultural City Views'],
+        highlights: ['Temple of the Sacred Tooth Relic', 'Royal Botanic Gardens, Peradeniya', 'Kandy Lake', 'Mountain City Views'],
+        galleryTitle: 'Day 9 Gallery | Kandy Temple and Gardens',
+        galleryItems: [
+            { src: 'assets/images/kandy/kandy-2.webp', alt: 'Kandy lake and city views', caption: 'Kandy lake and city views' },
+            { src: 'assets/images/kandy/Kandy-04.webp', alt: 'Temple of the Sacred Tooth Relic', caption: 'Temple of the Sacred Tooth Relic' },
+            { src: 'assets/images/kandy/kandy5.webp', alt: 'Royal Botanic Gardens in Peradeniya', caption: 'Royal Botanic Gardens in Peradeniya' },
+            { src: 'assets/images/kandy/Visit-Ramboda-Falls-2.webp', alt: 'Hill-country waterfall views near Kandy', caption: 'Hill-country waterfall views' },
+            { src: 'assets/images/kandy/Gemini_Generated_Image_lm2rlilm2rlilm2r.webp', alt: 'Cultural city views in Kandy', caption: 'Cultural city views in Kandy' },
+            { src: 'assets/images/kandy/Gemini_Generated_Image_5oohdx5oohdx5ooh.webp', alt: 'Green mountain scenery around Kandy', caption: 'Green mountain scenery around Kandy' }
+        ],
         photoText: 'Temporary placeholder: upload Day 9 Kandy photos later.',
         videoText: 'Temporary placeholder: upload Day 9 Kandy videos later.'
     },
     '10': {
-        title: 'Nuwara Eliya Highlands',
-        description: 'A cool-climate highland day with tea-country scenery, parks, and open landscapes.',
-        overview: 'Enjoy a 5-star hotel stay in Nuwara Eliya with breakfast, lunch, and dinner from the hotel while you explore the highlands.',
-        quickFacts: ['1 Night in Nuwara Eliya', 'Horton Plains', 'Gregory Park', 'Tea Country Stay'],
+        title: 'Nuwara Eliya (1 Night)',
+        description: 'Travel to Nuwara Eliya, often called “Little England” because of its cool climate and scenic beauty.',
+        overview: 'Visit Horton Plains National Park for nature walks through open grasslands and misty forests. Later, relax at Gregory Lake and take in the peaceful surroundings, with views of tea plantations such as Sandathenna. All meals are provided at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Nuwara Eliya', 'Horton Plains National Park', 'Gregory Lake', 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
                 title: 'Horton Plains National Park',
                 items: [
                     'Explore Horton Plains National Park for open highland scenery and nature walks.',
-                    'Continue to Gregory Park and Sandathenna for a softer paced afternoon.'
+                    'Continue to Gregory Lake and Sandathenna for a softer-paced afternoon.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in a 5-star hotel in Nuwara Eliya',
+            '1 night in Nuwara Eliya at a selected 5-star rated hotel',
             'Cool-climate stay in Sri Lanka’s tea country'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Horton Plains National Park', 'Gregory Park', 'Sandathenna', 'Tea-Country Views'],
+        highlights: ['Horton Plains National Park', 'Gregory Lake', 'Sandathenna', 'Tea-Country Views'],
+        galleryTitle: 'Day 10 Gallery | Nuwara Eliya Highlands',
+        galleryItems: [
+            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_52rvji52rvji52rv.webp', alt: 'Nuwara Eliya tea country scenery', caption: 'Nuwara Eliya tea country scenery' },
+            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_6m05cv6m05cv6m05.webp', alt: 'Cool-climate hills around Nuwara Eliya', caption: 'Cool-climate hills around Nuwara Eliya' },
+            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_fcotqxfcotqxfcot.webp', alt: 'Gregory Lake waterfront views', caption: 'Gregory Lake waterfront views' },
+            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_lqj0oblqj0oblqj0.webp', alt: 'Misty highland scenery', caption: 'Misty highland scenery' },
+            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_uhe9rxuhe9rxuhe9.webp', alt: 'Open grasslands at Horton Plains', caption: 'Open grasslands at Horton Plains' },
+            { src: 'assets/images/nuwara-eliya/pexels-thilina-alagiyawanna-3266092-36847129.webp', alt: 'Tea estates in Sandathenna', caption: 'Tea estates in Sandathenna' }
+        ],
         photoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya photos later.',
         videoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya videos later.'
     },
     '11': {
-        title: 'Ella Scenic Arrival',
-        description: 'The first Ella day with the bridge, peak views, and the classic hill-country scenery.',
-        overview: 'Stay in a 5-star hotel or boutique property in Ella with all meals at the property and a day focused on the main viewpoints.',
-        quickFacts: ['1 Night in Ella', 'Nine Arch Bridge', 'Little Adam’s Peak', 'All Meals at Hotel'],
+        title: 'Ella (1 Night)',
+        description: 'Arrive in Ella, a small and scenic town known for its natural beauty and relaxed atmosphere.',
+        overview: 'Visit the famous Nine Arch Bridge, a beautiful railway bridge surrounded by greenery. You can also enjoy a short hike to Little Adam’s Peak for panoramic views. Meals will be served at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Ella', 'Nine Arch Bridge', "Little Adam's Peak", 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
                 title: 'Classic Ella Sights',
                 items: [
-                    'Visit Nine Arch Bridge and Little Adam’s Peak for the signature Ella views.',
-                    'Continue to Ella Rock and Ravana Cave where timing allows.'
+                    'Visit Nine Arch Bridge and enjoy the lush scenery around the bridge.',
+                    'Take a short hike to Little Adam’s Peak for panoramic views.'
                 ]
             }
         ],
         stayPlan: [
-            '1 night in Ella at a 5-star hotel or boutique stay',
+            '1 night in Ella at a selected 5-star rated hotel or boutique stay',
             'A scenic hill-country base for the second Ella day'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Ravana Cave'],
+        highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Hill-Country Views'],
+        galleryTitle: 'Day 11 Gallery | Ella Scenic Views',
+        galleryItems: [
+            { src: 'assets/images/ella/ella1.webp', alt: 'Ella town and hill views', caption: 'Ella town and hill views' },
+            { src: 'assets/images/ella/ella3.webp', alt: 'Nine Arch Bridge in Ella', caption: 'Nine Arch Bridge in Ella' },
+            { src: 'assets/images/ella/Gemini_Generated_Image_1f27zh1f27zh1f27.webp', alt: 'Little Adam\'s Peak trail', caption: 'Little Adam\'s Peak trail' },
+            { src: 'assets/images/ella/Gemini_Generated_Image_420c9a420c9a420c.webp', alt: 'Scenic railway views in Ella', caption: 'Scenic railway views in Ella' },
+            { src: 'assets/images/ella/Gemini_Generated_Image_6f5ukr6f5ukr6f5u.webp', alt: 'Green hills around Ella valley', caption: 'Green hills around the valley' },
+            { src: 'assets/images/ella/Gemini_Generated_Image_8fpcxn8fpcxn8fpc.webp', alt: 'Relaxed Ella evening atmosphere', caption: 'Relaxed Ella evening atmosphere' }
+        ],
         photoText: 'Temporary placeholder: upload Day 11 Ella photos later.',
         videoText: 'Temporary placeholder: upload Day 11 Ella videos later.'
     },
     '12': {
-        title: 'Ella Adventure Day',
-        description: 'A second Ella day built around waterfalls, adventure activities, and local temple stops.',
-        overview: 'Continue your Ella stay with more adventure stops, all meals from the hotel, and a stronger focus on the southern side of the hill country.',
-        quickFacts: ['Second Ella Day', 'Flying Ravana Adventure Park', 'Ella Waterfall', 'All Meals at Hotel'],
+        title: 'Ella Adventure (1 Night)',
+        description: 'Spend an active day exploring more of Ella’s attractions.',
+        overview: 'Hike to Ella Rock for breathtaking views, and visit Ravana Cave and Ravana Falls, both linked to local legends. For adventure lovers, enjoy activities at Flying Ravana Adventure Park. You may also visit Dunhinda Falls, one of the most beautiful waterfalls in Sri Lanka. All meals are provided at selected 5-star rated hotels.',
+        quickFacts: ['Ella Rock', 'Ravana Cave', 'Ravana Falls', 'Flying Ravana Adventure Park'],
         dayPlans: [
             {
                 title: 'Adventure and Waterfalls',
                 items: [
-                    'Visit Ella Waterfall, Kubalwela Temple, and Flying Ravana Adventure Park.',
-                    'Use the afternoon for relaxed viewpoints and village time.'
+                    'Hike to Ella Rock for breathtaking views.',
+                    'Visit Ravana Cave and Ravana Falls, then enjoy activities at Flying Ravana Adventure Park.'
                 ]
             }
         ],
         stayPlan: [
-            'Second night in Ella at a 5-star hotel or boutique stay',
+            'Second night in Ella at a selected 5-star rated hotel or boutique stay',
             'Perfect for a two-day hill-country stop'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
-        highlights: ['Ella Waterfall', 'Kubalwela Temple', 'Flying Ravana Adventure Park', 'Hill-Country Views'],
+        highlights: ['Ella Rock', 'Ravana Cave', 'Ravana Falls', 'Flying Ravana Adventure Park'],
+        galleryTitle: 'Day 12 Gallery | Ella Adventure and Waterfalls',
+        galleryItems: [
+            { src: 'assets/images/ella-adventure/alladd3.webp', alt: 'Adventure views near Ella Rock', caption: 'Adventure views near Ella Rock' },
+            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_f31msdf31msdf31m.webp', alt: 'Ravana Falls and rocky scenery', caption: 'Ravana Falls and rocky scenery' },
+            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_lkuasblkuasblkua.webp', alt: 'Flying Ravana zip-line activity', caption: 'Flying Ravana zip-line activity' },
+            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_v4ll7pv4ll7pv4ll.webp', alt: 'Ravana Cave heritage stop', caption: 'Ravana Cave heritage stop' },
+            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_zex8fyzex8fyzex8.webp', alt: 'Waterfall adventure views', caption: 'Waterfall adventure views' },
+            { src: 'assets/images/ella/Gemini_Generated_Image_420c9a420c9a420c.webp', alt: 'Scenic ridge views in Ella', caption: 'Scenic ridge views in Ella' }
+        ],
         photoText: 'Temporary placeholder: upload Day 12 Ella photos later.',
         videoText: 'Temporary placeholder: upload Day 12 Ella videos later.'
     },
     '13': {
-        title: 'Haputale & Balangoda Scenic Views',
-        description: 'A scenic transfer day through the hill country with viewpoints and a night in Balangoda.',
-        overview: 'Stay one night in Balangoda with breakfast, lunch, and dinner from the hotel while you enjoy the hill-country scenery.',
-        quickFacts: ['1 Night in Balangoda', 'Haputale Views', 'Scenic Hill Country Drive', 'Meals at Hotel'],
+        title: 'Haputale & Balangoda (1 Night)',
+        description: 'Enjoy a scenic journey through the hill country, passing through Haputale and Balangoda.',
+        overview: 'These areas are known for their breathtaking viewpoints, rolling hills, and cool climate. Take time to relax, enjoy the views, and experience the peaceful surroundings before your overnight stay in Balangoda. Meals are provided at selected 5-star rated hotels.',
+        quickFacts: ['1 Night in Balangoda', 'Haputale Views', 'Scenic Hill Country Drive', 'Selected 5-Star Rated Hotel Meals'],
         dayPlans: [
             {
                 title: 'Scenic Viewpoints',
@@ -1019,23 +1083,32 @@ const tripDetailsData = {
             }
         ],
         stayPlan: [
-            '1 night in Balangoda at a 5-star hotel',
+            '1 night in Balangoda at a selected 5-star rated hotel',
             'A quiet stop before the final transfer to Negombo'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
-            'Lunch: from the hotel',
-            'Dinner: from the hotel'
+            'Breakfast: at selected 5-star rated hotels',
+            'Lunch: at selected 5-star rated hotels',
+            'Dinner: at selected 5-star rated hotels'
         ],
         highlights: ['Haputale', 'Balangoda', 'Scenic Viewpoints', 'Hill-Country Drive'],
+        galleryTitle: 'Day 13 Gallery | Haputale and Balangoda Views',
+        galleryItems: [
+            { src: 'assets/images/haputale-balangoda/balango4.webp', alt: 'Hill-country views around Balangoda', caption: 'Hill-country views around Balangoda' },
+            { src: 'assets/images/haputale-balangoda/blango2.webp', alt: 'Balangoda mountain scenery', caption: 'Balangoda mountain scenery' },
+            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_28ev2s28ev2s28ev.webp', alt: 'Haputale viewpoint landscape', caption: 'Haputale viewpoint landscape' },
+            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_jsukdfjsukdfjsuk.webp', alt: 'Rolling hills in the hill country', caption: 'Rolling hills in the hill country' },
+            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_m3y6o3m3y6o3m3y6.webp', alt: 'Cool climate tea-country scenery', caption: 'Cool climate tea-country scenery' },
+            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_sxd7u9sxd7u9sxd7.webp', alt: 'Peaceful route through Haputale', caption: 'Peaceful route through Haputale' }
+        ],
         photoText: 'Temporary placeholder: upload Day 13 Balangoda photos later.',
         videoText: 'Temporary placeholder: upload Day 13 Balangoda videos later.'
     },
     '14': {
-        title: 'Negombo Departure',
-        description: 'The final transfer to Negombo for departure and a relaxed end to the tour.',
-        overview: 'Use this final day for transfer to Negombo and departure coordination, with breakfast from the hotel before checkout.',
-        quickFacts: ['Final Transfer Day', 'Negombo', 'Airport Access', 'Breakfast at Hotel'],
+        title: 'Negombo (Departure)',
+        description: 'Travel to Negombo, a coastal town close to the airport.',
+        overview: 'Spend your final moments relaxing before departure, enjoying the beachside atmosphere and reflecting on your journey through Sri Lanka.',
+        quickFacts: ['Final Transfer Day', 'Negombo', 'Airport Access', 'Breakfast at Selected 5-Star Rated Hotels'],
         dayPlans: [
             {
                 title: 'Transfer to Negombo',
@@ -1050,11 +1123,20 @@ const tripDetailsData = {
             'Best used as a departure or final transfer day'
         ],
         mealPlan: [
-            'Breakfast: from the hotel',
+            'Breakfast: at selected 5-star rated hotels',
             'Lunch: as per departure time',
             'Dinner: not included unless staying on'
         ],
         highlights: ['Negombo', 'Airport Transfer', 'Final Departure Day'],
+        galleryTitle: 'Day 14 Gallery | Negombo Departure',
+        galleryItems: [
+            { src: 'assets/images/negombo-end-of-tour/florian-wehde-szpz0b1Q6IE-unsplash.webp', alt: 'Negombo beach at departure time', caption: 'Negombo beach at departure time' },
+            { src: 'assets/images/negombo-end-of-tour/Gemini_Generated_Image_lsows6lsows6lsow.webp', alt: 'Coastal calm near the airport', caption: 'Coastal calm near the airport' },
+            { src: 'assets/images/negombo-end-of-tour/Gemini_Generated_Image_pb4lwdpb4lwdpb4l.webp', alt: 'Lagoon-side sunset in Negombo', caption: 'Lagoon-side sunset in Negombo' },
+            { src: 'assets/images/negombo-end-of-tour/negambo1.webp', alt: 'Relaxed beachfront views in Negombo', caption: 'Relaxed beachfront views in Negombo' },
+            { src: 'assets/images/negombo-end-of-tour/recal-media-ueBIGLmiI5A-unsplash.webp', alt: 'Fishing boats and harbor life', caption: 'Fishing boats and harbor life' },
+            { src: 'assets/images/negombo-end-of-tour/sheila-c-F_lmtD0buXE-unsplash.webp', alt: 'Final seaside moment in Negombo', caption: 'Final seaside moment in Negombo' }
+        ],
         photoText: 'Temporary placeholder: upload Day 14 Negombo photos later.',
         videoText: 'Temporary placeholder: upload Day 14 Negombo videos later.'
     }
@@ -1083,6 +1165,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const overview = document.getElementById('tripOverview');
     const quickFacts = document.getElementById('tripQuickFacts');
     const dayPlans = document.getElementById('tripDayPlans');
+    const gallerySection = document.getElementById('tripGallerySection');
+    const galleryTitle = document.getElementById('tripGalleryTitle');
+    const galleryGrid = document.getElementById('tripGalleryGrid');
     const stayPlan = document.getElementById('tripStayPlan');
     const mealPlan = document.getElementById('tripMealPlan');
     const highlights = document.getElementById('tripHighlights');
@@ -1344,6 +1429,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
         stayPlan.innerHTML = `<ul>${(detail.stayPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
         mealPlan.innerHTML = `<ul>${(detail.mealPlan || []).map((item) => `<li>${item}</li>`).join('')}</ul>`;
+
+        if (gallerySection && galleryTitle && galleryGrid) {
+            const galleryItems = detail.galleryItems || [];
+
+            if (galleryItems.length > 0) {
+                gallerySection.classList.remove('hidden');
+                galleryTitle.textContent = detail.galleryTitle || 'Gallery';
+                galleryGrid.innerHTML = '';
+
+                galleryItems.forEach((item) => {
+                    const figure = document.createElement('figure');
+                    figure.className = 'galle-gallery-item';
+
+                    const image = document.createElement('img');
+                    image.src = item.src;
+                    image.alt = item.alt;
+
+                    const caption = document.createElement('figcaption');
+                    caption.textContent = item.caption;
+
+                    figure.appendChild(image);
+                    figure.appendChild(caption);
+                    galleryGrid.appendChild(figure);
+                });
+            } else {
+                gallerySection.classList.add('hidden');
+                galleryGrid.innerHTML = '';
+            }
+        }
     }
 
     highlights.innerHTML = '';
