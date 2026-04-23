@@ -173,13 +173,14 @@ h3,
 
 .logo-section {
     flex-shrink: 0;
+    margin-left: 50px;
 }
 
 .header-logo {
     display: block;
     width: auto;
-    height: 56px;
-    max-width: 240px;
+    height: 110px;
+    max-width: 400px;
     object-fit: contain;
 }
 
@@ -1081,11 +1082,25 @@ section {
     .newsletter-form {
         flex-direction: column;
     }
+    
+    .logo-section {
+        margin-left: 0;
+    }
+
+    .header-logo {
+        height: clamp(68px, 16vw, 92px);
+        max-width: min(72vw, 280px);
+    }
 }
 
 @media (max-width: 640px) {
     .header-top {
         display: none;
+    }
+
+    .header-logo {
+        height: clamp(58px, 20vw, 80px);
+        max-width: min(78vw, 220px);
     }
 
     .header-main {
@@ -1441,7 +1456,12 @@ section {
         gap: 0.4rem;
     }
 
+    .nav-item-dropdown {
+        width: auto;
+    }
+
     .nav-item-dropdown .nav-link {
+        justify-content: center;
         padding-right: 0.3rem;
     }
 
@@ -1452,7 +1472,7 @@ section {
     .nav-dropdown {
         position: static;
         min-width: 0;
-        width: 100%;
+        width: auto;
         border: none;
         border-radius: 0;
         background: transparent;
@@ -1463,11 +1483,27 @@ section {
         transform: none;
         padding: 0;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-item-dropdown:hover .nav-dropdown,
+    .nav-item-dropdown:focus-within .nav-dropdown {
+        transform: none;
+        animation: none;
     }
 
     .nav-dropdown-link {
+        display: inline-block;
+        text-align: center;
         font-size: 1rem;
         padding: 0.2rem 0.4rem;
+    }
+
+    .nav-dropdown-link:hover,
+    .nav-dropdown-link.active {
+        transform: none;
     }
     
     .header-cta {
