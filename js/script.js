@@ -953,12 +953,12 @@ const tripDetailsData = {
         highlights: ['Habarana Village', 'Lake Ride', 'Rural Life', '5-Star Hotel Meals'],
         galleryTitle: 'Day 6 Gallery | Habarana Village Life',
         galleryItems: [
-            { src: 'assets/images/habarana/pexels-buddh-sharan-sahu-2109761-13436699.webp', alt: 'Calm lakeside views in Habarana', caption: 'Calm lakeside views around Habarana' },
-            { src: 'assets/images/habarana/pexels-dana-cruz-364767400-14697225.webp', alt: 'Traditional village life in Habarana', caption: 'Traditional village life in Habarana' },
-            { src: 'assets/images/habarana/pexels-inguaribile-viaggiatore-8806145-7015742.webp', alt: 'Local farming scenes in Habarana', caption: 'Local farming and rural scenery' },
-            { src: 'assets/images/habarana/pexels-ralfsziigurs-20321536.webp', alt: 'Quiet nature moments in Habarana', caption: 'Quiet nature moments in the Habarana area' },
-            { src: 'assets/images/habarana/pexels-renjith-tomy-pkm-138432405-11466145.webp', alt: 'Village boat ride in Habarana', caption: 'Village boat ride through peaceful waters' },
-            { src: 'assets/images/habarana/sheila-c-FQi-RnPG92M-unsplash.webp', alt: 'Sunset over Habarana landscape', caption: 'Sunset over Habarana\'s calm landscape' }
+            { src: 'assets/images/habarana/day-6-gallery/Calm lakeside views around Habarana.webp', alt: 'Calm lakeside views in Habarana', caption: 'Calm lakeside views around Habarana' },
+            { src: 'assets/images/habarana/day-6-gallery/Traditional village life in Habarana.webp', alt: 'Traditional village life in Habarana', caption: 'Traditional village life in Habarana' },
+            { src: 'assets/images/habarana/day-6-gallery/local farming and rural scenery.webp', alt: 'Local farming scenes in Habarana', caption: 'Local farming and rural scenery' },
+            { src: 'assets/images/habarana/day-6-gallery/quiet nature moments in the habarana area.webp', alt: 'Quiet nature moments in Habarana', caption: 'Quiet nature moments in the Habarana area' },
+            { src: 'assets/images/habarana/day-6-gallery/village boat ride through peaceful water.webp', alt: 'Village boat ride in Habarana', caption: 'Village boat ride through peaceful waters' },
+            { src: 'assets/images/habarana/day-6-gallery/sunset over habarana%27s calm landscape.webp', alt: 'Sunset over Habarana landscape', caption: 'Sunset over Habarana\'s calm landscape' }
         ],
         photoText: 'Temporary placeholder: upload Day 6 Habarana photos later.',
         videoText: 'Temporary placeholder: upload Day 6 Habarana videos later.'
@@ -996,12 +996,12 @@ const tripDetailsData = {
         highlights: ['Sigiriya Rock Fortress', 'Dambulla Cave Temple', 'Ancient Frescoes', 'Cultural Triangle'],
         galleryTitle: 'Day 7 Gallery | Sigiriya and Dambulla',
         galleryItems: [
-            { src: 'assets/images/sigiriya-dambulla/agnieszka-stankiewicz-bkfBxbI7a1g-unsplash.webp', alt: 'Sigiriya Rock Fortress rising above the plains', caption: 'Sigiriya Rock Fortress above the plains' },
-            { src: 'assets/images/sigiriya-dambulla/filiz-elaerts-TSNwuN9IdOk-unsplash.webp', alt: 'Ancient path and gardens at Sigiriya', caption: 'Ancient pathways and gardens at Sigiriya' },
-            { src: 'assets/images/sigiriya-dambulla/Gemini_Generated_Image_8lee3p8lee3p8lee.webp', alt: 'Sigiriya sunrise views', caption: 'Sigiriya views at sunrise' },
-            { src: 'assets/images/sigiriya-dambulla/matt-dany-1ul4-hqm48M-unsplash.webp', alt: 'Gardens and heritage surroundings at Sigiriya', caption: 'Gardens and heritage surroundings' },
-            { src: 'assets/images/sigiriya-dambulla/pexels-harsha-samaranayake-303340503-13391116.webp', alt: 'Dambulla Cave Temple interior', caption: 'Dambulla Cave Temple interior' },
-            { src: 'assets/images/sigiriya-dambulla/pexels-kseniya-buraya-124360874-10610942.webp', alt: 'Buddha statues and cave paintings in Dambulla', caption: 'Buddha statues and cave paintings' }
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/Sigiriya Rock Fortress above the plains.webp', alt: 'Sigiriya Rock Fortress rising above the plains', caption: 'Sigiriya Rock Fortress above the plains' },
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/Ancient pathways and gardens at Sigiriya.webp', alt: 'Ancient path and gardens at Sigiriya', caption: 'Ancient pathways and gardens at Sigiriya' },
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/Sigiriya views at sunrise.webp', alt: 'Sigiriya sunrise views', caption: 'Sigiriya views at sunrise' },
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/Gardens and heritage surroundings.webp', alt: 'Gardens and heritage surroundings at Sigiriya', caption: 'Gardens and heritage surroundings' },
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/dambulla cave temple interior.webp', alt: 'Dambulla Cave Temple interior', caption: 'Dambulla Cave Temple interior' },
+            { src: 'assets/images/sigiriya-dambulla/day-7-gallery/Buddha statues and cave paintings.webp', alt: 'Buddha statues and cave paintings in Dambulla', caption: 'Buddha statues and cave paintings' }
         ],
         photoText: 'Temporary placeholder: upload Day 7 Sigiriya photos later.',
         videoText: 'Temporary placeholder: upload Day 7 Sigiriya videos later.'
@@ -1039,12 +1039,12 @@ const tripDetailsData = {
         highlights: ['Ruwanwelisaya', 'Jaya Sri Maha Bodhi', 'Thuparamaya', 'Jetavanaramaya', 'Abhayagiri Monastery', 'Tissa Wewa'],
         galleryTitle: 'Day 8 Gallery | Anuradhapura Sacred City',
         galleryItems: [
-            { src: 'assets/images/anuradhapura/anuradhapura1.webp', alt: 'Ruwanwelisaya sacred stupa', caption: 'Ruwanwelisaya sacred stupa' },
-            { src: 'assets/images/anuradhapura/anuradhapura2.webp', alt: 'Jaya Sri Maha Bodhi pilgrimage site', caption: 'Jaya Sri Maha Bodhi pilgrimage site' },
-            { src: 'assets/images/anuradhapura/Gemini_Generated_Image_2jewxq2jewxq2jew.webp', alt: 'Thuparamaya and ancient ruins', caption: 'Thuparamaya and ancient ruins' },
-            { src: 'assets/images/anuradhapura/anuradhapura-whatsapp.webp', alt: 'Tissa Wewa lakeside views', caption: 'Peaceful views of Tissa Wewa' },
-            { src: 'assets/images/anuradhapura/anuradhapura1.webp', alt: 'Jetavanaramaya monument view', caption: 'Jetavanaramaya monument view' },
-            { src: 'assets/images/anuradhapura/anuradhapura2.webp', alt: 'Abhayagiri monastery atmosphere', caption: 'Abhayagiri monastery atmosphere' }
+            { src: 'assets/images/anuradhapura/day-8-gallery/Ruwanwelisaya sacred stupa.webp', alt: 'Ruwanwelisaya sacred stupa', caption: 'Ruwanwelisaya sacred stupa' },
+            { src: 'assets/images/anuradhapura/day-8-gallery/Jaya Sri Maha Bodhi pilgrimage site.webp', alt: 'Jaya Sri Maha Bodhi pilgrimage site', caption: 'Jaya Sri Maha Bodhi pilgrimage site' },
+            { src: 'assets/images/anuradhapura/day-8-gallery/Thuparamaya and ancient ruins.webp', alt: 'Thuparamaya and ancient ruins', caption: 'Thuparamaya and ancient ruins' },
+            { src: 'assets/images/anuradhapura/day-8-gallery/Peaceful views of Tissa Wewa.webp', alt: 'Tissa Wewa lakeside views', caption: 'Peaceful views of Tissa Wewa' },
+            { src: 'assets/images/anuradhapura/day-8-gallery/Jetavanaramaya monument view.webp', alt: 'Jetavanaramaya monument view', caption: 'Jetavanaramaya monument view' },
+            { src: 'assets/images/anuradhapura/day-8-gallery/Abhayagiri monastery atmosphere.webp', alt: 'Abhayagiri monastery atmosphere', caption: 'Abhayagiri monastery atmosphere' }
         ],
         photoText: 'Temporary placeholder: upload Day 8 Anuradhapura photos later.',
         videoText: 'Temporary placeholder: upload Day 8 Anuradhapura videos later.'
@@ -1082,12 +1082,12 @@ const tripDetailsData = {
         highlights: ['Temple of the Sacred Tooth Relic', 'Royal Botanic Gardens, Peradeniya', 'Kandy Lake', 'Mountain City Views'],
         galleryTitle: 'Day 9 Gallery | Kandy Temple and Gardens',
         galleryItems: [
-            { src: 'assets/images/kandy/kandy-2.webp', alt: 'Kandy lake and city views', caption: 'Kandy lake and city views' },
-            { src: 'assets/images/kandy/Kandy-04.webp', alt: 'Temple of the Sacred Tooth Relic', caption: 'Temple of the Sacred Tooth Relic' },
-            { src: 'assets/images/kandy/kandy5.webp', alt: 'Royal Botanic Gardens in Peradeniya', caption: 'Royal Botanic Gardens in Peradeniya' },
-            { src: 'assets/images/kandy/Visit-Ramboda-Falls-2.webp', alt: 'Hill-country waterfall views near Kandy', caption: 'Hill-country waterfall views' },
-            { src: 'assets/images/kandy/Gemini_Generated_Image_lm2rlilm2rlilm2r.webp', alt: 'Cultural city views in Kandy', caption: 'Cultural city views in Kandy' },
-            { src: 'assets/images/kandy/Gemini_Generated_Image_5oohdx5oohdx5ooh.webp', alt: 'Green mountain scenery around Kandy', caption: 'Green mountain scenery around Kandy' }
+            { src: 'assets/images/kandy/day-9-gallery/Kandy lake and city views.webp', alt: 'Kandy lake and city views', caption: 'Kandy lake and city views' },
+            { src: 'assets/images/kandy/day-9-gallery/Temple of the Sacred Tooth Relic.webp', alt: 'Temple of the Sacred Tooth Relic', caption: 'Temple of the Sacred Tooth Relic' },
+            { src: 'assets/images/kandy/day-9-gallery/Royal Botanic Gardens in Peradeniya.webp', alt: 'Royal Botanic Gardens in Peradeniya', caption: 'Royal Botanic Gardens in Peradeniya' },
+            { src: 'assets/images/kandy/day-9-gallery/Hill-country waterfall views.webp', alt: 'Hill-country waterfall views near Kandy', caption: 'Hill-country waterfall views' },
+            { src: 'assets/images/kandy/day-9-gallery/Cultural city views in Kandy.webp', alt: 'Cultural city views in Kandy', caption: 'Cultural city views in Kandy' },
+            { src: 'assets/images/kandy/day-9-gallery/green mountain scenery around kandy.webp', alt: 'Green mountain scenery around Kandy', caption: 'Green mountain scenery around Kandy' }
         ],
         photoText: 'Temporary placeholder: upload Day 9 Kandy photos later.',
         videoText: 'Temporary placeholder: upload Day 9 Kandy videos later.'
@@ -1118,12 +1118,12 @@ const tripDetailsData = {
         highlights: ['Horton Plains National Park', 'Gregory Lake', 'Sandathenna', 'Tea-Country Views'],
         galleryTitle: 'Day 10 Gallery | Nuwara Eliya Highlands',
         galleryItems: [
-            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_52rvji52rvji52rv.webp', alt: 'Nuwara Eliya tea country scenery', caption: 'Nuwara Eliya tea country scenery' },
-            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_6m05cv6m05cv6m05.webp', alt: 'Cool-climate hills around Nuwara Eliya', caption: 'Cool-climate hills around Nuwara Eliya' },
-            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_fcotqxfcotqxfcot.webp', alt: 'Gregory Lake waterfront views', caption: 'Gregory Lake waterfront views' },
-            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_lqj0oblqj0oblqj0.webp', alt: 'Misty highland scenery', caption: 'Misty highland scenery' },
-            { src: 'assets/images/nuwara-eliya/Gemini_Generated_Image_uhe9rxuhe9rxuhe9.webp', alt: 'Open grasslands at Horton Plains', caption: 'Open grasslands at Horton Plains' },
-            { src: 'assets/images/nuwara-eliya/pexels-thilina-alagiyawanna-3266092-36847129.webp', alt: 'Tea estates in Sandathenna', caption: 'Tea estates in Sandathenna' }
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Nuwara Eliya tea country scenery.webp', alt: 'Nuwara Eliya tea country scenery', caption: 'Nuwara Eliya tea country scenery' },
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Cool-climate hills around Nuwara Eliya.webp', alt: 'Cool-climate hills around Nuwara Eliya', caption: 'Cool-climate hills around Nuwara Eliya' },
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Gregory Lake waterfront views.webp', alt: 'Gregory Lake waterfront views', caption: 'Gregory Lake waterfront views' },
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Misty highland scenery.webp', alt: 'Misty highland scenery', caption: 'Misty highland scenery' },
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Open grasslands at Horton Plains.webp', alt: 'Open grasslands at Horton Plains', caption: 'Open grasslands at Horton Plains' },
+            { src: 'assets/images/nuwara-eliya/day-10-gallery/Tea estates in Sandathenna.webp', alt: 'Tea estates in Sandathenna', caption: 'Tea estates in Sandathenna' }
         ],
         photoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya photos later.',
         videoText: 'Temporary placeholder: upload Day 10 Nuwara Eliya videos later.'
@@ -1154,12 +1154,12 @@ const tripDetailsData = {
         highlights: ['Nine Arch Bridge', "Little Adam's Peak", 'Ella Rock', 'Hill-Country Views'],
         galleryTitle: 'Day 11 Gallery | Ella Scenic Views',
         galleryItems: [
-            { src: 'assets/images/ella/ella1.webp', alt: 'Ella town and hill views', caption: 'Ella town and hill views' },
-            { src: 'assets/images/ella/ella3.webp', alt: 'Nine Arch Bridge in Ella', caption: 'Nine Arch Bridge in Ella' },
-            { src: 'assets/images/ella/Gemini_Generated_Image_1f27zh1f27zh1f27.webp', alt: 'Little Adam\'s Peak trail', caption: 'Little Adam\'s Peak trail' },
-            { src: 'assets/images/ella/Gemini_Generated_Image_420c9a420c9a420c.webp', alt: 'Scenic railway views in Ella', caption: 'Scenic railway views in Ella' },
-            { src: 'assets/images/ella/Gemini_Generated_Image_6f5ukr6f5ukr6f5u.webp', alt: 'Green hills around Ella valley', caption: 'Green hills around the valley' },
-            { src: 'assets/images/ella/Gemini_Generated_Image_8fpcxn8fpcxn8fpc.webp', alt: 'Relaxed Ella evening atmosphere', caption: 'Relaxed Ella evening atmosphere' }
+            { src: 'assets/images/ella/day-11-gallery/ella town and hill views.webp', alt: 'Ella town and hill views', caption: 'Ella town and hill views' },
+            { src: 'assets/images/ella/day-11-gallery/nine arch bridge in ella.webp', alt: 'Nine Arch Bridge in Ella', caption: 'Nine Arch Bridge in Ella' },
+            { src: 'assets/images/ella/day-11-gallery/little adam%27s peak trail.webp', alt: 'Little Adam\'s Peak trail', caption: 'Little Adam\'s Peak trail' },
+            { src: 'assets/images/ella/day-11-gallery/Scenic railway views in Ella.webp', alt: 'Scenic railway views in Ella', caption: 'Scenic railway views in Ella' },
+            { src: 'assets/images/ella/day-11-gallery/green hills around the valley ella.webp', alt: 'Green hills around Ella valley', caption: 'Green hills around the valley' },
+            { src: 'assets/images/ella/day-11-gallery/relaxed ella evening atmosphere.webp', alt: 'Relaxed Ella evening atmosphere', caption: 'Relaxed Ella evening atmosphere' }
         ],
         photoText: 'Temporary placeholder: upload Day 11 Ella photos later.',
         videoText: 'Temporary placeholder: upload Day 11 Ella videos later.'
@@ -1190,12 +1190,12 @@ const tripDetailsData = {
         highlights: ['Ella Rock', 'Ravana Cave', 'Ravana Falls', 'Flying Ravana Adventure Park'],
         galleryTitle: 'Day 12 Gallery | Ella Adventure and Waterfalls',
         galleryItems: [
-            { src: 'assets/images/ella-adventure/alladd3.webp', alt: 'Adventure views near Ella Rock', caption: 'Adventure views near Ella Rock' },
-            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_f31msdf31msdf31m.webp', alt: 'Ravana Falls and rocky scenery', caption: 'Ravana Falls and rocky scenery' },
-            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_lkuasblkuasblkua.webp', alt: 'Flying Ravana zip-line activity', caption: 'Flying Ravana zip-line activity' },
-            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_v4ll7pv4ll7pv4ll.webp', alt: 'Ravana Cave heritage stop', caption: 'Ravana Cave heritage stop' },
-            { src: 'assets/images/ella-adventure/Gemini_Generated_Image_zex8fyzex8fyzex8.webp', alt: 'Waterfall adventure views', caption: 'Waterfall adventure views' },
-            { src: 'assets/images/ella/Gemini_Generated_Image_420c9a420c9a420c.webp', alt: 'Scenic ridge views in Ella', caption: 'Scenic ridge views in Ella' }
+            { src: 'assets/images/ella-adventure/day-12-gallery/rock hike adventure views near ella rock.webp', alt: 'Adventure views near Ella Rock', caption: 'Adventure views near Ella Rock' },
+            { src: 'assets/images/ella-adventure/day-12-gallery/ravana falls and rocky scenery.webp', alt: 'Ravana Falls and rocky scenery', caption: 'Ravana Falls and rocky scenery' },
+            { src: 'assets/images/ella-adventure/day-12-gallery/flying ravana zip-line activity.webp', alt: 'Flying Ravana zip-line activity', caption: 'Flying Ravana zip-line activity' },
+            { src: 'assets/images/ella-adventure/day-12-gallery/Ravana Cave heritage stop.webp', alt: 'Ravana Cave heritage stop', caption: 'Ravana Cave heritage stop' },
+            { src: 'assets/images/ella-adventure/day-12-gallery/waterfall adventure views ella.webp', alt: 'Waterfall adventure views', caption: 'Waterfall adventure views' },
+            { src: 'assets/images/ella-adventure/day-12-gallery/Scenic ridge views in Ella.webp', alt: 'Scenic ridge views in Ella', caption: 'Scenic ridge views in Ella' }
         ],
         photoText: 'Temporary placeholder: upload Day 12 Ella photos later.',
         videoText: 'Temporary placeholder: upload Day 12 Ella videos later.'
@@ -1226,12 +1226,12 @@ const tripDetailsData = {
         highlights: ['Haputale', 'Balangoda', 'Scenic Viewpoints', 'Hill-Country Drive'],
         galleryTitle: 'Day 13 Gallery | Haputale and Balangoda Views',
         galleryItems: [
-            { src: 'assets/images/haputale-balangoda/balango4.webp', alt: 'Hill-country views around Balangoda', caption: 'Hill-country views around Balangoda' },
-            { src: 'assets/images/haputale-balangoda/blango2.webp', alt: 'Balangoda mountain scenery', caption: 'Balangoda mountain scenery' },
-            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_28ev2s28ev2s28ev.webp', alt: 'Haputale viewpoint landscape', caption: 'Haputale viewpoint landscape' },
-            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_jsukdfjsukdfjsuk.webp', alt: 'Rolling hills in the hill country', caption: 'Rolling hills in the hill country' },
-            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_m3y6o3m3y6o3m3y6.webp', alt: 'Cool climate tea-country scenery', caption: 'Cool climate tea-country scenery' },
-            { src: 'assets/images/haputale-balangoda/Gemini_Generated_Image_sxd7u9sxd7u9sxd7.webp', alt: 'Peaceful route through Haputale', caption: 'Peaceful route through Haputale' }
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Hill-country views around Balangoda.webp', alt: 'Hill-country views around Balangoda', caption: 'Hill-country views around Balangoda' },
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Balangoda mountain scenery.webp', alt: 'Balangoda mountain scenery', caption: 'Balangoda mountain scenery' },
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Haputale viewpoint landscape.webp', alt: 'Haputale viewpoint landscape', caption: 'Haputale viewpoint landscape' },
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Rolling hills in the hill country.webp', alt: 'Rolling hills in the hill country', caption: 'Rolling hills in the hill country' },
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Cool climate tea-country scenery.webp', alt: 'Cool climate tea-country scenery', caption: 'Cool climate tea-country scenery' },
+            { src: 'assets/images/haputale-balangoda/day-13-gallery/Peaceful route through Haputale.webp', alt: 'Peaceful route through Haputale', caption: 'Peaceful route through Haputale' }
         ],
         photoText: 'Temporary placeholder: upload Day 13 Balangoda photos later.',
         videoText: 'Temporary placeholder: upload Day 13 Balangoda videos later.'
@@ -1262,12 +1262,12 @@ const tripDetailsData = {
         highlights: ['Negombo', 'Airport Transfer', 'Final Departure Day'],
         galleryTitle: 'Day 14 Gallery | Negombo Departure',
         galleryItems: [
-            { src: 'assets/images/negombo-end-of-tour/florian-wehde-szpz0b1Q6IE-unsplash.webp', alt: 'Negombo beach at departure time', caption: 'Negombo beach at departure time' },
-            { src: 'assets/images/negombo-end-of-tour/Gemini_Generated_Image_lsows6lsows6lsow.webp', alt: 'Coastal calm near the airport', caption: 'Coastal calm near the airport' },
-            { src: 'assets/images/negombo-end-of-tour/Gemini_Generated_Image_pb4lwdpb4lwdpb4l.webp', alt: 'Lagoon-side sunset in Negombo', caption: 'Lagoon-side sunset in Negombo' },
-            { src: 'assets/images/negombo-end-of-tour/negambo1.webp', alt: 'Relaxed beachfront views in Negombo', caption: 'Relaxed beachfront views in Negombo' },
-            { src: 'assets/images/negombo-end-of-tour/recal-media-ueBIGLmiI5A-unsplash.webp', alt: 'Fishing boats and harbor life', caption: 'Fishing boats and harbor life' },
-            { src: 'assets/images/negombo-end-of-tour/sheila-c-F_lmtD0buXE-unsplash.webp', alt: 'Final seaside moment in Negombo', caption: 'Final seaside moment in Negombo' }
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/Negombo beach at departure time.webp', alt: 'Negombo beach at departure time', caption: 'Negombo beach at departure time' },
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/coastal calm near the airpor.webp', alt: 'Coastal calm near the airport', caption: 'Coastal calm near the airport' },
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/Lagoon-side sunset in Negombo.webp', alt: 'Lagoon-side sunset in Negombo', caption: 'Lagoon-side sunset in Negombo' },
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/Relaxed beachfront views in Negombo.webp', alt: 'Relaxed beachfront views in Negombo', caption: 'Relaxed beachfront views in Negombo' },
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/Fishing boats and harbor life.webp', alt: 'Fishing boats and harbor life', caption: 'Fishing boats and harbor life' },
+            { src: 'assets/images/negombo-end-of-tour/day-14-gallery/final seaside moment in negombo.webp', alt: 'Final seaside moment in Negombo', caption: 'Final seaside moment in Negombo' }
         ],
         photoText: 'Temporary placeholder: upload Day 14 Negombo photos later.',
         videoText: 'Temporary placeholder: upload Day 14 Negombo videos later.'
