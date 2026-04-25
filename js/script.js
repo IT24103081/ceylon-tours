@@ -1381,17 +1381,55 @@ const tripDetailsData = {
 
 // Open trip details page in a new tab/window from tours page
 document.addEventListener("DOMContentLoaded", () => {
-    const viewButtons = document.querySelectorAll('.view-tour-btn');
-    if (viewButtons.length === 0) {
-        return;
-    }
+    const honeymoonFeatureSliders = document.querySelectorAll('.honeymoon-feature-showcase');
 
-    viewButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const day = button.dataset.day || '01';
-            window.location.href = `trip-details.html?day=${encodeURIComponent(day)}`;
+    honeymoonFeatureSliders.forEach((sliderSection) => {
+        const slides = sliderSection.querySelectorAll('.kandy-slide');
+
+        if (slides.length === 0) {
+            return;
+        }
+
+        let currentSlide = 0;
+        let slideInterval;
+
+        const renderSlide = () => {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            renderSlide();
+        };
+
+        const resetInterval = () => {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        };
+
+        sliderSection.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
         });
+
+        sliderSection.addEventListener('mouseleave', () => {
+            resetInterval();
+        });
+
+        renderSlide();
+        slideInterval = setInterval(nextSlide, 5000);
     });
+
+    const viewButtons = document.querySelectorAll('.view-tour-btn');
+    if (viewButtons.length > 0) {
+        viewButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const day = button.dataset.day || '01';
+                window.location.href = `trip-details.html?day=${encodeURIComponent(day)}`;
+            });
+        });
+    }
 });
 
 // Initialize trip details page content
