@@ -11,6 +11,13 @@
         .iti {
             width: 100%;
         }
+
+        .form-help-text {
+            display: block;
+            margin-top: 0.45rem;
+            font-size: 0.85rem;
+            color: #5f6368;
+        }
     </style>
 </head>
 <body>
@@ -237,7 +244,9 @@
             const iti = window.intlTelInput(phoneInput, {
                 initialCountry: 'lk',
                 preferredCountries: ['lk', 'it', 'us', 'gb', 'de', 'fr', 'au', 'ca'],
+                nationalMode: true,
                 separateDialCode: true,
+                autoPlaceholder: 'polite',
                 utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@25.12.2/build/js/utils.js'
             });
 
@@ -250,18 +259,31 @@
                     return;
                 }
 
-                if (iti.isValidNumber()) {
+                const utilsReady = typeof window.intlTelInputUtils !== 'undefined';
+
+                if (utilsReady && iti.isValidNumber()) {
                     hiddenPhoneInput.value = iti.getNumber();
                     phoneInput.setCustomValidity('');
                     return;
                 }
 
+                const numericOnly = trimmedValue.replace(/\D/g, '');
+                if (numericOnly.length >= 7 && numericOnly.length <= 15) {
+                    const countryData = iti.getSelectedCountryData();
+                    const dialCode = countryData && countryData.dialCode ? countryData.dialCode : '';
+                    const localNumber = numericOnly.replace(/^0+/, '');
+                    hiddenPhoneInput.value = dialCode ? `+${dialCode}${localNumber || numericOnly}` : `+${numericOnly}`;
+                    phoneInput.setCustomValidity('');
+                    return;
+                }
+
                 hiddenPhoneInput.value = '';
-                phoneInput.setCustomValidity('Please enter a valid international phone number.');
+                phoneInput.setCustomValidity('Please enter a valid phone number.');
             };
 
             phoneInput.addEventListener('input', syncPhoneValue);
             phoneInput.addEventListener('countrychange', syncPhoneValue);
+            phoneInput.addEventListener('blur', syncPhoneValue);
 
             inquiryForm.addEventListener('submit', () => {
                 syncPhoneValue();
