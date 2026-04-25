@@ -1,5 +1,8 @@
 RewriteEngine On
 
+# Canonical home URL: always use "/"
+RewriteRule ^index(?:\.html)?/?$ / [R=301,L,NC]
+
 # Redirect explicit .html URLs to clean extensionless URLs.
 # Example: /tours.html -> /tours
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
