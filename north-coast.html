@@ -6,6 +6,12 @@
     <title>North Coast Package - Golden Island Tours</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    >
 </head>
 <body>
     <div class="splash-screen" aria-label="Loading Golden Island Tours">
@@ -134,6 +140,12 @@
             <aside class="tour-right">
                 <div class="sticky-sidebar">
                     <div class="sidebar-widget">
+                        <h4 class="widget-title">ROUTE MAP</h4>
+                        <div class="tour-map-container" aria-label="North Coast route map with tour stops">
+                            <div id="northCoastRouteMap" class="tour-route-map"></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
                         <h4 class="widget-title">EXPERIENCE HIGHLIGHTS</h4>
                         <div class="tour-notes">
                             <div class="note-item"><p>Dolphin watching and beach relaxation in Kalpitiya</p></div>
@@ -170,6 +182,11 @@
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
     </a>
 
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
     <script src="js/script.js"></script>
 </body>
 </html>

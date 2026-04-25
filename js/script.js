@@ -70,34 +70,17 @@ if (document.readyState === 'loading') {
     initSplashScreen();
 }
 
-const initToursRouteMap = () => {
-    const routeMapElement = document.getElementById('tourRouteMap');
+const initRouteMap = ({ elementId, center, zoom, routeStops }) => {
+    const routeMapElement = document.getElementById(elementId);
     if (!routeMapElement || typeof L === 'undefined') {
         return;
     }
 
     const orsApiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjcyOTcwM2E3ODJiMTRhMWNhYjJiZjhjN2Q4NjY2ODZhIiwiaCI6Im11cm11cjY0In0=';
-    const routeStops = [
-        { day: 'DAY 01', name: 'Galle', lat: 6.0535, lng: 80.2210 },
-        { day: 'DAY 02', name: 'Udawalawe', lat: 6.4746, lng: 80.8883 },
-        { day: 'DAY 03', name: 'Yala', lat: 6.3723, lng: 81.5185 },
-        { day: 'DAY 04', name: 'Arugam Bay', lat: 6.8404, lng: 81.8368 },
-        { day: 'DAY 05', name: 'Polonnaruwa', lat: 7.9403, lng: 81.0188 },
-        { day: 'DAY 06', name: 'Habarana', lat: 8.0343, lng: 80.7505 },
-        { day: 'DAY 07', name: 'Sigiriya & Dambulla', lat: 7.9160, lng: 80.7060 },
-        { day: 'DAY 08', name: 'Anuradhapura', lat: 8.3114, lng: 80.4037 },
-        { day: 'DAY 09', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
-        { day: 'DAY 10', name: 'Nuwara Eliya', lat: 6.9497, lng: 80.7891 },
-        { day: 'DAY 11', name: 'Ella', lat: 6.8667, lng: 81.0466 },
-        { day: 'DAY 12', name: 'Ella Adventure', lat: 6.8667, lng: 81.0466 },
-        { day: 'DAY 13', name: 'Haputale & Balangoda', lat: 6.6615, lng: 80.6933 },
-        { day: 'DAY 14', name: 'Negombo', lat: 7.2083, lng: 79.8358 }
-    ];
-
     const map = L.map(routeMapElement, {
         zoomControl: true,
         scrollWheelZoom: false
-    }).setView([7.4, 80.7], 7);
+    }).setView(center, zoom);
 
     map.attributionControl.setPrefix(false);
 
@@ -291,10 +274,132 @@ const initToursRouteMap = () => {
     drawRoute();
 };
 
+const toursRouteStops = [
+    { day: 'DAY 01', name: 'Galle', lat: 6.0535, lng: 80.2210 },
+    { day: 'DAY 02', name: 'Udawalawe', lat: 6.4746, lng: 80.8883 },
+    { day: 'DAY 03', name: 'Yala', lat: 6.3723, lng: 81.5185 },
+    { day: 'DAY 04', name: 'Arugam Bay', lat: 6.8404, lng: 81.8368 },
+    { day: 'DAY 05', name: 'Polonnaruwa', lat: 7.9403, lng: 81.0188 },
+    { day: 'DAY 06', name: 'Habarana', lat: 8.0343, lng: 80.7505 },
+    { day: 'DAY 07', name: 'Sigiriya & Dambulla', lat: 7.9160, lng: 80.7060 },
+    { day: 'DAY 08', name: 'Anuradhapura', lat: 8.3114, lng: 80.4037 },
+    { day: 'DAY 09', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 10', name: 'Nuwara Eliya', lat: 6.9497, lng: 80.7891 },
+    { day: 'DAY 11', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 12', name: 'Ella Adventure', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 13', name: 'Haputale & Balangoda', lat: 6.6615, lng: 80.6933 },
+    { day: 'DAY 14', name: 'Negombo', lat: 7.2083, lng: 79.8358 }
+];
+
+const honeymoonRouteStops = [
+    { day: 'DAY 01 & 02', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 03 & 04', name: 'Bentota', lat: 6.4259, lng: 79.9958 },
+    { day: 'DAY 05 to 07', name: 'Galle / Unawatuna', lat: 6.0535, lng: 80.2210 },
+    { day: 'DAY 08 & 09', name: 'Rainforest Escape', lat: 6.3667, lng: 80.4667 },
+    { day: 'DAY 10', name: 'Return to Airport', lat: 7.1800, lng: 79.8840 }
+];
+
+const honeymoon2RouteStops = [
+    { day: 'DAY 01', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 02 & 03', name: 'Tangalle', lat: 6.0240, lng: 80.7918 },
+    { day: 'DAY 04', name: 'Udawalawe', lat: 6.4746, lng: 80.8883 },
+    { day: 'DAY 05 & 06', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 07 & 08', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 09', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 10', name: 'Departure', lat: 7.1800, lng: 79.8840 }
+];
+
+const northCoastRouteStops = [
+    { day: 'DAY 01', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 02 & 03', name: 'Kalpitiya', lat: 8.2333, lng: 79.7167 },
+    { day: 'DAY 04 & 05', name: 'Wilpattu', lat: 8.4867, lng: 80.0667 },
+    { day: 'DAY 06 & 07', name: 'Mannar', lat: 8.9833, lng: 79.9167 },
+    { day: 'DAY 08-10', name: 'Jaffna', lat: 9.6685, lng: 80.0074 },
+    { day: 'RETURN', name: 'Negombo (Departure)', lat: 7.2083, lng: 79.8358 }
+];
+
+const eastCoastRouteStops = [
+    { day: 'DAY 01', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 02 & 03', name: 'Sigiriya', lat: 7.9570, lng: 80.7603 },
+    { day: 'DAY 04 & 05', name: 'Trincomalee', lat: 8.5874, lng: 81.2152 },
+    { day: 'DAY 06 & 07', name: 'Pasikudah', lat: 7.9100, lng: 81.5617 },
+    { day: 'DAY 08 & 09', name: 'Arugam Bay', lat: 6.8390, lng: 81.8368 },
+    { day: 'DAY 10', name: 'Negombo (Departure)', lat: 7.2083, lng: 79.8358 }
+];
+
+const initToursRouteMap = () => {
+    initRouteMap({
+        elementId: 'tourRouteMap',
+        center: [7.4, 80.7],
+        zoom: 7,
+        routeStops: toursRouteStops
+    });
+};
+
+const initHoneymoonRouteMap = () => {
+    initRouteMap({
+        elementId: 'honeymoonRouteMap',
+        center: [6.9, 80.2],
+        zoom: 8,
+        routeStops: honeymoonRouteStops
+    });
+};
+
+const initHoneymoon2RouteMap = () => {
+    initRouteMap({
+        elementId: 'honeymoon2RouteMap',
+        center: [6.7, 80.5],
+        zoom: 8,
+        routeStops: honeymoon2RouteStops
+    });
+};
+
+const initNorthCoastRouteMap = () => {
+    initRouteMap({
+        elementId: 'northCoastRouteMap',
+        center: [8.3, 80.0],
+        zoom: 7,
+        routeStops: northCoastRouteStops
+    });
+};
+
+const initEastCoastRouteMap = () => {
+    initRouteMap({
+        elementId: 'eastCoastRouteMap',
+        center: [7.8, 81.2],
+        zoom: 7,
+        routeStops: eastCoastRouteStops
+    });
+};
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initToursRouteMap, { once: true });
 } else {
     initToursRouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHoneymoonRouteMap, { once: true });
+} else {
+    initHoneymoonRouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHoneymoon2RouteMap, { once: true });
+} else {
+    initHoneymoon2RouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNorthCoastRouteMap, { once: true });
+} else {
+    initNorthCoastRouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEastCoastRouteMap, { once: true });
+} else {
+    initEastCoastRouteMap();
 }
 
 // Newsletter Form Handling
