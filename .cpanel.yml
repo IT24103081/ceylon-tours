@@ -1,23 +1,23 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/mdxjvvvtl/goldenislandtours.com/
-    - /bin/cp -R assets $DEPLOYPATH
-    - /bin/cp -R css $DEPLOYPATH
-    - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp contact.html $DEPLOYPATH
-    - /bin/cp east-coast.html $DEPLOYPATH
-    - /bin/cp honeymoon-1.html $DEPLOYPATH
-    - /bin/cp honeymoon-2.html $DEPLOYPATH
-    - /bin/cp honeymoon-packages.html $DEPLOYPATH
-    - /bin/cp inquire.html $DEPLOYPATH
-    - /bin/cp north-coast.html $DEPLOYPATH
-    - /bin/cp other-packages.html $DEPLOYPATH
-    - /bin/cp privacy-policy.html $DEPLOYPATH
-    - /bin/cp terms-conditions.html $DEPLOYPATH
-    - /bin/cp tours.html $DEPLOYPATH
-    - /bin/cp transport.html $DEPLOYPATH
-    - /bin/cp trip-details.html $DEPLOYPATH
-    - /bin/cp robots.txt $DEPLOYPATH
-    - /bin/cp sitemap.xml $DEPLOYPATH
+    - /bin/mkdir -p /home/mdxjvvvtl/goldenislandtours.com/assets
+    - /bin/cp -a assets/. /home/mdxjvvvtl/goldenislandtours.com/assets/
+    - /bin/cp -R css /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp -R js /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp index.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp contact.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp east-coast.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp honeymoon-1.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp honeymoon-2.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp honeymoon-packages.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp inquire.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp north-coast.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp other-packages.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp privacy-policy.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp terms-conditions.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp tours.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp transport.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp trip-details.html /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp robots.txt /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp sitemap.xml /home/mdxjvvvtl/goldenislandtours.com/
