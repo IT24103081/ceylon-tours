@@ -5,6 +5,7 @@ deployment:
     - /bin/cp -a assets/. /home/mdxjvvvtl/goldenislandtours.com/assets/
     - /bin/cp -R css /home/mdxjvvvtl/goldenislandtours.com/
     - /bin/cp -R js /home/mdxjvvvtl/goldenislandtours.com/
+    - /bin/cp .htaccess /home/mdxjvvvtl/goldenislandtours.com/
     - /bin/cp index.html /home/mdxjvvvtl/goldenislandtours.com/
     - /bin/cp contact.html /home/mdxjvvvtl/goldenislandtours.com/
     - /bin/cp east-coast.html /home/mdxjvvvtl/goldenislandtours.com/
