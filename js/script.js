@@ -796,7 +796,9 @@ document.addEventListener("DOMContentLoaded", () => {
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.classList.toggle('open');
             nav.classList.toggle('open');
-            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+            const isOpen = nav.classList.contains('open');
+            document.body.classList.toggle('nav-open', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
         
         // Close menu on link click
@@ -804,6 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
             link.addEventListener('click', () => {
                 mobileMenuBtn.classList.remove('open');
                 nav.classList.remove('open');
+                document.body.classList.remove('nav-open');
                 document.body.style.overflow = '';
             });
         });
