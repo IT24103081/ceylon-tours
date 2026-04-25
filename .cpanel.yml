@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/mdxjvvvtl/goldenislandtours.com
+    - /bin/cp -R $SOURCE/* $DEPLOYPATH
