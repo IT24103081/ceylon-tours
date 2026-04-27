@@ -765,6 +765,52 @@ if (heroVideo) {
     }
 }
 
+const initVideoClips = () => {
+    const clipVideos = Array.from(document.querySelectorAll('.video-clip-video'));
+
+    if (clipVideos.length === 0) {
+        return;
+    }
+
+    const pauseAllClips = (exceptVideo) => {
+        clipVideos.forEach((video) => {
+            if (video !== exceptVideo) {
+                video.pause();
+            }
+        });
+    };
+
+    clipVideos.forEach((video) => {
+        video.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (video.paused) {
+                pauseAllClips(video);
+                const playPromise = video.play();
+                if (playPromise && typeof playPromise.catch === 'function') {
+                    playPromise.catch(() => {});
+                }
+                return;
+            }
+
+            video.pause();
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.video-clip-video')) {
+            pauseAllClips();
+        }
+    });
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoClips);
+} else {
+    initVideoClips();
+}
+
 
 // Handle hash on page load
 window.addEventListener('load', () => {
