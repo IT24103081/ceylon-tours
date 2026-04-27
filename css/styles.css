@@ -621,6 +621,63 @@ section {
     font-size: 0.93rem;
 }
 
+.video-clips-wrapper {
+    margin-top: 2.4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(8, 127, 216, 0.18);
+}
+
+.video-clips-intro {
+    margin-bottom: 1.3rem;
+}
+
+.video-clips-intro h3 {
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+    color: var(--navy-900);
+    margin-bottom: 0.35rem;
+}
+
+.video-clips-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.video-clip-card {
+    background: #ffffff;
+    border: 1px solid rgba(8, 127, 216, 0.16);
+    border-radius: 0;
+    box-shadow: 0 12px 24px rgba(11, 31, 51, 0.08);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-clip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(11, 31, 51, 0.14);
+}
+
+.video-clip-video {
+    width: 100%;
+    height: min(60vw, 500px);
+    min-height: 300px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    background: #071a2f;
+}
+
+.video-clip-title {
+    font-family: 'Montserrat', sans-serif;
+    color: #0d1015;
+    font-size: clamp(1.08rem, 2vw, 1.2rem);
+    line-height: 1.2;
+    font-weight: 800;
+    padding: 1rem 1rem 1.05rem;
+    background: #ffffff;
+    min-height: 116px;
+}
+
 /* Destinations */
 .destinations {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(240, 250, 255, 0.9) 100%);
@@ -1156,6 +1213,10 @@ section {
     .footer-container {
         grid-template-columns: 1fr;
     }
+
+    .video-clips-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 860px) {
@@ -1259,6 +1320,15 @@ section {
     .footer-bottom-links {
         flex-direction: column;
         gap: 0.4rem;
+    }
+
+    .video-clips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-clip-video {
+        min-height: 270px;
+        height: 72vw;
     }
 }
 
