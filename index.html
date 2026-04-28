@@ -6,6 +6,7 @@
     <title>Golden Island Tours - Sri Lanka's Pioneer Travel Company</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <div class="splash-screen" aria-label="Loading Golden Island Tours">
@@ -55,9 +56,8 @@
         <div class="header-bottom-border"></div>
     </header>
 
-    <!-- Hero Section with Unique Slideshow -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Slideshow Background -->
         <div class="hero-slider" id="heroSlider">
             <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="auto" aria-label="Sri Lanka travel highlights video background">
                 <source src="assets/videos/homevideo.mp4" type="video/mp4">
@@ -72,7 +72,7 @@
                 <p class="hero-lead">From the 14-day Sri Lanka Splendors route to honeymoon escapes and east and north coast journeys, we design private experiences with trusted local support.</p>
                 <div class="hero-actions">
                     <a href="inquire.html" class="cta-button">INQUIRE NOW</a>
-                    <a href="#experiences" class="cta-link">EXPLORE EXPERIENCES</a>
+                    <a href="tours.html" class="cta-link">EXPLORE ANNUAL TOUR</a>
                 </div>
             </div>
             
@@ -149,67 +149,144 @@
         </div>
     </section>
 
-    <!-- Destinations Section -->
-    <section class="destinations" id="destinations">
+    <!-- Tour Destination Slideshow -->
+    <div class="dest-hero">
+        <div class="dest-slides">
+            <a href="tours.html" class="dest-slide active" style="background-image: url('assets/images/SRI LANKA SPLENDORS background.webp')" aria-label="Sri Lanka Splendors tour">
+                <div class="dest-slide-overlay"></div>
+                <div class="dest-slide-content">
+                    <p class="dest-slide-badge">14 Days &bull; Signature Route</p>
+                    <h2 class="dest-slide-title">Sri Lanka Splendors</h2>
+                    <p class="dest-slide-desc">A complete island journey through heritage cities, safaris, tea country, and beaches.</p>
+                    <span class="dest-slide-btn">Explore Tour &#8594;</span>
+                </div>
+            </a>
+            <a href="honeymoon-1.html" class="dest-slide" style="background-image: url('assets/images/honeymoon package1 background.webp')" aria-label="Honeymoon Package 1 tour">
+                <div class="dest-slide-overlay"></div>
+                <div class="dest-slide-content">
+                    <p class="dest-slide-badge">10 Days &bull; Romance</p>
+                    <h2 class="dest-slide-title">Honeymoon Package 1</h2>
+                    <p class="dest-slide-desc">A romantic escape through scenic highlands, cultural gems, and pristine beaches.</p>
+                    <span class="dest-slide-btn">Explore Tour &#8594;</span>
+                </div>
+            </a>
+            <a href="honeymoon-2.html" class="dest-slide" style="background-image: url('assets/images/honeymoon package2 background.webp')" aria-label="Honeymoon Package 2 tour">
+                <div class="dest-slide-overlay"></div>
+                <div class="dest-slide-content">
+                    <p class="dest-slide-badge">10 Days &bull; Romance</p>
+                    <h2 class="dest-slide-title">Honeymoon Package 2</h2>
+                    <p class="dest-slide-desc">A dreamy coastal journey for couples, from wildlife encounters to sunset beaches.</p>
+                    <span class="dest-slide-btn">Explore Tour &#8594;</span>
+                </div>
+            </a>
+            <a href="east-coast.html" class="dest-slide" style="background-image: url('assets/images/EAST COAST PACKAGE background image.webp')" aria-label="East Coast Package tour">
+                <div class="dest-slide-overlay"></div>
+                <div class="dest-slide-content">
+                    <p class="dest-slide-badge">10 Days &bull; East Coast</p>
+                    <h2 class="dest-slide-title">East Coast Package</h2>
+                    <p class="dest-slide-desc">Explore Sigiriya, Trincomalee, Pasikudah, and the surf haven of Arugam Bay.</p>
+                    <span class="dest-slide-btn">Explore Tour &#8594;</span>
+                </div>
+            </a>
+            <a href="north-coast.html" class="dest-slide" style="background-image: url('assets/images/NORTH COAST PACKAGE background image.webp')" aria-label="North Coast Package tour">
+                <div class="dest-slide-overlay"></div>
+                <div class="dest-slide-content">
+                    <p class="dest-slide-badge">10 Days &bull; North Coast</p>
+                    <h2 class="dest-slide-title">North Coast Package</h2>
+                    <p class="dest-slide-desc">Discover Kalpitiya, Wilpattu National Park, Mannar, and the ancient city of Jaffna.</p>
+                    <span class="dest-slide-btn">Explore Tour &#8594;</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="dest-dots" id="destDots">
+            <button class="dest-dot active" aria-label="Slide 1"></button>
+            <button class="dest-dot" aria-label="Slide 2"></button>
+            <button class="dest-dot" aria-label="Slide 3"></button>
+            <button class="dest-dot" aria-label="Slide 4"></button>
+            <button class="dest-dot" aria-label="Slide 5"></button>
+        </div>
+    </div>
+
+    <!-- Annual Tour Preview Section -->
+    <section class="annual-preview" id="experiences">
         <div class="container">
-            <div class="section-intro">
-                <p class="section-eyebrow">Route Collections</p>
-                <h2>TOUR COLLECTIONS</h2>
-                <p class="subtitle">Choose a route family, then customize it to fit your trip goals.</p>
-            </div>
-            <div class="destinations-grid">
-                <article class="destination-card">
-                    <p class="card-badge">14 Days • Signature Route</p>
-                    <h3>Sri Lanka Splendors</h3>
-                    <p>14-day signature private journey covering heritage cities, safaris, tea country, and beaches.</p>
-                </article>
-                <article class="destination-card">
-                    <p class="card-badge">10 Days • Romance</p>
-                    <h3>Honeymoon Packages</h3>
-                    <p>Two romantic 10-day routes designed around beaches, scenic landscapes, and couple-friendly stays.</p>
-                </article>
-                <article class="destination-card">
-                    <p class="card-badge">10 Days • East Coast</p>
-                    <h3>East Coast Package</h3>
-                    <p>A 10-day coastal route with Sigiriya, Trincomalee, Pasikudah, and Arugam Bay highlights.</p>
-                </article>
-                <article class="destination-card">
-                    <p class="card-badge">10 Days • North Coast</p>
-                    <h3>North Coast Package</h3>
-                    <p>A 10-day northbound experience including Kalpitiya, Wilpattu, Mannar, and Jaffna.</p>
-                </article>
+            <div class="annual-preview-grid">
+                <!-- Left: Interactive Route Map -->
+                <div class="annual-preview-map-col">
+                    <div id="homeRouteMap" class="home-route-map"></div>
+                </div>
+                <!-- Right: Tour Info -->
+                <div class="annual-preview-info-col">
+                    <p class="section-eyebrow">Annual Tour</p>
+                    <h2 class="annual-preview-title">Sri Lanka Splendors</h2>
+                    <span class="annual-preview-badge">14 Days &bull; Signature Route</span>
+                    <p class="annual-preview-lead">Our flagship private tour covers the full island — ancient heritage cities, wildlife safaris, misty tea country, and stunning coastal beaches — all in one seamless journey.</p>
+                    <ul class="annual-preview-stops">
+                        <li><span class="stop-dot"></span><strong>Galle</strong> — 5-star villa, Galle Fort &amp; turtle hatchery</li>
+                        <li><span class="stop-dot"></span><strong>Yala</strong> — Leopard safari in Sri Lanka's top wildlife park</li>
+                        <li><span class="stop-dot"></span><strong>Sigiriya &amp; Dambulla</strong> — Rock fortress &amp; cave temples</li>
+                        <li><span class="stop-dot"></span><strong>Anuradhapura</strong> — Ancient sacred Buddhist ruins</li>
+                        <li><span class="stop-dot"></span><strong>Kandy</strong> — Temple of the Sacred Tooth Relic</li>
+                        <li><span class="stop-dot"></span><strong>Nuwara Eliya</strong> — Tea plantations &amp; highland scenery</li>
+                        <li><span class="stop-dot"></span><strong>Ella</strong> — Nine Arch Bridge &amp; mountain adventures</li>
+                    </ul>
+                    <a href="tours.html" class="annual-preview-cta">View Full Itinerary &#8594;</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Experiences Section -->
-    <section class="experiences" id="experiences">
-        <div class="container">
-            <div class="section-intro">
-                <p class="section-eyebrow">Travel Styles</p>
-                <h2>PLAN BY TRAVEL STYLE</h2>
+    <!-- About Section -->
+    <section class="about-section" style="background-image: url('assets/images/nuwara-eliya/Gemini_Generated_Image_fcotqxfcotqxfcot.webp')">
+        <div class="about-overlay"></div>
+        <div class="container about-inner">
+            <div class="about-text-col">
+                <p class="section-eyebrow about-eyebrow">Who We Are</p>
+                <h2 class="about-title">Golden Island Tours</h2>
+                <p class="about-desc">We are a Sri Lanka-based travel company with offices in Italy and Sri Lanka, specialising in handcrafted private tours for international travellers. From 14-day signature routes to honeymoon escapes and coastal journeys, every trip is designed with care, local knowledge, and 24/7 on-the-ground support.</p>
+                <p class="about-desc">Founded on a passion for Sri Lanka's extraordinary diversity — its wildlife, heritage, landscapes, and people — we connect travellers with authentic experiences they won't find in a brochure.</p>
             </div>
-            <div class="experiences-grid">
-                <article class="experience-card">
-                    <p class="card-badge">Best For Full-Island Travel</p>
-                    <h3>Annual Signature Tour</h3>
-                    <p>Ideal for travelers who want a complete, multi-region Sri Lanka discovery.</p>
-                </article>
-                <article class="experience-card">
-                    <p class="card-badge">Best For Couples</p>
-                    <h3>Romantic Honeymoon Journeys</h3>
-                    <p>Perfect for couples seeking beach time, scenic moments, and private stays.</p>
-                </article>
-                <article class="experience-card">
-                    <p class="card-badge">Best For Beach Lovers</p>
-                    <h3>Coastal Adventure Routes</h3>
-                    <p>Pick East or North Coast for a quieter, beach-focused itinerary with local character.</p>
-                </article>
-                <article class="experience-card">
-                    <p class="card-badge">Best For Families & Groups</p>
-                    <h3>Private Transport Included</h3>
-                    <p>Travel comfortably with our KDH and Hino options for private groups and families.</p>
-                </article>
+            <div class="about-contact-col">
+                <h3 class="about-contact-title">Get In Touch</h3>
+                <ul class="about-contact-list">
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.22 6.22l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div>
+                            <span>Italy</span>
+                            <a href="tel:+393314886545">+39 3314886545</a>
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.86a16 16 0 0 0 6.22 6.22l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div>
+                            <span>Sri Lanka</span>
+                            <a href="tel:+94740910780">+94 740910780</a>
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <div>
+                            <span>Email</span>
+                            <a href="mailto:contact@goldenislandtours.com">contact@goldenislandtours.com</a>
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div>
+                            <span>Italy Office</span>
+                            <p>Via Berera 29, Milano, 20121 (MI)</p>
+                        </div>
+                    </li>
+                    <li>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div>
+                            <span>Sri Lanka Office</span>
+                            <p>No 105D, Mathara Road, Pettigalawatta</p>
+                        </div>
+                    </li>
+                </ul>
+                <a href="contact.html" class="annual-preview-cta" style="margin-top:1.5rem">Contact Us &#8594;</a>
             </div>
         </div>
     </section>
@@ -287,6 +364,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
     </a>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="js/script.js"></script>
 </body>
 </html>

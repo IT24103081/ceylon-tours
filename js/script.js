@@ -372,6 +372,21 @@ const initEastCoastRouteMap = () => {
     });
 };
 
+const initHomeRouteMap = () => {
+    initRouteMap({
+        elementId: 'homeRouteMap',
+        center: [7.4, 80.7],
+        zoom: 7,
+        routeStops: toursRouteStops
+    });
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHomeRouteMap, { once: true });
+} else {
+    initHomeRouteMap();
+}
+
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initToursRouteMap, { once: true });
 } else {
@@ -659,82 +674,8 @@ ctaButtons.forEach((button) => {
     });
 });
 
-// Slideshow Controls
-const slides = document.querySelectorAll('.slide');
-const indicators = document.querySelectorAll('.indicator');
-const prevBtn = document.getElementById('slidePrev');
-const nextBtn = document.getElementById('slideNext');
+// Hero Video
 const heroVideo = document.getElementById('heroVideo');
-let currentSlideIndex = 0;
-let slideInterval;
-
-function initSlider() {
-    if (slides.length === 0 || !nextBtn || !prevBtn || indicators.length === 0) return;
-    
-    // Auto slide
-    slideInterval = setInterval(nextSlide, 7000);
-
-    // Manual controls
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetInterval();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetInterval();
-    });
-
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            goToSlide(index);
-            resetInterval();
-        });
-    });
-}
-
-function updateSlider() {
-    slides.forEach((slide, idx) => {
-        slide.classList.remove('active');
-        if (indicators[idx]) {
-            indicators[idx].classList.remove('active');
-        }
-        if (idx === currentSlideIndex) {
-            slide.classList.add('active');
-            if (indicators[idx]) {
-                indicators[idx].classList.add('active');
-            }
-        }
-    });
-}
-
-function nextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    updateSlider();
-}
-
-function prevSlide() {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    updateSlider();
-}
-
-function goToSlide(index) {
-    currentSlideIndex = index;
-    updateSlider();
-}
-
-function resetInterval() {
-    clearInterval(slideInterval);
-    slideInterval = setInterval(nextSlide, 7000);
-}
-
-// Initialize when DOM is somewhat already loaded, but safe practice:
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initSlider);
-} else {
-    initSlider();
-}
-
 if (heroVideo) {
     const tuneHeroVideo = () => {
         heroVideo.muted = true;
@@ -746,24 +687,54 @@ if (heroVideo) {
             playPromise.catch(() => {});
         }
     };
-
-    const showHeroVideo = () => {
-        heroVideo.classList.add('is-ready');
-    };
-
+    const showHeroVideo = () => { heroVideo.classList.add('is-ready'); };
     heroVideo.addEventListener('loadeddata', showHeroVideo, { once: true });
     heroVideo.addEventListener('canplay', showHeroVideo, { once: true });
-
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', tuneHeroVideo);
     } else {
         tuneHeroVideo();
     }
-
-    if (heroVideo.readyState >= 2) {
-        showHeroVideo();
-    }
+    if (heroVideo.readyState >= 2) { showHeroVideo(); }
 }
+
+// Destination Slideshow
+(function () {
+    const destSlides = document.querySelectorAll('.dest-slide');
+    const destDots = document.querySelectorAll('.dest-dot');
+
+    if (!destSlides.length) return;
+
+    let current = 0;
+    let autoTimer = null;
+
+    function goTo(idx) {
+        destSlides[current].classList.remove('active');
+        if (destDots[current]) destDots[current].classList.remove('active');
+        current = (idx + destSlides.length) % destSlides.length;
+        destSlides[current].classList.add('active');
+        if (destDots[current]) destDots[current].classList.add('active');
+    }
+
+    function startAuto() {
+        autoTimer = setInterval(function () { goTo(current + 1); }, 3000);
+    }
+
+    function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+    }
+
+    destDots.forEach(function (dot, i) {
+        dot.addEventListener('click', function (e) {
+            e.stopPropagation();
+            goTo(i);
+            resetAuto();
+        });
+    });
+
+    startAuto();
+})();
 
 const initVideoClips = () => {
     const clipVideos = Array.from(document.querySelectorAll('.video-clip-video'));
