@@ -1,3 +1,33 @@
+// Clear cache every 24 hours
+const initCacheClear = () => {
+    const CACHE_CLEAR_KEY = 'lastCacheClear';
+    const CACHE_CLEAR_INTERVAL = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+    
+    try {
+        const lastClearTime = localStorage.getItem(CACHE_CLEAR_KEY);
+        const now = Date.now();
+        
+        if (!lastClearTime || (now - parseInt(lastClearTime)) >= CACHE_CLEAR_INTERVAL) {
+            // Clear all caches
+            if ('caches' in window) {
+                caches.keys().then(cacheNames => {
+                    cacheNames.forEach(cacheName => {
+                        caches.delete(cacheName);
+                    });
+                });
+            }
+            
+            // Update the timestamp
+            localStorage.setItem(CACHE_CLEAR_KEY, now.toString());
+        }
+    } catch (_error) {
+        // Silently handle errors
+    }
+};
+
+// Run cache clear on page load
+initCacheClear();
+
 const splashStorageKey = 'ceylonToursSplashSeen';
 const shouldShowSplash = (() => {
     try {
