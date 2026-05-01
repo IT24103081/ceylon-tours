@@ -902,58 +902,102 @@ section {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr 1fr 1.4fr;
+    gap: 2.5rem;
+    align-items: start;
 }
 
-.footer-left,
-.footer-middle,
-.footer-right {
-    display: grid;
-    gap: 0.9rem;
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: flex-start;
 }
 
-.footer-middle {
-    grid-template-columns: 1fr 1fr;
-    align-self: start;
-}
-
-.footer-info {
-    display: grid;
-    gap: 0.2rem;
-}
-
-.info-label {
-    color: #9db3c7;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.9px;
-}
-
-.company-name {
+.footer-column h4 {
     color: var(--white);
+    font-size: 1.3rem;
     font-weight: 700;
+    margin: 0 0 0.85rem;
+    padding-bottom: 0.55rem;
+    position: relative;
+    letter-spacing: 0.4px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.footer-column a,
+.footer-column span,
+.footer-column p {
+    color: #d0deea;
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.footer-contact {
+    gap: 0.85rem;
+}
+
+.footer-contact .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+.footer-contact .contact-line a {
+    color: #d0deea;
+    word-break: break-word;
+}
+
+.footer-contact .contact-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    display: inline-grid;
+    place-items: center;
+    color: #d0deea;
+}
+
+.footer-contact .contact-icon svg {
+    width: 13px;
+    height: 13px;
+}
+
+.footer-contact .footer-address {
+    display: block;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.15rem;
+}
+
+.footer-contact .social-icons {
+    margin-top: 0.4rem;
 }
 
 .footer p,
 .footer a {
     color: #d0deea;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .footer a:hover,
 .footer-column a:hover,
 .footer-bottom-links a:hover {
     color: var(--brand-red);
-}
-
-.footer-column {
-    display: grid;
-    align-content: start;
-    justify-items: start;
-    gap: 0.45rem;
 }
 
 .newsletter-footer h4,
@@ -1014,6 +1058,58 @@ section {
 .footer-bottom-links a {
     font-size: 0.8rem;
     color: #a9c0d2;
+}
+
+/* Footer Mobile Layout */
+@media (max-width: 860px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Left side: Quick Links and Tour Packages stacked */
+    .footer-column:nth-child(1),
+    .footer-column:nth-child(2) {
+        grid-column: 1;
+    }
+    
+    /* Right side: Destinations */
+    .footer-column:nth-child(3) {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+    
+    /* Bottom: Contact column full width */
+    .footer-column:nth-child(4) {
+        grid-column: 1 / -1;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Alternative footer structure layout */
+    .footer-left {
+        grid-column: 1 / -1;
+        order: 3;
+        border-top: 1px solid rgba(255, 255, 255, 0.18);
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+    }
+    
+    .footer-middle {
+        grid-column: 1;
+        order: 1;
+    }
+    
+    .footer-right {
+        grid-column: 2;
+        order: 2;
+    }
+    
+    .footer-destinations {
+        grid-column: 2;
+        order: 2;
+    }
 }
 
 /* Transport Page */
@@ -1223,7 +1319,28 @@ section {
     }
 
     .footer-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .footer-contact {
+        grid-column: 1 / -1;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-contact h4::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-contact .contact-line {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-contact .social-icons {
+        justify-content: center;
     }
 
     .video-clips-grid {
@@ -1324,8 +1441,7 @@ section {
     .features-grid,
     .destinations-grid,
     .testimonials-grid,
-    .experiences-grid,
-    .footer-middle {
+    .experiences-grid {
         grid-template-columns: 1fr;
     }
 
