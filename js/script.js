@@ -1889,3 +1889,66 @@ document.addEventListener("DOMContentLoaded", () => {
         initHeroSlider(negomboHeroSlider);
     }
 });
+
+// Reviews Carousel - Rotate reviews every 3 seconds
+const initReviewsCarousel = () => {
+    const carousel = document.querySelector('.reviews-carousel');
+    const reviewCards = carousel ? Array.from(carousel.querySelectorAll('.review-card')) : [];
+    
+    if (!carousel || reviewCards.length === 0) return;
+
+    let currentIndex = 0;
+    const totalCards = reviewCards.length;
+    
+    // Determine how many cards to show based on screen size
+    const getCardsToShow = () => {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    };
+
+    let cardsToShow = getCardsToShow();
+
+    const updateCarousel = () => {
+        // Get the width of one card plus the gap
+        const firstCard = reviewCards[0];
+        const cardWidth = firstCard.offsetWidth;
+        const gapSize = 32; // 2rem in pixels
+        const oneCardScrollDistance = cardWidth + gapSize;
+        
+        // Calculate max scroll to prevent going past the last visible set
+        const maxScroll = (totalCards - cardsToShow) * oneCardScrollDistance;
+        const scrollDistance = oneCardScrollDistance * currentIndex;
+        
+        carousel.style.transform = `translateX(-${scrollDistance}px)`;
+        
+        // Increment and loop back
+        if (scrollDistance >= maxScroll) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+    };
+
+    // Update carousel every 2 seconds
+    const interval = setInterval(updateCarousel, 2000);
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const newCardsToShow = getCardsToShow();
+        if (newCardsToShow !== cardsToShow) {
+            cardsToShow = newCardsToShow;
+            currentIndex = 0;
+            carousel.style.transform = 'translateX(0)';
+        }
+    });
+};
+
+// Initialize reviews carousel on page load
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    window.setTimeout(initReviewsCarousel, 500);
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.setTimeout(initReviewsCarousel, 500);
+    });
+}
