@@ -1890,57 +1890,73 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-// Reviews Carousel - Rotate reviews every 3 seconds
+// Reviews Carousel - Rotate reviews every 2 seconds
 const initReviewsCarousel = () => {
     const carousel = document.querySelector('.reviews-carousel');
-    const reviewCards = carousel ? Array.from(carousel.querySelectorAll('.review-card')) : [];
+    let reviewCards = carousel ? Array.from(carousel.querySelectorAll('.review-card')) : [];
     
     if (!carousel || reviewCards.length === 0) return;
 
-    let currentIndex = 0;
-    const totalCards = reviewCards.length;
+    const originalCardCount = reviewCards.length; // 9 original cards
     
-    // Determine how many cards to show based on screen size
-    const getCardsToShow = () => {
-        if (window.innerWidth <= 640) return 1;
-        if (window.innerWidth <= 1024) return 2;
-        return 3;
+    // Clone first 3 cards and append to the end for seamless infinite scroll
+    const cardsToClone = reviewCards.slice(0, 3);
+    cardsToClone.forEach(card => {
+        const clone = card.cloneNode(true);
+        carousel.appendChild(clone);
+    });
+    
+    let currentIndex = 0;
+
+    const getGapSize = () => {
+        // Get the actual gap from computed styles or use responsive values
+        if (window.innerWidth <= 640) return 24; // 1.5rem on mobile
+        return 32; // 2rem on desktop/tablet
     };
 
-    let cardsToShow = getCardsToShow();
-
     const updateCarousel = () => {
-        // Get the width of one card plus the gap
-        const firstCard = reviewCards[0];
+        // Get card and gap measurements
+        const allCards = Array.from(carousel.querySelectorAll('.review-card'));
+        const firstCard = allCards[0];
         const cardWidth = firstCard.offsetWidth;
-        const gapSize = 32; // 2rem in pixels
+        const gapSize = getGapSize();
         const oneCardScrollDistance = cardWidth + gapSize;
         
-        // Calculate max scroll to prevent going past the last visible set
-        const maxScroll = (totalCards - cardsToShow) * oneCardScrollDistance;
+        // Calculate scroll position for current index
         const scrollDistance = oneCardScrollDistance * currentIndex;
-        
         carousel.style.transform = `translateX(-${scrollDistance}px)`;
         
-        // Increment and loop back
-        if (scrollDistance >= maxScroll) {
-            currentIndex = 0;
-        } else {
-            currentIndex++;
+        currentIndex++;
+        
+        // When we reach the cloned cards (cards 10, 11, 12 which are clones of 1, 2, 3)
+        // After the animation completes, seamlessly jump back to the original cards
+        if (currentIndex > originalCardCount) {
+            setTimeout(() => {
+                // Disable transition temporarily
+                carousel.style.transition = 'none';
+                
+                // Jump back to the equivalent position in the original cards
+                currentIndex = 1; // We're now at the cloned card 1, so jump back to original card 1
+                const resetScrollDistance = oneCardScrollDistance * currentIndex;
+                carousel.style.transform = `translateX(-${resetScrollDistance}px)`;
+                
+                // Force reflow
+                void carousel.offsetHeight;
+                
+                // Re-enable transition
+                carousel.style.transition = 'transform 0.6s ease-in-out';
+            }, 600); // Wait for transition to complete
         }
     };
 
     // Update carousel every 2 seconds
-    const interval = setInterval(updateCarousel, 2000);
+    setInterval(updateCarousel, 2000);
 
     // Handle window resize
     window.addEventListener('resize', () => {
-        const newCardsToShow = getCardsToShow();
-        if (newCardsToShow !== cardsToShow) {
-            cardsToShow = newCardsToShow;
-            currentIndex = 0;
-            carousel.style.transform = 'translateX(0)';
-        }
+        currentIndex = 0;
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translateX(0)';
     });
 };
 

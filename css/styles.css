@@ -3291,7 +3291,9 @@ textarea.form-control {
 /* Reviews Section */
 .reviews-section {
     padding: 5rem 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(241, 251, 255, 0.98) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(241, 251, 255, 0.6) 100%);
+    border-top: 1px solid rgba(8, 127, 216, 0.18);
+    border-bottom: 1px solid rgba(8, 127, 216, 0.18);
 }
 
 .reviews-section .section-intro {
@@ -3412,5 +3414,9 @@ textarea.form-control {
 
     .review-text {
         font-size: 0.9rem;
+    }
+
+    .review-stars {
+        justify-content: center;
     }
 }
