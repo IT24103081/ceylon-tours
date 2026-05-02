@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=86400">
+    <title>Tour 4 — 8 Days / 7 Nights | Golden Island Tours</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+</head>
+<body>
+    <div class="splash-screen" aria-label="Loading Golden Island Tours"><div class="splash-screen__content"><img src="assets/splashscreen.webp" class="splash-screen__logo" alt="Golden Island Tours"><div class="splash-screen__loader" aria-hidden="true"></div></div></div>
+    <header class="header"><div class="header-top"><div class="header-container"><div class="header-contact"><a href="tel:+393314886545" class="contact-item">+39 3314886545</a><span class="divider">|</span><a href="tel:+94740910780" class="contact-item">+94 740910780</a><span class="divider">|</span><a href="mailto:contact@goldenislandtours.com" class="contact-item">contact@goldenislandtours.com</a></div></div></div><div class="header-main"><div class="header-container"><div class="logo-section"><img src="assets/headerlogo.webp" class="header-logo" alt="Golden Island Tours"></div><nav class="nav"><a href="/" class="nav-link">HOME</a><div class="nav-item nav-item-dropdown"><a href="tours.html" class="nav-link active">TOURS</a><div class="nav-dropdown" aria-label="Tour categories"><a href="tours.html" class="nav-dropdown-link">Annual Tour</a><a href="honeymoon-packages.html" class="nav-dropdown-link">Honeymoon Packages</a><a href="other-packages.html" class="nav-dropdown-link">Other Packages</a></div></div><a href="transport.html" class="nav-link">TRANSPORT</a><a href="inquire.html" class="nav-link">INQUIRE</a><a href="contact.html" class="nav-link">CONTACT US</a></nav><button class="header-cta">INQUIRE NOW</button><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu"><span></span><span></span><span></span></button></div></div><div class="header-bottom-border"></div></header>
+
+    <section class="tour-hero">
+        <div class="tour-hero-bg" style="background-image: url('assets/images/anuradhapura/Gemini_Generated_Image_2jewxq2jewxq2jew.webp');"></div>
+        <div class="tour-hero-overlay"></div>
+        <div class="container tour-hero-content">
+            <span class="tour-badge">Tour 4</span>
+            <h1>HILL AND COAST LOOP — 8 DAYS / 7 NIGHTS</h1>
+            <p class="tour-subtitle-hero">A scenic route from Negombo through Kandy, Sigiriya, Anuradhapura and Ella before finishing on the southern coast.</p>
+        </div>
+    </section>
+
+    <section class="tour-body">
+        <div class="container tour-grid" style="display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start;">
+            <div class="tour-left">
+                <div class="tour-section-header">
+                    <h2>TOUR ITINERARY</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="itinerary-accordion">
+                    <div class="accordion-item"><div class="accordion-header active">DAY 01 | AIRPORT to NEGOMBO</div><div class="accordion-content"><p>Arrive in Sri Lanka and transfer to Negombo for your first overnight stay.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 02 | NEGOMBO to KANDY</div><div class="accordion-content"><p>Travel inland to Kandy and enjoy the hill-country atmosphere and cultural highlights.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 03 | KANDY to SIGIRIYA</div><div class="accordion-content"><p>Head to Sigiriya and settle into the Cultural Triangle for an evening stay.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 04 | SIGIRIYA to ANURADHAPURA</div><div class="accordion-content"><p>Continue to Anuradhapura to explore the ancient city and sacred heritage sites.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 05 | ANURADHAPURA to ELLA</div><div class="accordion-content"><p>Travel south-east to Ella for cool mountain air and a relaxed evening in the hills.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 06 | ELLA to UNAWATUNA</div><div class="accordion-content"><p>Descend to the southern coast and unwind in Unawatuna with beach time and sea views.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 07 | UNAWATUNA to NEGOMBO</div><div class="accordion-content"><p>Return north to Negombo for a final overnight near the airport.</p></div></div>
+                    <div class="accordion-item"><div class="accordion-header">DAY 08 | NEGOMBO to AIRPORT</div><div class="accordion-content"><p>Transfer to the airport for departure.</p></div></div>
+                </div>
+            </div>
+            <aside class="tour-right"><div class="sticky-sidebar"><div class="sidebar-widget"><h4 class="widget-title">ROUTE MAP</h4><div class="tour-map-container"><div id="tour4RouteMap" class="tour-route-map"></div></div></div><div class="sidebar-widget"><h4 class="widget-title">GOOD TO KNOW</h4><div class="tour-notes"><div class="note-item"><p>Mix light layers for Kandy and Ella with beachwear for Unawatuna.</p></div></div></div></div></aside></div></section>
+
+    <footer class="footer"><div class="footer-container"><div class="footer-column"><h4>Quick Links</h4><a href="/">HOME</a><a href="tours.html">TOURS</a></div><div class="footer-column"><h4>Contact</h4><a href="mailto:contact@goldenislandtours.com">contact@goldenislandtours.com</a></div></div><div class="footer-bottom"><p>Copyrights reserved by Golden Island Tours - © 2026</p></div></footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

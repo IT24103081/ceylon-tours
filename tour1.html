@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="max-age=86400">
+    <title>Tour 1 — 12 Days / 11 Nights | Golden Island Tours</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""
+    >
+</head>
+<body>
+    <div class="splash-screen" aria-label="Loading Golden Island Tours">
+        <div class="splash-screen__content">
+            <img src="assets/splashscreen.webp" class="splash-screen__logo" alt="Golden Island Tours">
+            <div class="splash-screen__loader" aria-hidden="true"></div>
+        </div>
+    </div>
+
+    <!-- Header (same core as tours.html) -->
+    <header class="header">
+        <div class="header-top">
+            <div class="header-container">
+                <div class="header-contact">
+                    <a href="tel:+393314886545" class="contact-item">+39 3314886545</a>
+                    <span class="divider">|</span>
+                    <a href="tel:+94740910780" class="contact-item">+94 740910780</a>
+                    <span class="divider">|</span>
+                    <a href="mailto:contact@goldenislandtours.com" class="contact-item">contact@goldenislandtours.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="header-container">
+                <div class="logo-section">
+                    <img src="assets/headerlogo.webp" class="header-logo" alt="Golden Island Tours">
+                </div>
+                <nav class="nav">
+                    <a href="/" class="nav-link">HOME</a>
+                    <div class="nav-item nav-item-dropdown">
+                        <a href="tours.html" class="nav-link active">TOURS</a>
+                        <div class="nav-dropdown" aria-label="Tour categories">
+                            <a href="tours.html" class="nav-dropdown-link">Annual Tour</a>
+                            <a href="honeymoon-packages.html" class="nav-dropdown-link">Honeymoon Packages</a>
+                            <a href="other-packages.html" class="nav-dropdown-link">Other Packages</a>
+                        </div>
+                    </div>
+                    <a href="transport.html" class="nav-link">TRANSPORT</a>
+                    <a href="inquire.html" class="nav-link">INQUIRE</a>
+                    <a href="contact.html" class="nav-link">CONTACT US</a>
+                </nav>
+                <button class="header-cta">INQUIRE NOW</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div class="header-bottom-border"></div>
+    </header>
+
+    <!-- Tour Hero Cover -->
+    <section class="tour-hero">
+        <div class="tour-hero-bg" style="background-image: url('assets/images/anuradhapura/anuradhapura-whatsapp.webp');"></div>
+        <div class="tour-hero-overlay"></div>
+        <div class="container tour-hero-content">
+            <span class="tour-badge">Tour 1</span>
+            <h1>CLASSIC SRI LANKA CIRCUIT — 12 DAYS / 11 NIGHTS</h1>
+            <p class="tour-subtitle-hero">A private 12-day journey through Sri Lanka’s ancient cities, misty tea country and sun-kissed southern beaches — culture, wildlife and coastal relaxation.</p>
+            
+            
+        </div>
+    </section>
+
+    <!-- Tour Body Layout (matches tours.html core) -->
+    <section class="tour-body">
+        <div class="container tour-grid" style="display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start;">
+            <!-- Left Column: Itinerary -->
+            <div class="tour-left">
+                <div class="tour-section-header">
+                    <h2>TOUR ITINERARY</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="itinerary-accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header active">DAY 01 | AIRPORT to NEGOMBO</div>
+                        <div class="accordion-content">
+                            <p>Arrival at Bandaranaike International Airport and transfer to Negombo for an overnight stay and recovery from the flight.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 02 | NEGOMBO to ANURADHAPURA</div>
+                        <div class="accordion-content">
+                            <p>Drive to the ancient city of Anuradhapura. Explore stupas, the sacred Bodhi tree and archaeological ruins.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 03 | ANURADHAPURA to SIGIRIYA</div>
+                        <div class="accordion-content">
+                            <p>Transfer to Sigiriya. Optional climb to the Sigiriya Rock Fortress and visit local village sites.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 04 | SIGIRIYA to POLONNARUWA</div>
+                        <div class="accordion-content">
+                            <p>Drive to Polonnaruwa and tour the medieval capital by bike or tuk-tuk, visiting Gal Vihara and Parakrama Samudra.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 05 | POLONNARUWA to KANDY</div>
+                        <div class="accordion-content">
+                            <p>Travel to Kandy. In the evening visit the Temple of the Tooth and stroll the Kandy Lake precinct.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 06 | KANDY to NUWARA ELIYA</div>
+                        <div class="accordion-content">
+                            <p>Journey into tea country. Visit a tea factory and enjoy cool hill-station air in Nuwara Eliya.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 07 | NUWARA ELIYA to ELLA</div>
+                        <div class="accordion-content">
+                            <p>Scenic travel to Ella; optional hikes to Little Adam's Peak or Nine Arch Bridge.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 08 | ELLA to YALA</div>
+                        <div class="accordion-content">
+                            <p>Drive south to Yala National Park for an afternoon/evening safari to spot leopards and elephants.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 09 | YALA to MIRISSA</div>
+                        <div class="accordion-content">
+                            <p>Transfer to Mirissa for beach time; optional whale-watching (seasonal) or relax on the sand.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 10 | MIRISSA to GALLE / UNAWATUNA</div>
+                        <div class="accordion-content">
+                            <p>Short drive to Galle Fort and Unawatuna; explore the historic ramparts and nearby beaches.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 11 | GALLE to NEGOMBO</div>
+                        <div class="accordion-content">
+                            <p>Return north to Negombo for an overnight near the airport and a leisurely evening by the lagoon.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">DAY 12 | NEGOMBO to AIRPORT</div>
+                        <div class="accordion-content">
+                            <p>Transfer to Bandaranaike International Airport for departure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Route Map + Notes -->
+            <aside class="tour-right">
+                <div class="sticky-sidebar">
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">ROUTE MAP</h4>
+                        <div class="tour-map-container" aria-label="Tour 1 route map with stops">
+                            <div id="tour1RouteMap" class="tour-route-map"></div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">GOOD TO KNOW</h4>
+                        <div class="tour-notes">
+                            <div class="note-item">
+                                <p>Pack light layers for hill country; temperatures vary.</p>
+                            </div>
+                            <div class="note-item">
+                                <p>Temples require modest dress; remove shoes before entering.</p>
+                            </div>
+                            <div class="note-item">
+                                <p>Wildlife sightings are never guaranteed — be patient and arrive early for safaris.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Footer (same core) -->
+    <footer class="footer" id="contact">
+        <div class="footer-background"></div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="/">HOME</a>
+                <a href="tours.html">TOURS</a>
+                <a href="transport.html">TRANSPORT</a>
+                <a href="inquire.html">INQUIRE</a>
+                <a href="contact.html">CONTACT US</a>
+            </div>
+            <div class="footer-column">
+                <h4>Tour Packages</h4>
+                <a href="tours.html">Annual Tour</a>
+                <a href="honeymoon-packages.html">Honeymoon Packages</a>
+                <a href="other-packages.html">Other Packages</a>
+            </div>
+            <div class="footer-column">
+                <h4>Destinations</h4>
+                <span>Galle</span>
+                <span>Mirissa</span>
+                <span>Yala</span>
+                <span>Anuradhapura</span>
+                <span>Sigiriya</span>
+                <span>Kandy</span>
+                <span>Ella</span>
+            </div>
+            <div class="footer-column footer-contact">
+                <h4>Contact Us</h4>
+                <p class="contact-line">
+                    <span>No 105D, Mathara Road, Pettigalawatta, Sri Lanka</span>
+                </p>
+                <p class="contact-line">
+                    <a href="tel:+393314886545">+39 3314886545</a>
+                </p>
+                <p class="contact-line">
+                    <a href="tel:+94740910780">+94 740910780</a>
+                </p>
+                <p class="contact-line">
+                    <a href="mailto:contact@goldenislandtours.com">contact@goldenislandtours.com</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyrights reserved by Golden Island Tours - © 2026</p>
+            <div class="footer-bottom-links">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-conditions.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/393314886545" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""
+    ></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

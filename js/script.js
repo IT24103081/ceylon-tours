@@ -357,6 +357,116 @@ const eastCoastRouteStops = [
     { day: 'DAY 10', name: 'Negombo (Departure)', lat: 7.2083, lng: 79.8358 }
 ];
 
+// Route stops for Tour 1 (12 days / 11 nights) — Airport -> Negombo -> Anuradhapura -> Sigiriya -> Polonnaruwa -> Kandy -> Nuwara Eliya -> Ella -> Yala -> Mirissa -> Galle/Unawatuna -> Negombo -> Airport
+const tour1RouteStops = [
+    { day: 'DAY 01', name: 'Negombo (Arrival)', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 02', name: 'Anuradhapura', lat: 8.3114, lng: 80.4037 },
+    { day: 'DAY 03', name: 'Sigiriya', lat: 7.9570, lng: 80.7603 },
+    { day: 'DAY 04', name: 'Polonnaruwa', lat: 7.9403, lng: 81.0188 },
+    { day: 'DAY 05', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 06', name: 'Nuwara Eliya', lat: 6.9497, lng: 80.7891 },
+    { day: 'DAY 07', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 08', name: 'Yala', lat: 6.3723, lng: 81.5185 },
+    { day: 'DAY 09', name: 'Mirissa', lat: 5.9480, lng: 80.4600 },
+    { day: 'DAY 10', name: 'Galle / Unawatuna', lat: 6.0535, lng: 80.2210 },
+    { day: 'DAY 11', name: 'Negombo (Pre-departure)', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 12', name: 'Airport (Departure)', lat: 7.1800, lng: 79.8840 }
+];
+
+// Route stops for Tour 2 (6 days / 5 nights) — Airport -> Sigiriya -> Kandy -> Ella -> Mirissa -> Bentota -> Airport
+const tour2RouteStops = [
+    { day: 'DAY 01', name: 'Airport (Arrival)', lat: 7.1800, lng: 79.8840 },
+    { day: 'DAY 01', name: 'Sigiriya', lat: 7.9570, lng: 80.7603 },
+    { day: 'DAY 02', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 03', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 04', name: 'Mirissa', lat: 5.9480, lng: 80.4600 },
+    { day: 'DAY 05', name: 'Bentota', lat: 6.4250, lng: 80.0030 },
+    { day: 'DAY 06', name: 'Airport (Departure)', lat: 7.1800, lng: 79.8840 }
+];
+
+// Route stops for Tour 3 (8 days / 7 nights) — Airport -> Galle -> Mirissa -> Arugam Bay -> Pasikudah -> Nilaveli -> Kalpitiya -> Negombo -> Airport
+const tour3RouteStops = [
+    { day: 'DAY 01', name: 'Airport (Arrival)', lat: 7.1800, lng: 79.8840 },
+    { day: 'DAY 01', name: 'Galle', lat: 6.0535, lng: 80.2210 },
+    { day: 'DAY 02', name: 'Mirissa', lat: 5.9480, lng: 80.4600 },
+    { day: 'DAY 03', name: 'Arugam Bay', lat: 6.8390, lng: 81.8368 },
+    { day: 'DAY 04', name: 'Pasikudah', lat: 7.9290, lng: 81.5560 },
+    { day: 'DAY 05', name: 'Nilaveli', lat: 8.7017, lng: 81.2090 },
+    { day: 'DAY 06', name: 'Kalpitiya', lat: 8.2300, lng: 79.7610 },
+    { day: 'DAY 07', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 08', name: 'Airport (Departure)', lat: 7.1800, lng: 79.8840 }
+];
+
+// Route stops for Tour 4 (8 days / 7 nights) — Airport -> Negombo -> Kandy -> Sigiriya -> Anuradhapura -> Ella -> Unawatuna -> Negombo -> Airport
+const tour4RouteStops = [
+    { day: 'DAY 01', name: 'Airport (Arrival)', lat: 7.1800, lng: 79.8840 },
+    { day: 'DAY 01', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 02', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 03', name: 'Sigiriya', lat: 7.9570, lng: 80.7603 },
+    { day: 'DAY 04', name: 'Anuradhapura', lat: 8.3114, lng: 80.4037 },
+    { day: 'DAY 05', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 06', name: 'Unawatuna', lat: 6.0100, lng: 80.2450 },
+    { day: 'DAY 07', name: 'Negombo', lat: 7.2083, lng: 79.8358 },
+    { day: 'DAY 08', name: 'Airport (Departure)', lat: 7.1800, lng: 79.8840 }
+];
+
+// Route stops for Tour 5 (7 days / 6 nights) — Airport -> Sigiriya -> Kandy -> Nuwara Eliya -> Ella -> Mirissa -> Galle -> Airport
+const tour5RouteStops = [
+    { day: 'DAY 01', name: 'Airport (Arrival)', lat: 7.1800, lng: 79.8840 },
+    { day: 'DAY 01', name: 'Sigiriya', lat: 7.9570, lng: 80.7603 },
+    { day: 'DAY 02', name: 'Kandy', lat: 7.2906, lng: 80.6337 },
+    { day: 'DAY 03', name: 'Nuwara Eliya', lat: 6.9497, lng: 80.7891 },
+    { day: 'DAY 04', name: 'Ella', lat: 6.8667, lng: 81.0466 },
+    { day: 'DAY 05', name: 'Mirissa', lat: 5.9480, lng: 80.4600 },
+    { day: 'DAY 06', name: 'Galle', lat: 6.0535, lng: 80.2210 },
+    { day: 'DAY 07', name: 'Airport (Departure)', lat: 7.1800, lng: 79.8840 }
+];
+
+const initTour1RouteMap = () => {
+    initRouteMap({
+        elementId: 'tour1RouteMap',
+        center: [7.0, 80.0],
+        zoom: 7,
+        routeStops: tour1RouteStops
+    });
+};
+
+const initTour2RouteMap = () => {
+    initRouteMap({
+        elementId: 'tour2RouteMap',
+        center: [7.2, 80.4],
+        zoom: 7,
+        routeStops: tour2RouteStops
+    });
+};
+
+const initTour3RouteMap = () => {
+    initRouteMap({
+        elementId: 'tour3RouteMap',
+        center: [7.2, 80.8],
+        zoom: 7,
+        routeStops: tour3RouteStops
+    });
+};
+
+const initTour4RouteMap = () => {
+    initRouteMap({
+        elementId: 'tour4RouteMap',
+        center: [7.4, 80.5],
+        zoom: 7,
+        routeStops: tour4RouteStops
+    });
+};
+
+const initTour5RouteMap = () => {
+    initRouteMap({
+        elementId: 'tour5RouteMap',
+        center: [7.1, 80.6],
+        zoom: 7,
+        routeStops: tour5RouteStops
+    });
+};
+
 const initToursRouteMap = () => {
     initRouteMap({
         elementId: 'tourRouteMap',
@@ -445,6 +555,36 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initEastCoastRouteMap, { once: true });
 } else {
     initEastCoastRouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTour1RouteMap, { once: true });
+} else {
+    initTour1RouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTour2RouteMap, { once: true });
+} else {
+    initTour2RouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTour3RouteMap, { once: true });
+} else {
+    initTour3RouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTour4RouteMap, { once: true });
+} else {
+    initTour4RouteMap();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTour5RouteMap, { once: true });
+} else {
+    initTour5RouteMap();
 }
 
 // Newsletter Form Handling
@@ -696,6 +836,44 @@ navLinks.forEach(link => {
     });
 });
 
+// Itinerary accordion behavior (used on tour pages)
+const initItineraryAccordion = () => {
+    const headers = Array.from(document.querySelectorAll('.accordion-header'));
+    if (!headers.length) return;
+
+    headers.forEach(header => {
+        const content = header.nextElementSibling;
+        if (!content) return;
+
+        // If header already has active class on load, open it
+        if (header.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        }
+
+        header.addEventListener('click', () => {
+            const isActive = header.classList.contains('active');
+
+            // close all siblings
+            headers.forEach(h => {
+                h.classList.remove('active');
+                const s = h.nextElementSibling;
+                if (s) s.style.maxHeight = null;
+            });
+
+            if (!isActive) {
+                header.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        });
+    });
+};
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initItineraryAccordion, { once: true });
+} else {
+    initItineraryAccordion();
+}
+
 // CTA Button Scroll/Route
 const ctaButtons = document.querySelectorAll('.cta-button, .header-cta');
 ctaButtons.forEach((button) => {
@@ -861,6 +1039,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+    const selectableTourCards = document.querySelectorAll('.selectable-tour-card[data-tour-link]');
+    if (!selectableTourCards.length) return;
+
+    selectableTourCards.forEach((card) => {
+        const tourLink = card.getAttribute('data-tour-link');
+        if (!tourLink) return;
+
+        card.addEventListener('click', (event) => {
+            if (event.target.closest('a, button')) return;
+            window.location.href = tourLink;
+        });
+
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                window.location.href = tourLink;
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const inquiryTourPackage = document.getElementById('inquiryTourPackage');
     const inquiryForm = document.getElementById('inquiryForm');
 
@@ -890,39 +1090,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     syncChildrenAvailability();
     inquiryTourPackage.addEventListener('change', syncChildrenAvailability);
-});
-
-// Accordion Logic
-document.addEventListener("DOMContentLoaded", () => {
-    const accordions = document.querySelectorAll('.accordion-header');
-
-    const syncAccordionHeights = () => {
-        accordions.forEach((acc) => {
-            const panel = acc.nextElementSibling;
-            if (!panel) return;
-
-            if (acc.classList.contains('active')) {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            } else {
-                panel.style.maxHeight = null;
-            }
-        });
-    };
-
-    accordions.forEach(acc => {
-        acc.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-            }
-        });
-    });
-
-    syncAccordionHeights();
-    window.addEventListener('resize', syncAccordionHeights);
 });
 
 const tripDetailsData = {
@@ -1456,7 +1623,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const resetInterval = () => {
             clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
+            slideInterval = setInterval(nextSlide, 3000);
         };
 
         sliderSection.addEventListener('mouseenter', () => {
@@ -1468,7 +1635,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         renderSlide();
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 3000);
     });
 
     const viewButtons = document.querySelectorAll('.view-tour-btn');
@@ -1824,12 +1991,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentSlide = Number.isNaN(index) ? 0 : index;
                 renderSlide();
                 clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000);
+                slideInterval = setInterval(nextSlide, 3000);
             });
         });
 
         renderSlide();
-        slideInterval = setInterval(nextSlide, 5000);
+        slideInterval = setInterval(nextSlide, 3000);
     };
 
     if (galleHeroSlider) {

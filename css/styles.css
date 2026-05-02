@@ -690,6 +690,78 @@ section {
     min-height: 116px;
 }
 
+.tour-showcase-section {
+    background: transparent;
+}
+
+.tour-showcase-caption {
+    position: absolute;
+    left: clamp(1rem, 3vw, 2rem);
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    z-index: 4;
+    max-width: 720px;
+    color: #ffffff;
+}
+
+.tour-showcase-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.38rem 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    background: rgba(8, 127, 216, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.55rem;
+}
+
+.tour-showcase-title {
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+}
+
+.tour-showcase-desc {
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 58ch;
+    margin-bottom: 0.75rem;
+}
+
+.tour-showcase-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--navy-900);
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Keep index tour showcase text/buttons stable (no zoom animation) */
+.tour-showcase-section .kandy-slide,
+.tour-showcase-section .kandy-slide.active {
+    transform: none;
+    animation: none;
+}
+
+.tour-showcase-section .kandy-slide {
+    transition: opacity 1.2s ease-in-out;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tour-showcase-section .kandy-slide.active {
+    pointer-events: auto;
+    z-index: 2;
+}
+
 /* Destinations */
 .destinations {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(240, 250, 255, 0.9) 100%);
@@ -829,6 +901,111 @@ section {
 .experience-card p {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.92rem;
+}
+
+/* Tour page specific styles */
+.tour-hero {
+    padding: 3rem 0 2rem;
+    text-align: center;
+    background: transparent;
+}
+.tour-hero img {
+    border-radius: 12px;
+    max-width: 920px;
+    width: 100%;
+    height: auto;
+    box-shadow: var(--shadow-soft);
+}
+.tour-hero h1 {
+    margin-top: 1rem;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--navy-900);
+}
+.tour-hero p {
+    max-width: 920px;
+    margin: 0.6rem auto 0;
+    color: var(--white);
+    font-size: 1rem;
+    text-shadow: 0 6px 18px rgba(2,12,22,0.45);
+}
+
+.itinerary {
+    margin-top: 1rem;
+}
+.itinerary details {
+    background: var(--white);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 8px 22px rgba(11, 31, 51, 0.06);
+}
+.itinerary summary {
+    font-weight: 800;
+    cursor: pointer;
+    list-style: none;
+}
+.itinerary summary::-webkit-details-marker { display: none; }
+.itinerary details[open] {
+    border-color: var(--brand-red-strong);
+}
+.itinerary p {
+    color: var(--ink-700);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+.tour-route-map {
+    width: 100%;
+    height: 260px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #f8feff, #eaf6ff);
+    border: 1px solid var(--border-soft);
+}
+
+@media (max-width: 720px) {
+    .tour-hero h1 { font-size: 1.45rem; }
+    .tour-route-map { height: 200px; }
+}
+
+/* Make sidebar stack below itinerary on small screens and disable sticky behavior */
+@media (max-width: 920px) {
+    .tour-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto;
+        gap: 1.25rem !important;
+        align-items: start !important;
+    }
+
+    .tour-right {
+        order: 2;
+        width: 100%;
+    }
+
+    .tour-left {
+        order: 1;
+    }
+
+    .sticky-sidebar {
+        position: static;
+        top: auto;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .sidebar-widget {
+        padding: 1.4rem;
+    }
+
+    .tour-hero-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tour-badge {
+        margin-left: 0;
+    }
 }
 
 /* Newsletter */
@@ -2262,7 +2439,7 @@ section {
     color: var(--brand-red);
 }
 
-.accordion-header .icon::after {
+.accordion-header::after {
     content: "+";
     font-size: 1.2rem;
     color: var(--brand-red);
@@ -2270,7 +2447,7 @@ section {
     font-weight: 400;
 }
 
-.accordion-header.active .icon::after {
+.accordion-header.active::after {
     content: "−";
     transform: rotate(180deg);
 }
@@ -2463,6 +2640,18 @@ section {
     border-radius: 12px;
     padding: 1.2rem;
     box-shadow: 0 8px 24px rgba(11, 31, 51, 0.05);
+}
+
+.selectable-tour-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.selectable-tour-card:hover,
+.selectable-tour-card:focus-within {
+    transform: translateY(-3px);
+    border-color: rgba(8, 127, 216, 0.26);
+    box-shadow: 0 14px 30px rgba(11, 31, 51, 0.11);
 }
 
 .trip-card h2 {
@@ -3311,10 +3500,6 @@ textarea.form-control {
     gap: 2rem;
     transition: transform 0.6s ease-in-out;
     will-change: transform;
-}
-
-.reviews-carousel:hover {
-    /* No pause on hover anymore */
 }
 
 .review-card {
