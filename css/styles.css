@@ -3224,6 +3224,352 @@ textarea.form-control {
     }
 }
 
+/* ==================================
+   COMPREHENSIVE MOBILE OPTIMIZATION
+   ================================== */
+
+/* Tablet & Mobile Header Optimization (768px and below) */
+@media (max-width: 768px) {
+    /* Hide header contact info to save space */
+    .header-top {
+        display: none;
+    }
+
+    /* Adjust scroll padding when header-top is hidden */
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    /* Reduce header padding */
+    .header-main {
+        padding: 0.6rem 0;
+    }
+
+    /* Shrink logo on mobile */
+    .header-logo {
+        height: 80px;
+    }
+
+    /* Adjust logo section margin */
+    .logo-section {
+        margin-left: 0;
+    }
+
+    /* Reduce nav gap */
+    .nav {
+        gap: clamp(0.5rem, 1.5vw, 1rem) !important;
+    }
+
+    /* Smaller nav links */
+    .nav-link {
+        font-size: 0.75rem;
+    }
+
+    /* Reduce button size */
+    .header-cta {
+        padding: 0.5rem 0.85rem;
+        font-size: 0.7rem;
+    }
+
+    /* Reduce nav dropdown width */
+    .nav-dropdown {
+        min-width: 180px;
+    }
+
+    .nav-dropdown-link {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
+    }
+
+    /* Adjust container padding */
+    .container {
+        width: min(100%, calc(100% - 1.5rem));
+    }
+
+    /* Better spacing for touch targets */
+    button, a, .interactive {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Mobile Landscape & Small Tablets (480px - 768px) */
+@media (max-width: 768px) and (min-width: 481px) {
+    /* Balanced spacing for tablet landscape */
+    .hero {
+        min-height: 80vh;
+        padding: 4rem 0 3rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+    }
+
+    /* Adjust section spacing */
+    section {
+        padding: 2.5rem 0;
+    }
+}
+
+/* Mobile Portrait (480px and below) */
+@media (max-width: 480px) {
+    /* Base adjustments for very small screens */
+    * {
+        max-width: 100% !important;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: min(100%, calc(100% - 1rem));
+    }
+
+    /* Hero section */
+    .hero {
+        min-height: 100vh;
+        padding: 3rem 1rem 2rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 0.6rem;
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    /* Buttons - touch-friendly */
+    button,
+    .btn,
+    a.btn,
+    .cta,
+    a.cta {
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-cta,
+    .submit-btn,
+    .action-btn {
+        min-height: 44px;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    /* Reduce heading sizes */
+    h1 {
+        font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    h2 {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
+    }
+
+    h3 {
+        font-size: clamp(1rem, 3vw, 1.3rem);
+    }
+
+    /* Section padding */
+    section {
+        padding: 2rem 1rem;
+    }
+
+    /* Reduce gap spacing */
+    .grid, [class*="grid"], [class*="flex"] {
+        gap: clamp(0.5rem, 2vw, 1rem) !important;
+    }
+
+    /* Better form inputs on mobile */
+    input,
+    textarea,
+    select {
+        min-height: 44px;
+        padding: 0.75rem 0.8rem !important;
+        font-size: 16px; /* Prevents zoom on iOS */
+        border-radius: 8px;
+    }
+
+    /* Adjust card padding */
+    .card,
+    [class*="card"] {
+        padding: 1rem !important;
+    }
+
+    /* Newsletter form */
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .newsletter-form input {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+
+    /* WhatsApp button sizing */
+    .whatsapp-btn {
+        min-width: 56px;
+        min-height: 56px;
+    }
+
+    .whatsapp-btn img {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Better spacing for text */
+    p {
+        word-break: break-word;
+    }
+
+    /* Reduce element widths for small screens */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions button,
+    .hero-actions a {
+        width: 100%;
+    }
+}
+
+/* Ultra-small screens (320px and below) */
+@media (max-width: 380px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+
+    body {
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: clamp(1.1rem, 6vw, 1.6rem) !important;
+    }
+
+    h2 {
+        font-size: clamp(0.95rem, 5vw, 1.3rem) !important;
+    }
+
+    h3 {
+        font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+    }
+
+    /* Tighter spacing */
+    section {
+        padding: 1.5rem 0.8rem !important;
+    }
+
+    .container {
+        width: min(100%, calc(100% - 0.8rem)) !important;
+    }
+
+    /* Very compact buttons */
+    button, .btn, a.btn {
+        padding: 0.5rem 0.75rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Compact cards */
+    .card, [class*="card"] {
+        padding: 0.8rem !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    /* Stack everything vertically */
+    [class*="flex"],
+    [class*="grid"] {
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Reduce images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Tighter nav */
+    .nav {
+        gap: 1rem !important;
+    }
+
+    .nav-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.2rem;
+    }
+}
+
+/* Responsive Images - All Devices */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+picture,
+figure {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure SVGs are responsive */
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Better touch targets across all interactive elements */
+a, button, input[type="button"], input[type="submit"], label {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+/* Improve readability on all devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles for mobile */
+@media print {
+    body {
+        background: white;
+    }
+
+    header, footer, .mobile-menu-btn {
+        display: none !important;
+    }
+
+    * {
+        box-shadow: none !important;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
 /* ===========================
    DESTINATION HERO SLIDESHOW
    =========================== */
