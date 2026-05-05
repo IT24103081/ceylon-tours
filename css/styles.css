@@ -389,6 +389,89 @@ h3,
     background: radial-gradient(circle at 20% 20%, #41bfff 0%, #087fd8 52%, #0f4e92 100%);
 }
 
+/* Deal badge and price highlights */
+.hero-offer {
+    background: #ff4d4f;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+
+.deal-badge {
+    background: linear-gradient(90deg,#ff3b30,#ff6b5f);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    margin-bottom: 0.6rem;
+    box-shadow: 0 12px 30px rgba(255,59,48,0.16), 0 4px 10px rgba(0,0,0,0.08);
+    transform: translateY(0);
+    animation: pulse-deal 2.8s ease-in-out infinite;
+}
+
+@keyframes pulse-deal {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-4px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.tour-showcase-price,
+.dest-slide-price {
+    display: inline-block;
+    background: var(--accent-gradient-strong);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-top: 8px;
+    box-shadow: 0 12px 28px rgba(8,127,216,0.12);
+}
+
+.price-note {
+    margin-top: 0.5rem;
+    color: #16324a;
+    font-weight: 700;
+}
+
+/* Site-wide promo bar for full-package discounts */
+.site-promo {
+    background: linear-gradient(90deg, rgba(8,127,216,0.06), rgba(8,127,216,0.03));
+    border-bottom: 1px solid rgba(8,127,216,0.06);
+}
+.site-promo .promo-inner {
+    width: min(1180px, calc(100% - 2.5rem));
+    margin: 0 auto;
+    padding: 0.6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--navy-700);
+}
+.site-promo .promo-inner .promo-text {
+    font-size: 0.95rem;
+}
+.site-promo .promo-inner .promo-price {
+    background: var(--accent-gradient-strong);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 900;
+}
+
 .hero-backdrop {
     position: absolute;
     inset: 0;
@@ -560,6 +643,21 @@ section {
     font-size: 0.72rem;
     font-weight: 800;
     margin-bottom: 0.8rem;
+}
+
+.discounted-package-label {
+    color: #b91c1c;
+    background: rgba(185, 28, 28, 0.12);
+    border-color: rgba(185, 28, 28, 0.3);
+    box-shadow: 0 8px 18px rgba(185, 28, 28, 0.12);
+}
+
+.flash-offer-line {
+    margin-top: 0.45rem;
+    color: #b91c1c;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
 }
 
 .why-us h2,
