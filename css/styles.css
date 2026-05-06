@@ -2468,22 +2468,37 @@ section {
 }
 
 .tour-route-stop-marker {
-    width: 24px;
-    height: 24px;
+    width: 24px !important;
+    height: 24px !important;
+    max-width: none !important;
+    max-height: none !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
     border-radius: 50%;
     background: #000000;
     border: 2px solid #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-    color: #ffffff;
-    font-size: 0.72rem;
+    color: #ffffff !important;
+    font-size: 12px !important;
     font-weight: 700;
-    display: grid;
-    place-items: center;
+    font-family: 'Montserrat', sans-serif;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     line-height: 1;
     padding: 0;
-    margin: 0;
+    box-sizing: border-box;
     font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent the universal max-width:100% rule from collapsing Leaflet panes/markers on small screens */
+.leaflet-container,
+.leaflet-container *,
+.leaflet-pane,
+.leaflet-pane * {
+    max-width: none !important;
 }
 
 /* Force map-rendered SVG route lines and markers to use black */
@@ -2499,12 +2514,26 @@ section {
 
 .tour-route-popup {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.78rem;
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.5;
+    min-width: 180px;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
 }
 
 .tour-route-popup strong {
     color: var(--navy-900);
+    white-space: nowrap;
+}
+
+.leaflet-popup-content-wrapper {
+    min-width: 200px;
+}
+
+.leaflet-popup-content {
+    margin: 10px 12px !important;
+    min-width: 180px;
 }
 
 /* Timeline/Accordion Itinerary Overrides for new look */
