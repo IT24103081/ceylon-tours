@@ -1005,9 +1005,6 @@ window.addEventListener('load', () => {
                 });
             }, 100);
         }
-    } else {
-        // Prevent random auto-scrolls down if no hash is present, restoring top position
-        window.scrollTo(0, 0);
     }
 });
 
