@@ -1092,6 +1092,62 @@ document.addEventListener('DOMContentLoaded', () => {
     inquiryTourPackage.addEventListener('change', syncChildrenAvailability);
 });
 
+// Inject Font Awesome and replace footer social anchors with brand icons
+(function initFooterSocialIconsWithFA() {
+    const faHref = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+    if (!document.querySelector(`link[href="${faHref}"]`)) {
+        try {
+            const l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = faHref;
+            document.head.appendChild(l);
+        } catch (_e) {
+            // ignore
+        }
+    }
+
+    const replaceIcons = () => {
+        const icons = document.querySelectorAll('.social-icons .social-icon');
+        if (!icons || icons.length === 0) return;
+
+        icons.forEach((a) => {
+            try {
+                const href = a.getAttribute('href') || '';
+                if (!href) return;
+
+                if (href.includes('tiktok.com')) {
+                    a.setAttribute('aria-label', 'TikTok');
+                    a.setAttribute('rel', 'noopener noreferrer');
+                    a.innerHTML = '<i class="fa-brands fa-tiktok" aria-hidden="true"></i>';
+                    return;
+                }
+
+                if (href.includes('facebook.com')) {
+                    a.setAttribute('aria-label', 'Facebook');
+                    a.setAttribute('rel', 'noopener noreferrer');
+                    a.innerHTML = '<i class="fa-brands fa-facebook-f" aria-hidden="true"></i>';
+                    return;
+                }
+
+                if (href.includes('instagram.com')) {
+                    a.setAttribute('aria-label', 'Instagram');
+                    a.setAttribute('rel', 'noopener noreferrer');
+                    a.innerHTML = '<i class="fa-brands fa-instagram" aria-hidden="true"></i>';
+                    return;
+                }
+            } catch (_err) {
+                // ignore
+            }
+        });
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', replaceIcons, { once: true });
+    } else {
+        replaceIcons();
+    }
+})();
+
 const tripDetailsData = {
     '01': {
         title: 'Day 1 & Day 2 - Galle Stay (2 Nights)',
